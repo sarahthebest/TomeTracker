@@ -1,14 +1,14 @@
 import InputField from "../Atoms/InputField";
 import Checkbox from "../Atoms/Checkbox";
+import Dropdown from "../Atoms/Dropdown";
 
 const AddBookForm = () => {
     const input_fields = [
-        { label: "Book Title", type: "text", id: "book_title" },
-        { label: "Book Author", type: "text", id: "book_author" },
+        { label: "Title", type: "text", id: "book_title" },
+        { label: "Author", type: "text", id: "book_author" },
     ];
     return (
-        <form action="">
-            <InputField label="Book Title" type="text" id="book-title" />
+        <form action="submit" className="flex flex-col justify-center gap-4">
             {input_fields.map((field, index) => (
                 <InputField
                     key={index}
@@ -17,7 +17,8 @@ const AddBookForm = () => {
                     id={field.id}
                 />
             ))}
-            <Checkbox label="Book Genre" id="book-genre" />
+            <Checkbox label="Genre" id="book-genre" />
+            <Dropdown />
         </form>
     );
 };
