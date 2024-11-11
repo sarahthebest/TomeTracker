@@ -1,5 +1,5 @@
 const RadioButtons = () => {
-    return (  );
+    return ( <></> );
 }
  
 export default RadioButtons;
