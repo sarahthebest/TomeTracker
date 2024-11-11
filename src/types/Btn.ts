@@ -3,4 +3,4 @@ export type BtnProps = {
     onClick: () => void;
     text: string;
     backgroundColor?: string;
-  };
+};

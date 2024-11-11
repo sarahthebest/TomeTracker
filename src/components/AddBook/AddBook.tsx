@@ -1,21 +1,13 @@
+import { useState } from "react";
 import Btn from "../Atoms/Btn";
 import AddBookForm from "./AddBookForm";
-import "./AddBook.css"
+import "./AddBook.css";
 
 const AddBook = () => {
-    const openDialog = () => {
-        const dialog = document.getElementById("add_book") as HTMLDialogElement;
-        if (dialog) {
-            dialog.showModal();
-        }
-    };
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-    const closeDialog = () => {
-        const dialog = document.getElementById("add_book") as HTMLDialogElement;
-        if (dialog) {
-            dialog.close();
-        }
-    };
+    const openDialog = () => setIsDialogOpen(true);
+    const closeDialog = () => setIsDialogOpen(false);
 
     return (
         <>
@@ -26,18 +18,30 @@ const AddBook = () => {
                 backgroundColor="lightBlue"
             />
 
-            <dialog id="add_book" aria-labelledby="addBookTitle" className="p-4 flex flex-col gap-4 rounded shadow">
-                <h2 className="text-xl mx-auto" id="addBookTitle">Add a new book</h2>
-                <form action="">
-                    <AddBookForm />
-                </form>
-                    <Btn
-                        onClick={closeDialog}
-                        backgroundColor="pink"
-                        text="Add book"
-                        id="close-btn"
-                    />
-            </dialog>
+            {isDialogOpen && (
+                <dialog className="flex flex-col gap-4 rounded shadow p-4 center">
+                    <div className="dialog_header flex flex-row justify-between">
+                        <h2 className="text-xl" id="addBookTitle">
+                            Add a new book
+                        </h2>
+                        <Btn
+                            onClick={closeDialog}
+                            backgroundColor="pink"
+                            id="close-btn"
+                            text={"Close"}
+                        />
+                    </div>
+                    <form action="submit" className="flex gap-4 flex-col">
+                        <AddBookForm />
+                        <Btn
+                            onClick={closeDialog}
+                            backgroundColor="lightGreen"
+                            id="close-btn"
+                            text={"Add book"}
+                        />
+                    </form>
+                </dialog>
+            )}
         </>
     );
 };
