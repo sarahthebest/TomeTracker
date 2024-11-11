@@ -12,14 +12,14 @@ const AddBook = () => {
     return (
         <>
             <Btn
-                text="Add book to library!"
+                text="Add book!"
                 id="modal"
                 onClick={openDialog}
                 backgroundColor="lightBlue"
             />
 
             {isDialogOpen && (
-                <dialog className="flex flex-col gap-4 rounded shadow p-4 center">
+                <dialog className="flex flex-col gap-4 rounded shadow p-4">
                     <div className="dialog_header flex flex-row justify-between">
                         <h2 className="text-xl" id="addBookTitle">
                             Add a new book
