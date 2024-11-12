@@ -7,6 +7,5 @@ export interface Book {
     startDate?: Date;
     endDate?: Date;
     rating?: number;
-    set_book_status: React.Dispatch<React.SetStateAction<'Reading' | 'Completed' | 'Want to read'>>;
   }
   
