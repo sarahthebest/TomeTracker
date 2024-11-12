@@ -19,9 +19,9 @@ const Dropdown = ({ book_status, set_book_status }: DropdownProps) => {
                 value={book_status}
                 onChange={handleChange}
             >
-                <option value="want_to">Want to read</option>
-                <option value="reading">Reading</option>
-                <option value="completed">Completed</option>
+                <option value="Want to read">Want to read</option>
+                <option value="Reading">Reading</option>
+                <option value="Completed">Completed</option>
             </select>
         </>
     );

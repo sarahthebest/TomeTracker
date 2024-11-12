@@ -1,13 +1,18 @@
-import { SavedBooks } from "../../hooks/custom_hooks";
+import { Book } from "../../types/Book";
 import BookCard from "../BookCard/BookCard";
 
-const BookList = () => {
-    const [books, set_books]= SavedBooks();
-    return ( 
-        <div className="books_list flex flex-row">
-            <BookCard books={books}/>
-        </div>
-     );
+interface BookListProps {
+  books: Book[];
 }
- 
+
+const BookList = ({ books }: BookListProps) => {
+  return (
+    <div className="books_list flex flex-row flex-wrap gap-4 my-4 h-full">
+      {books.map((book) => (
+        <BookCard key={book.id} book={book} />
+      ))}
+    </div>
+  );
+};
+
 export default BookList;
