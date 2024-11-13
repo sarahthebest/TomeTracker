@@ -12,7 +12,7 @@ export const getBooks = async () => {
       } else {
           console.error("Unexpected error:", error);
       }
-      throw error; // 
+      throw error; 
   }
 };
 

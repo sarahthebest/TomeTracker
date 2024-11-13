@@ -8,7 +8,7 @@ interface BookListProps {
 const BookList = ({ books }: BookListProps) => {
   
   return (
-    <div className="books_list flex flex-row flex-wrap gap-4 my-4 h-full">
+    <div className="books_list flex flex-row flex-wrap gap-4 my-4 h-full w-full">
       {books.map((book, index) => (
         <BookCard key={index} book={book} />
       ))}

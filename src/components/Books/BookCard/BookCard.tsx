@@ -10,17 +10,21 @@ const BookCard = ({ book }: BookCardProps) => {
     const thumbnailUrl = book.imageLinks ? book.imageLinks.thumbnail : null;
 
     return (
-        <div className="book-card h-full w-fit">
+        <div className="book_card">
             <Link to={"/book"}>
-            {thumbnailUrl ? (
-                <img
-                    src={thumbnailUrl}
-                    alt={`${book.title} cover`}
-                    className="book-thumbnail object-fill shadow-xl"
-                />
-            ) : (
-                <p>No image available</p>
-            )}
+                {thumbnailUrl ? (
+                    <img
+                        src={thumbnailUrl}
+                        alt={`${book.title} cover`}
+                        className="book-thumbnail shadow-xl w-full h-full"
+                    />
+                ) : (
+                    <>
+                        <p>No image available</p>
+                        <h3>{book.title}</h3>
+                        <h3>{book.author}</h3>
+                    </>
+                )}
             </Link>
         </div>
     );
