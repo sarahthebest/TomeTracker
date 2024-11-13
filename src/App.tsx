@@ -1,9 +1,13 @@
+import CookieConsent from "./components/Cookies/CookieConsent";
 import Home from "./pages/Home";
 
 function App() {
     return (
         <>
-            <Home />
+            <div className="window">
+                <Home />
+                <CookieConsent />
+            </div>
         </>
     );
 }
