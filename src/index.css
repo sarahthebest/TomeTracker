@@ -5,6 +5,8 @@
 html, body, #root {
     min-height: 100%;
     height: 100%;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    color: var(--text);
 }
 .container-col{
     display: flex;
@@ -14,11 +16,11 @@ html, body, #root {
 }
 
 :root {
-    --primary: #c8dcff;
-    --secondary: #5268b2;
-    --bg: #9FB7B9;
-    --accent: #3d77ff;
+    --primary: #EF9995;
+    --secondary: #A4CBB4;
+    --bg: #E4D8B4;
+    --accent: #EF9FBC;
     --border: rgba(73, 73, 73, 0.495);
-    --text: #ddd;
-    --gradient: linear-gradient(to top right, #c8dcff, #5268b2, #3d77ff);
+    --text: #2E282A;
+    --gradient: linear-gradient(to top right, #EF9995, #A4CBB4, #EF9FBC);
 }

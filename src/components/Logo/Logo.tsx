@@ -1,6 +1,6 @@
 const Logo = () => {
     return ( 
-        <h1 className="text-white text-2xl">Book</h1>
+        <img src="src/assets/logo.png" className="h-10 w-16" alt="" />
      );
 }
  
