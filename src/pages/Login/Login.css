@@ -3,10 +3,19 @@
 }
 .form_wrapper{
     background-color: var(--secondary);
-    height: 20em;
+    height: 24em;
     width: 340px;
+    z-index: 1;
 }
 input{
     outline: none;
-    padding: 2px;
+    padding: 8px;
+}
+.login_sidebar{
+    background-image: url(src/assets/bg1.jpg);
+    background-size: cover;
+    background-color: rgba(249, 205, 205, 0.245);
+    background-blend-mode: lighten;
+    height: 90%;
+    z-index: 0;
 }

@@ -4,6 +4,7 @@ import Login_sidebar from "./Login_sidebar/Login_sidebar";
 import "./Login.css";
 import Btn from "../../components/Atoms/Btn";
 import ReCAPTCHA from "react-google-recaptcha";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -31,8 +32,8 @@ const Login = () => {
     };
 
     return (
-        <div className="login_wrapper flex flex-row h-full">
-            <div className="form_wrapper rounded h-fit p-4 m-auto flex flex-col justify-between">
+        <div className="login_wrapper flex flex-col h-full relative">
+            <div className="form_wrapper relative rounded h-fit p-4 m-auto flex flex-col justify-between">
                 <Login_form
                     email={email}
                     setEmail={setEmail}
@@ -55,6 +56,7 @@ const Login = () => {
                 />
             </div>
             <Login_sidebar />
+            <Link className="mx-auto mb-2 hover:text-pink-400 duration-200" to={"/register"}>Don't have a account? Go to register :3</Link>
         </div>
     );
 };

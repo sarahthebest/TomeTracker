@@ -7,6 +7,7 @@ import AddBook from "../../components/AddBook/AddBook";
 import Logo from "../../components/Logo/Logo";
 import CookieConsent from "../../components/Cookies/CookieConsent";
 import Btn from "../../components/Atoms/Btn";
+import ThemePicker from "../../components/Theme/ThemePicker";
 
 const Home = () => {
     const [books, setBooks] = useState<unknown[]>([]);
@@ -31,9 +32,10 @@ const Home = () => {
 
     return (
         <div className="home_wrapper flex flex-col relative">
-            <div className="btn_actions flex flex-row mx-auto justify-between sticky top-0 py-4  border-b-2">
+            <div className="btn_actions w-full px-4 flex flex-row mx-auto justify-between sticky top-0 py-2">
                 <Logo />
                 <div className="user_handler flex flex-row gap-2">
+                    <ThemePicker />
                     <AddBook />
                     <Btn id={"login_btn"} onClick={() => handleNavigate("/login")} text="Login" backgroundColor="var(--accent)"/>
                     <Btn id={"register_btn"} onClick={() => handleNavigate("/register")} text="Register" backgroundColor="var(--accent)"/>

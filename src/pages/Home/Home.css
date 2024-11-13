@@ -3,6 +3,5 @@
     background-color: var(--bg);
 }
 .btn_actions{
-    width: 98%;
     border-color: var(--text);
 }

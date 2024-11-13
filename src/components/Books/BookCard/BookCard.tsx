@@ -10,7 +10,7 @@ const BookCard = ({ book }: BookCardProps) => {
     const thumbnailUrl = book.imageLinks ? book.imageLinks.thumbnail : null;
 
     return (
-        <div className="book_card">
+        <div className="book_card hover:scale-110 duration-300">
             <Link to={"/book"}>
                 {thumbnailUrl ? (
                     <img

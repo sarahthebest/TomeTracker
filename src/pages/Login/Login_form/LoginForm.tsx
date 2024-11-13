@@ -16,8 +16,8 @@ const Login_form: FC<login_form_props> = ({
     error,
 }) => {
     return (
-        <form className="login-form h-fit w-full flex flex-col gap-2">
-            <div className="form-group flex flex-col gap-1">
+        <form className="login-form h-fit w-full flex flex-col gap-3">
+            <div className="form-group flex flex-col gap-3">
                 <label htmlFor="email">Email</label>
                 <input
                     type="email"
@@ -30,7 +30,7 @@ const Login_form: FC<login_form_props> = ({
                     className="input bg-white rounded"
                 />
             </div>
-            <div className="form-group flex flex-col gap-1">
+            <div className="form-group flex flex-col gap-3">
                 <label htmlFor="password">Password</label>
                 <input
                     type="password"

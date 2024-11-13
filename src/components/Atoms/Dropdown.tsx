@@ -20,6 +20,7 @@ const Dropdown = ({ book_status, set_book_status }: DropdownProps) => {
                 id="readingStatus"
                 value={book_status}
                 onChange={handleChange}
+                className="p-2"
             >
                 <option value="Want to read">Want to read</option>
                 <option value="Reading">Reading</option>
