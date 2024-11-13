@@ -1,15 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import { getBooks } from "../../hooks/custom_hooks";
 import BookShelf from "../../components/Books/Shelves/BookShelf";
 import "./Home.css";
 import { useEffect, useState } from "react";
 import AddBook from "../../components/AddBook/AddBook";
-import Login from "../../components/Login/Login";
-import Register from "../../components/Register/Register";
 import Logo from "../../components/Logo/Logo";
 import CookieConsent from "../../components/Cookies/CookieConsent";
+import Btn from "../../components/Atoms/Btn";
 
 const Home = () => {
     const [books, setBooks] = useState<unknown[]>([]);
+    const navigate = useNavigate(); 
 
     useEffect(() => {
         const fetchBooks = async () => {
@@ -22,7 +23,11 @@ const Home = () => {
         };
 
         fetchBooks();
-    }, []);
+    }, [books]);
+
+    const handleNavigate = (path: string) => {
+        navigate(path);
+    };
 
     return (
         <div className="home_wrapper flex flex-col relative">
@@ -30,8 +35,8 @@ const Home = () => {
                 <Logo />
                 <div className="user_handler flex flex-row gap-2">
                     <AddBook />
-                    <Login />
-                    <Register />
+                    <Btn id={"login_btn"} onClick={() => handleNavigate("/login")} text="Login" backgroundColor="var(--accent)"/>
+                    <Btn id={"register_btn"} onClick={() => handleNavigate("/register")} text="Register" backgroundColor="var(--accent)"/>
                 </div>
             </div>
             <BookShelf books={books} />

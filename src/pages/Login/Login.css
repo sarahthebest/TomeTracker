@@ -1,0 +1,13 @@
+.login_wrapper{
+    background-color: var(--bg);
+}
+.form_wrapper{
+    background-color: whitesmoke;
+    height: 20em;
+    width: 320px;
+}
+input{
+    outline: none;
+    border: 1px solid var(--border);
+    padding: 2px;
+}
