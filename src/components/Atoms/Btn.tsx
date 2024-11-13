@@ -1,10 +1,10 @@
 import React from "react";
 import { BtnProps } from "../../types/Btn";
 
-const Btn: React.FC<BtnProps> = ({ id, onClick, text, backgroundColor, position }) => {
+const Btn: React.FC<BtnProps> = ({ id, onClick, text, backgroundColor, position, disabled }) => {
     const buttonStyle: React.CSSProperties = {
         backgroundColor: backgroundColor || "white",
-        position: position || "relative", 
+        position: position || "relative",
     };
 
     return (
@@ -13,6 +13,7 @@ const Btn: React.FC<BtnProps> = ({ id, onClick, text, backgroundColor, position 
             id={id}
             onClick={onClick}
             style={buttonStyle}
+            disabled={disabled}
         >
             {text && text}
         </button>
