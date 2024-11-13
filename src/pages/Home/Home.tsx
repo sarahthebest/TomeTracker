@@ -1,11 +1,12 @@
-import { getBooks } from "../hooks/custom_hooks";
-import BookShelf from "../components/Shelves/BookShelf";
+import { getBooks } from "../../hooks/custom_hooks";
+import BookShelf from "../../components/Books/Shelves/BookShelf";
 import "./Home.css";
 import { useEffect, useState } from "react";
-import AddBook from "../components/AddBook/AddBook";
-import Login from "../components/Login/Login";
-import Register from "../components/Register/Register";
-import Logo from "../components/Logo/Logo";
+import AddBook from "../../components/AddBook/AddBook";
+import Login from "../../components/Login/Login";
+import Register from "../../components/Register/Register";
+import Logo from "../../components/Logo/Logo";
+import CookieConsent from "../../components/Cookies/CookieConsent";
 
 const Home = () => {
     const [books, setBooks] = useState<unknown[]>([]);
@@ -24,8 +25,8 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="home_wrapper bg-slate-900 flex flex-col relative">
-            <div className="btn_actions flex flex-row w-full bg-slate-950 justify-between sticky top-0 p-1">
+        <div className="home_wrapper flex flex-col relative">
+            <div className="btn_actions flex flex-row w-full justify-between sticky top-0 p-4">
                 <Logo />
                 <div className="user_handler flex flex-row gap-2">
                     <AddBook />
@@ -34,6 +35,7 @@ const Home = () => {
                 </div>
             </div>
             <BookShelf books={books} />
+            <CookieConsent />
         </div>
     );
 };

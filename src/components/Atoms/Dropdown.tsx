@@ -1,11 +1,13 @@
-type DropdownProps = {
-    book_status: string;
-    set_book_status: (status: string) => void;
-};
+interface DropdownProps {
+    book_status: "Reading" | "Completed" | "Want to read";
+    set_book_status: (status: "Reading" | "Completed" | "Want to read") => void;
+}
 
 const Dropdown = ({ book_status, set_book_status }: DropdownProps) => {
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        set_book_status(e.target.value);
+        set_book_status(
+            e.target.value as "Reading" | "Completed" | "Want to read"
+        );
     };
 
     return (

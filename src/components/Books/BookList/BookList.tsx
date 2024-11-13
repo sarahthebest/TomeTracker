@@ -1,4 +1,4 @@
-import { Book } from "../../types/Book";
+import { Book } from "../../../types/Book";
 import BookCard from "../BookCard/BookCard";
 
 interface BookListProps {
@@ -6,10 +6,11 @@ interface BookListProps {
 }
 
 const BookList = ({ books }: BookListProps) => {
+  
   return (
     <div className="books_list flex flex-row flex-wrap gap-4 my-4 h-full">
-      {books.map((book) => (
-        <BookCard key={book.id} book={book} />
+      {books.map((book, index) => (
+        <BookCard key={index} book={book} />
       ))}
     </div>
   );

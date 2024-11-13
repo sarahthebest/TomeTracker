@@ -1,0 +1,7 @@
+.home_wrapper{
+    min-height: 100%;
+    background-color: var(--primary);
+}
+.btn_actions{
+    background-color: var(--secondary);
+}

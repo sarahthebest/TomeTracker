@@ -6,7 +6,7 @@ const Login = () => {
 
     };
 
-    return <Btn id={"login_btn"} onClick={login} text={"Login"} backgroundColor="lightBlue" />;
+    return <Btn id={"login_btn"} onClick={login} text={"Login"} backgroundColor="var(--accent)" />;
 };
 
 export default Login;

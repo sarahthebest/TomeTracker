@@ -2,14 +2,14 @@ import React from "react";
 import { BtnProps } from "../../types/Btn";
 
 const Btn: React.FC<BtnProps> = ({ id, onClick, text, backgroundColor, position }) => {
-    const buttonStyle = {
+    const buttonStyle: React.CSSProperties = {
         backgroundColor: backgroundColor || "white",
-        position: position || "relative",
+        position: position || "relative", 
     };
 
     return (
         <button
-            className="rounded hover:text-blue-900 p-1 duration-500"
+            className="rounded hover:text-white p-1 duration-500"
             id={id}
             onClick={onClick}
             style={buttonStyle}

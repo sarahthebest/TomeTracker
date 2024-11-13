@@ -3,5 +3,4 @@ export type BtnProps = {
     onClick: () => void;
     text: string;
     backgroundColor?: string;
-    position?:string;
-};
+    position?: "static" | "relative" | "absolute" | "fixed" | "sticky" | "inherit";};

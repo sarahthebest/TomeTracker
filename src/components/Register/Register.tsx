@@ -6,7 +6,7 @@ const Register = () => {
 
     };
 
-    return <Btn id={"register_btn"} onClick={register} text={"Register"} backgroundColor="#fff" />;
+    return <Btn id={"register_btn"} onClick={register} text={"Register"} backgroundColor="var(--accent)" />;
 }
  
 export default Register;

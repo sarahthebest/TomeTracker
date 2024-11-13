@@ -10,7 +10,6 @@ const AddBook = () => {
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [books, setBooks] = useState<Book[]>([]);
     const [book_author, set_book_author] = useState("");
-    const [book_genre, set_book_genre] = useState<string[]>([]);
     const [book_title, set_book_title] = useState("");
     const [book_status, set_book_status] = useState<
         "Reading" | "Completed" | "Want to read"
@@ -26,7 +25,6 @@ const AddBook = () => {
                 id: new Date().toISOString(),
                 title: book_title,
                 author: book_author,
-                genre: book_genre,
                 status: book_status,
                 startDate: new Date(),
             };
@@ -43,7 +41,6 @@ const AddBook = () => {
 
             set_book_title("");
             set_book_author("");
-            set_book_genre([]);
             set_book_status("Want to read");
             setIsDialogOpen(false);
         } catch (error) {
@@ -70,7 +67,7 @@ const AddBook = () => {
                 text="Add book!"
                 id="modal"
                 onClick={openDialog}
-                backgroundColor="lightBlue"
+                backgroundColor="var(--accent)" 
                 position="sticky"
             />
 
@@ -82,7 +79,7 @@ const AddBook = () => {
                         </h2>
                         <Btn
                             onClick={closeDialog}
-                            backgroundColor="pink"
+                            backgroundColor="var(--accent)" 
                             id="close-btn"
                             text={"Close"}
                         />
@@ -91,8 +88,6 @@ const AddBook = () => {
                         <AddBookForm
                             book_author={book_author}
                             set_book_author={set_book_author}
-                            book_genre={book_genre}
-                            set_book_genre={set_book_genre}
                             book_title={book_title}
                             set_book_title={set_book_title}
                             book_status={book_status}
@@ -100,7 +95,7 @@ const AddBook = () => {
                         />
                         <Btn
                             onClick={addBook}
-                            backgroundColor="lightGreen"
+                            backgroundColor="var(--accent)" 
                             id="close-btn"
                             text={"Add book"}
                         />

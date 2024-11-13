@@ -1,13 +1,10 @@
 import InputField from "../Atoms/InputField";
-import CheckboxField from "../Atoms/Checkbox";
 import Dropdown from "../Atoms/Dropdown";
 import { AddBookFormProps } from "../../types/AddBook.types";
 
 const AddBookForm = ({
     book_author,
     set_book_author,
-    book_genre,
-    set_book_genre,
     book_title,
     set_book_title,
     book_status,
@@ -42,14 +39,6 @@ const AddBookForm = ({
                     onChange={(e) => field.setter(e.target.value)}
                 />
             ))}
-
-            <CheckboxField
-                label="Genre"
-                id="book-genre"
-                value={book_genre}
-                onChange={set_book_genre}
-            />
-
             <Dropdown
                 book_status={book_status}
                 set_book_status={set_book_status}
