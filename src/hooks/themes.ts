@@ -14,12 +14,12 @@ interface Theme {
 
 export const themes: Record<ThemeName, Theme> = {
     light: {
-        "--primary": "#EF9995",
-        "--secondary": "#A4CBB4",
-        "--bg": "#E4D8B4",
-        "--accent": "#EF9FBC",
-        "--border": "rgba(73, 73, 73, 0.495)",
-        "--text": "#2E282A",
+        "--primary": "#2E236C",
+        "--secondary": "#c7bdff",
+        "--bg": "#17153B",
+        "--accent": "#710bff",
+        "--border": "rgba(254, 253, 255, 0.495)",
+        "--text": "#f4e8fa",
         "gradient": "linear-gradient(to top right, #F2E2D2, #BCC1BA, #9FB7B9)",
     },
     dark: {

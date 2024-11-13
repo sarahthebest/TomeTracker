@@ -13,7 +13,7 @@ const Dropdown = ({ book_status, set_book_status }: DropdownProps) => {
     return (
         <>
             <label className="text-lg" htmlFor="readingStatus">
-                Choose a status for this book:
+                Pick a category:
             </label>
             <select
                 name="readingStatus"

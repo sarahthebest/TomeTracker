@@ -8,17 +8,19 @@ import "./AddBook.css";
 
 const AddBook = () => {
     const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [error, setError] = useState<string | null>(null);
     const [books, setBooks] = useState<Book[]>([]);
     const [book_author, set_book_author] = useState("");
     const [book_title, set_book_title] = useState("");
-    const [book_status, set_book_status] = useState<
-        "Reading" | "Completed" | "Want to read"
-    >("Want to read");
+    const [book_status, set_book_status] = useState<"Reading" | "Completed" | "Want to read">("Want to read");
 
-    const openDialog = () => setIsDialogOpen(true);
+    const openDialog = () => {
+        setError(null);
+        setIsDialogOpen(true);
+    };
     const closeDialog = () => setIsDialogOpen(false);
 
-    const addBook = async (e: { preventDefault: () => void }) => {
+    const addBook = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
             const newBook: Book = {
@@ -27,39 +29,37 @@ const AddBook = () => {
                 author: book_author,
                 status: book_status,
                 startDate: new Date(),
+                imageLinks: undefined
             };
 
             const response = await axios.post(
                 "http://localhost:5000/api/books/add",
                 newBook,
-                {
-                    timeout: 10000,
-                }
+                { timeout: 10000 }
             );
 
             setBooks((prevBooks) => [...prevBooks, response.data.book]);
-
             set_book_title("");
             set_book_author("");
             set_book_status("Want to read");
             setIsDialogOpen(false);
-        } catch (error) {
+        } catch (error: unknown) {
             console.error("Error adding book:", error);
+            setError(error instanceof Error ? error.message : "An unknown error occurred.");
         }
     };
 
     useEffect(() => {
         const fetchBooks = async () => {
-          try {
-            const fetchedBooks = await getBooks(); 
-            setBooks(fetchedBooks);  
-          } catch (err) {
-            console.log(err);
-          }
+            try {
+                const fetchedBooks = await getBooks();
+                setBooks(fetchedBooks);
+            } catch (err) {
+                console.log(err);
+            }
         };
-    
-        fetchBooks();  
-      }, []);
+        fetchBooks();
+    }, []);
 
     return (
         <>
@@ -67,24 +67,22 @@ const AddBook = () => {
                 text="Add book!"
                 id="modal"
                 onClick={openDialog}
-                backgroundColor="var(--accent)" 
+                backgroundColor="var(--accent)"
                 position="sticky"
             />
 
             {isDialogOpen && (
                 <dialog className="flex flex-col gap-4 rounded shadow p-4 mt-20">
                     <div className="dialog_header flex flex-row justify-between">
-                        <h2 className="text-xl" id="addBookTitle">
-                            Add a new book
-                        </h2>
+                        <h2 className="text-xl" id="addBookTitle">Add a new book</h2>
                         <Btn
                             onClick={closeDialog}
-                            backgroundColor="var(--accent)" 
+                            backgroundColor="var(--accent)"
                             id="close-btn"
-                            text={"Close"}
+                            text="Close"
                         />
                     </div>
-                    <form action="submit" className="flex gap-4 flex-col">
+                    <form onSubmit={addBook} className="flex gap-4 flex-col">
                         <AddBookForm
                             book_author={book_author}
                             set_book_author={set_book_author}
@@ -93,11 +91,13 @@ const AddBook = () => {
                             book_status={book_status}
                             set_book_status={set_book_status}
                         />
+                        {error && <p className="error-text">{error}</p>}
+
                         <Btn
                             onClick={addBook}
-                            backgroundColor="var(--accent)" 
+                            backgroundColor="var(--accent)"
                             id="close-btn"
-                            text={"Add book"}
+                            text="Add book"
                         />
                     </form>
                 </dialog>

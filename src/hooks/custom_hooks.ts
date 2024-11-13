@@ -16,7 +16,6 @@ export const getBooks = async () => {
   }
 };
 
-
 export const cookie_consent = async (consent: string) => {
   try {
       const res = await axios.post(
@@ -30,3 +29,8 @@ export const cookie_consent = async (consent: string) => {
       throw error;
   }
 };
+
+
+export const truncateText = (text, length) => {
+        return text && text.length > length ? text.substring(0, length) + "..." : text;
+    };

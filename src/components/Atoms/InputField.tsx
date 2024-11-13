@@ -15,11 +15,11 @@ const InputField: React.FC<InputFieldProps> = ({
 }) => {
     return (
         <div className="input_wrapper flex justify-between">
-            <label className="text-lg" htmlFor={id}>
+            <label className="" htmlFor={id}>
                 {label}
             </label>
             <input
-                className="border p-1 w-4/5 rounded focus:outline-none"
+                className="border p-1 w-3/4 rounded focus:outline-none"
                 type={type}
                 id={id}
                 value={value}

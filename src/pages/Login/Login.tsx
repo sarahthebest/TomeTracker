@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Login_form from "./Login_form/LoginForm";
-import Login_sidebar from "./Login_sidebar/Login_sidebar";
+import Login_bg from "./Login_bg/Login_bg";
 import "./Login.css";
 import Btn from "../../components/Atoms/Btn";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -55,8 +55,8 @@ const Login = () => {
                     disabled={!captchaVal}
                 />
             </div>
-            <Login_sidebar />
-            <Link className="mx-auto mb-2 hover:text-pink-400 duration-200" to={"/register"}>Don't have a account? Go to register :3</Link>
+            <Login_bg />
+            <Link className="mx-auto mb-3 light hover:text-indigo-600 duration-200" to={"/register"}>Don't have a account? Go to register :3</Link>
         </div>
     );
 };

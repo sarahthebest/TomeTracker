@@ -10,7 +10,7 @@ const Btn: React.FC<BtnProps> = ({ id, onClick, text, backgroundColor, position,
 
     return (
         <button
-            className="rounded hover:text-white p-1 px-2 duration-300 border"
+            className="rounded text-black hover:text-white p-1 px-2 duration-300"
             id={id}
             onClick={onClick}
             style={buttonStyle}

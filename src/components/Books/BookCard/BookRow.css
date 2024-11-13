@@ -1,0 +1,27 @@
+.tag{
+    border: 1px solid pink;
+    padding: 1px 10px;
+}
+td{
+    vertical-align:top;
+    width: fit-content;
+    padding: 4px;
+}
+
+.book-description {
+    white-space: normal; 
+    word-wrap: break-word; 
+    max-width: 400px; 
+}
+
+td {
+    padding: 0px;
+    margin: 0px;
+}
+tbody::before
+{
+  content: '';
+  display: block;
+  height: 15px;
+
+}

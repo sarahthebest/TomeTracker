@@ -1,6 +1,5 @@
 .shelf_content{
     height: fit-content;
-    background-color: var(--secondary);
     overflow:hidden;
 }
 .shelf_label{
