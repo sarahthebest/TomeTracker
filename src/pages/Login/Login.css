@@ -2,12 +2,11 @@
     background-color: var(--bg);
 }
 .form_wrapper{
-    background-color: whitesmoke;
+    background-color: var(--secondary);
     height: 20em;
-    width: 320px;
+    width: 340px;
 }
 input{
     outline: none;
-    border: 1px solid var(--border);
     padding: 2px;
 }

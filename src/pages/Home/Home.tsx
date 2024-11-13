@@ -31,7 +31,7 @@ const Home = () => {
 
     return (
         <div className="home_wrapper flex flex-col relative">
-            <div className="btn_actions flex flex-row w-full justify-between sticky top-0 p-4">
+            <div className="btn_actions flex flex-row mx-auto justify-between sticky top-0 py-4  border-b-2">
                 <Logo />
                 <div className="user_handler flex flex-row gap-2">
                     <AddBook />

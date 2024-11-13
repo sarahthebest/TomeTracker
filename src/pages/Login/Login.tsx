@@ -32,7 +32,7 @@ const Login = () => {
 
     return (
         <div className="login_wrapper flex flex-row h-full">
-            <div className="form_wrapper rounded h-fit p-2 m-auto flex flex-col justify-between">
+            <div className="form_wrapper rounded h-fit p-4 m-auto flex flex-col justify-between">
                 <Login_form
                     email={email}
                     setEmail={setEmail}

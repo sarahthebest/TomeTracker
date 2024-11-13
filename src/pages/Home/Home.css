@@ -1,7 +1,8 @@
 .home_wrapper{
     min-height: 100%;
-    background-color: var(--primary);
+    background-color: var(--bg);
 }
 .btn_actions{
-    background-color: var(--secondary);
+    width: 98%;
+    border-color: var(--text);
 }

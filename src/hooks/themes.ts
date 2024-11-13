@@ -9,18 +9,18 @@ interface Theme {
     "--accent": string;
     "--border": string;
     "--text": string;
-    gradient: string;
+    "gradient": string;
 }
 
 export const themes: Record<ThemeName, Theme> = {
     light: {
-        "--primary": "#F2E2D2",
-        "--secondary": "#BCC1BA",
-        "--bg": "#9FB7B9",
-        "--accent": "#4464AD",
+        "--primary": "#EF9995",
+        "--secondary": "#A4CBB4",
+        "--bg": "#E4D8B4",
+        "--accent": "#EF9FBC",
         "--border": "rgba(73, 73, 73, 0.495)",
-        "--text": "#ddd",
-        gradient: "linear-gradient(to top right, #F2E2D2, #BCC1BA, #9FB7B9)",
+        "--text": "#2E282A",
+        "gradient": "linear-gradient(to top right, #F2E2D2, #BCC1BA, #9FB7B9)",
     },
     dark: {
         "--primary": "#252422",
@@ -29,7 +29,7 @@ export const themes: Record<ThemeName, Theme> = {
         "--accent": "#403D39",
         "--border": "rgba(255, 255, 255, 0.495)",
         "--text": "#121212",
-        gradient: "linear-gradient(to top right, #252422, #403D39,  #FFFCF2)",
+        "gradient": "linear-gradient(to top right, #252422, #403D39,  #FFFCF2)",
     },
     fairy: {
         "--primary": "#e5eec5",
@@ -38,7 +38,7 @@ export const themes: Record<ThemeName, Theme> = {
         "--accent": "#db8b97",
         "--border": "rgba(255, 255, 255, 0.495)",
         "--text": "#121212",
-        gradient: "linear-gradient(to top right, #295128, #e5eec5, #db8b97)",
+        "gradient": "linear-gradient(to top right, #295128, #e5eec5, #db8b97)",
     },
 };
 
@@ -46,7 +46,7 @@ export const useTheme = () => {
     const [selectedTheme, setSelectedTheme] = useState<ThemeName>("light");
 
     const applyTheme = (themeName: ThemeName) => {
-        const theme = themes[themeName];
+        const theme = themes[themeName as ThemeName];
         if (theme) {
             Object.keys(theme).forEach((key) => {
                 document.documentElement.style.setProperty(key, theme[key]);
