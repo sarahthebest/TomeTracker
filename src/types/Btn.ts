@@ -4,6 +4,7 @@ export type BtnProps = {
     text: string;
     backgroundColor?: string;
     disabled?: boolean;
+    type?:"submit" | "reset" | "button";
     position?:
         | "static"
         | "relative"
