@@ -32,16 +32,20 @@ button{
 }
 
 :root {
-    --primary: #2E236C;
-    --secondary: #c7bdff;
-    --bg: #17153B;
-    --accent: #710bff;
+    --primary: #A3B18A;
+    --secondary: #588157;
+    --bg: #344E41;
     --border: rgba(254, 253, 255, 0.495);
-    --text: #f4e8fa;
+    --text: #DAD7CD;
 }
+
+
 .light{
     font-family: "Geist Light";
 }
 .medium{
     font-family: "Geist Medium";
+}
+.huge{
+    font-size: 3em;
 }
