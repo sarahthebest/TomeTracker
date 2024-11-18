@@ -1,7 +1,25 @@
+.shelf_wrapper{
+    margin-top: 460px;
+}
 .shelf_content{
     height: fit-content;
+    width: 98%;
     overflow:hidden;
+    background-color: var(--secondary);
 }
 .shelf_label{
     width: 10em;
+}
+.active{
+    background-color: var(--secondary);
+    height: 2em;
+    align-content: center;
+}
+.shelf_tabs{
+    height: 3.6em;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    width: fit-content;
+    color: var(--text);
 }

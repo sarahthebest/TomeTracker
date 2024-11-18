@@ -12,24 +12,25 @@ const BookShelf = ({ books }: BookShelfProps) => {
     const [selectedShelf, setSelectedShelf] = useState<string>(shelves[0]);
 
     return (
-        <div className="shelf_wrapper h-full w-full flex flex-col gap-8 mt-4">
-            <div className="shelf_tabs flex gap-8 ms-4">
+        <div className="shelf_wrapper h-full w-full flex flex-col mb-2">
+            <div className="shelf_tabs flex ms-4 rounded-t-xl">
                 {shelves.map((shelf, index) => (
                     <button
                         key={index}
                         onClick={() => setSelectedShelf(shelf)}
-                        className={`tab_button ${
-                            selectedShelf === shelf ? "active text-2xl" : ""
+                        className={`tab_button pb-4 p-2 rounded-t-xl text-lg ${
+                            selectedShelf === shelf ? "active text-white" : " bg-lime-950"
                         }`}
                     >
                         {shelf}
                     </button>
                 ))}
             </div>
-
-            <div className="shelf_content w-full">
+            <div className="shelf_content w-full ms-4 pb-4 pe-4 rounded-r rounded-b">
                 <BookList
-                    books={books.filter((book) => book.status === selectedShelf)}
+                    books={books.filter(
+                        (book) => book.status === selectedShelf
+                    )}
                 />
             </div>
         </div>
