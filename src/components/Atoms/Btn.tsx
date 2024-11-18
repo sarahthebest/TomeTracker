@@ -1,8 +1,16 @@
 import React from "react";
 import { BtnProps } from "../../types/Btn";
-import "./Atom.css"
+import "./Atom.css";
 
-const Btn: React.FC<BtnProps> = ({ id, onClick, text, backgroundColor, position, disabled, type }) => {
+const Btn: React.FC<BtnProps> = ({
+    icon,
+    onClick,
+    text,
+    backgroundColor,
+    position,
+    disabled,
+    type,
+}) => {
     const buttonStyle: React.CSSProperties = {
         backgroundColor: backgroundColor || "var(--primary)",
         position: position || "relative",
@@ -10,14 +18,14 @@ const Btn: React.FC<BtnProps> = ({ id, onClick, text, backgroundColor, position,
 
     return (
         <button
-            className="rounded text-black hover:brightness-125  p-1 px-2 duration-300"
-            id={id}
+            className="rounded text-slate-900 hover:brightness-125 p-1 px-2 duration-300 flex place-items-center gap-2"
             onClick={onClick}
             style={buttonStyle}
             disabled={disabled}
             type={type}
         >
             {text && text}
+            {icon && icon}
         </button>
     );
 };

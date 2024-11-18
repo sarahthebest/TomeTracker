@@ -1,5 +1,7 @@
+import { ReactNode } from "react";
+
 export type BtnProps = {
-    id: string;
+    icon?: ReactNode;
     onClick: () => void;
     text: string;
     backgroundColor?: string;
