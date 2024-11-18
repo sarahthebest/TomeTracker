@@ -1,0 +1,7 @@
+.nav{
+    height: 4em; margin: 0; padding: 0;
+    backdrop-filter: blur(10px);
+}
+.logo_wrapper{
+    background: var(--primary);
+}

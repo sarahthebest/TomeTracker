@@ -2,7 +2,7 @@
     background-color: var(--bg);
 }
 .form_wrapper{
-    background-color: var(--secondary);
+    background-color: var(--bg);
     height: 24em;
     width: 340px;
     z-index: 1;
@@ -14,7 +14,7 @@ input{
 .login_bg{
     background-image: url(src/assets/bg1.webp);
     background-size: 160%;
-    background-color: rgba(227, 191, 255, 0.245);
+    background-color: rgba(255, 193, 191, 0.245);
     background-blend-mode: lighten;
     background-position: left;
     height: 90%;

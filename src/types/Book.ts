@@ -1,8 +1,9 @@
 export interface Book {
-    imageLinks: any;
+    description: string;
+    imageLinks: string;
     id: string;
     title: string;
-    author: string;
+    authors: [string];
     status: 'Reading' | 'Completed' | 'Want to read';
     startDate?: Date;
     endDate?: Date;

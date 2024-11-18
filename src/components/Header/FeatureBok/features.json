@@ -1,0 +1,27 @@
+[
+    {
+      "id": "1",
+      "name": "Save",
+      "description": "Easily keep track of which books you've read and where you are in each one.",
+      "icon": "Save"
+    },
+    {
+      "id": "2",
+      "name": "Discover",
+      "description": "Get book recommendations based on your reading history and preferences.",
+      "icon": "Discover"
+    },
+    {
+      "id": "4",
+      "name": "Share",
+      "description": "Read and write reviews for books you’ve read and share your thoughts with others.",
+      "icon": "Share"
+    },
+    {
+      "id": "5",
+      "name": "Personalized",
+      "description": "Receive personalized recommendations and customize your experience.",
+      "icon": "Personalize"
+    }
+  ]
+  

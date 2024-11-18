@@ -49,14 +49,14 @@ const Login = () => {
                 </div>
                 <Btn
                     onClick={() => handleLogin(email, password)}
-                    backgroundColor="var(--accent)"
+                    backgroundColor="var(--primary)"
                     id="login_btn"
                     text="Login"
                     disabled={!captchaVal}
                 />
             </div>
             <Login_bg />
-            <Link className="mx-auto mb-3 light hover:text-indigo-600 duration-200" to={"/register"}>Don't have a account? Go to register :3</Link>
+            <Link className="mx-auto mb-3 light hover:text-rose-400 duration-200" to={"/register"}>Don't have a account? Go to register :3</Link>
         </div>
     );
 };
