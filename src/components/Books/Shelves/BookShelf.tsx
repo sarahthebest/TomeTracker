@@ -12,14 +12,14 @@ const BookShelf = ({ books }: BookShelfProps) => {
     const [selectedShelf, setSelectedShelf] = useState<string>(shelves[0]);
 
     return (
-        <div className="shelf_wrapper h-full w-full flex flex-col mb-2">
+        <div className="shelf_wrapper h-full w-2/3 mx-auto mt-16 z-10 flex flex-col mb-2">
             <div className="shelf_tabs flex ms-4 rounded-t-xl">
                 {shelves.map((shelf, index) => (
                     <button
                         key={index}
                         onClick={() => setSelectedShelf(shelf)}
-                        className={`tab_button pb-4 p-2 rounded-t-xl text-lg ${
-                            selectedShelf === shelf ? "active text-white" : " bg-lime-950"
+                        className={`tab_button pb-4 p-2 rounded-t-xl text-lg text-white/90 ${
+                            selectedShelf === shelf ? "active" : " bg-emerald-950 text-white/50"
                         }`}
                     >
                         {shelf}

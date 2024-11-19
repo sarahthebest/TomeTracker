@@ -1,18 +1,18 @@
 import { Book } from "../../../types/Book";
-import "./BookRow.css";
 import { Link } from "react-router-dom";
-import { truncateText } from "../../../hooks/custom_hooks";
+import "./BookRow.css";
+import Dropdown from "../../Atoms/Dropdown";
 
 interface BookRowProps {
     book: Book;
 }
 
 const BookRow = ({ book }: BookRowProps) => {
-    const thumbnailUrl = book.imageLinks ? book.imageLinks.thumbnail : null;
-    const maxDescriptionLength = 100;
+    const thumbnailUrl = book.imageLinks?.thumbnail || null;
+    const year = parseInt(book.publishedDate);
 
     return (
-        <div className="bookRow flex flex-row gap-4 w-full">
+        <div className="bookRow flex flex-row gap-6 w-full border-b border-border pb-2 text-white/90">
             <Link to={`/book/${book.id}`}>
                 {thumbnailUrl ? (
                     <img
@@ -24,45 +24,24 @@ const BookRow = ({ book }: BookRowProps) => {
                     <p>No image available</p>
                 )}
             </Link>
-            <div className="bookDetails">
-                <p>{book.title}</p>
-                <p>{book.authors}</p>
-                <p>{truncateText(
-                book.description || "N/A",
-                maxDescriptionLength
-            )}</p>
+            <div className="bookDetails flex flex-col justify-between">
+                <div className="bookHeader">
+                    <h3 className="text-2xl font-serif">{book.title}</h3>
+                    <p>{book.authors}</p>
+                </div>
+                <div className="flex gap-2">
+                    {[year, `${book.pageCount} pages`, `${book.averageRating} rating`, book.categories]
+                        .filter(Boolean)
+                        .map((detail, index, arr) => (
+                            <span key={index}>
+                                {detail}
+                                {index < arr.length - 1 && <span className="mx-1">•</span>}
+                            </span>
+                        ))}
+                </div>
             </div>
         </div>
     );
 };
 
 export default BookRow;
-{
-    /* <tbody>
-    <tr>
-        <td>
-            <Link to={`/book/${book.id}`}>
-                {thumbnailUrl ? (
-                    <img
-                        src={thumbnailUrl}
-                        alt={`${book.title} cover`}
-                        className="h-full w-fit hover:scale-105 duration-200"
-                    />
-                ) : (
-                    <p>No image available</p>
-                )}
-            </Link>
-        </td>
-        <td className="">{book.title}</td>
-        <td className="">{book.authors}</td>
-        <td className="">{book.averageRating || "N/A"}</td>
-        <td className="">{book.pageCount || "N/A"}</td>
-        <td className="book-description">
-            {truncateText(
-                book.description || "N/A",
-                maxDescriptionLength
-            )}
-        </td>
-    </tr>
-</tbody> */
-}
