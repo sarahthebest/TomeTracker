@@ -2,17 +2,18 @@
 export default {
   content: [
     "./index.html", 
-    "./src/**/*.{js,ts,jsx,tsx}", 
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        primary: '#5C8374',
-        secondary: '#183D3D',
-        bg: '#040D12',
-        accent:'#93B1A6',
+        primary: '#3B1C32',
+        secondary: '#6A1E55',
+        bg: '#1A1A1D',
+        accent: '#A64D79',
+        pop: '#F0C1E1',
         border: 'rgba(254, 253, 255, 0.495)',
-        text: '#0b0b0b',
+        text: '#f1f1f1',
       },
     },
   },

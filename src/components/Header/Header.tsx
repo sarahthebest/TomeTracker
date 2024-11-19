@@ -1,9 +1,14 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import FeaturesList from "./FeatureBox/FeatureBox";
 import "./Header.css";
 import { BsStars } from "react-icons/bs";
+import Btn from "../Atoms/Btn";
 
 const Header = () => {
+    const navigate = useNavigate();
+    const handleNavigate = (path: string) => {
+        navigate(path);
+    };
     return (
         <>
             <div className="header px-4 flex flex-col gap-4 mb-4 p-4 absolute pt-20">
@@ -22,12 +27,12 @@ const Header = () => {
                             and let each book lead you to new adventures,
                             wrapped in the warmth of timeless tales.
                         </p>
-                        <Link
-                            to={"/login"}
-                            className="flex gap-2 hover:brightness-90 place-items-center cartoon-shadow text-gray-900 bg-primary w-fit rounded p-2"
-                        >
-                            Join now <BsStars color="var(--accent)"/>
-                        </Link>
+                        <Btn
+                            onClick={() => handleNavigate("/login")}
+                            size="large"
+                            text="Join now"
+                            icon={<BsStars color="var(--pop)" />}
+                        />
                     </div>
                 </div>
                 <FeaturesList />

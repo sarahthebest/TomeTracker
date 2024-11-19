@@ -1,6 +1,6 @@
 import React from "react";
 import { BtnProps } from "../../types/Btn";
-import "./Atom.css";
+import { Button } from "antd";
 
 const Btn: React.FC<BtnProps> = ({
     icon,
@@ -9,7 +9,7 @@ const Btn: React.FC<BtnProps> = ({
     backgroundColor,
     position,
     disabled,
-    type,
+    size
 }) => {
     const buttonStyle: React.CSSProperties = {
         backgroundColor: backgroundColor || "var(--primary)",
@@ -17,17 +17,18 @@ const Btn: React.FC<BtnProps> = ({
     };
 
     return (
-        <button
-            className="rounded w-fit text-slate-900 hover:brightness-125 p-1 px-2 duration-300 flex place-items-center gap-2"
+        <Button
+            style={buttonStyle} 
+            size={size}
+            icon={icon}
             onClick={onClick}
-            style={buttonStyle}
             disabled={disabled}
-            type={type}
+            className="def_btn"
         >
-            {text && text}
-            {icon && icon}
-        </button>
+            {text}
+        </Button>
     );
 };
 
 export default Btn;
+
