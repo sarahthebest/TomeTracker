@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 export type BtnProps = {
     icon?: ReactNode;
-    onClick: () => void;
+    onClick?: () => void;
     text: string;
     backgroundColor?: string;
     disabled?: boolean;

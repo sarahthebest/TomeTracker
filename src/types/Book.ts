@@ -1,4 +1,8 @@
 export interface Book {
+    categories: string;
+    averageRating: string;
+    pageCount: string;
+    publishedDate: string;
     description: string;
     imageLinks: string;
     id: string;
