@@ -1,7 +1,6 @@
 import { Book } from "../../../types/Book";
 import { Link } from "react-router-dom";
 import "./BookRow.css";
-import Dropdown from "../../Atoms/Dropdown";
 
 interface BookRowProps {
     book: Book;
