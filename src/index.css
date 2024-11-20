@@ -32,10 +32,10 @@ button {
     border-color: var(--border);
 }
 
-.cartoon-shadow {
-    box-shadow: 0px 2px 0px 2px var(--accent);
-    border: 1px solid var(--accent);
+.ant-modal-title {
+    background-color: var(--pop); 
 }
+
 
 /*  TEXT STYLES */
 @font-face {

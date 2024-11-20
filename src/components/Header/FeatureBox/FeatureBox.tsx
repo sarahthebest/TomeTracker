@@ -32,7 +32,7 @@ const FeatureBox = ({ feature, icon }: FeatureBoxProps) => {
             className="featureBox text-accent flex flex-col gap-2
          border-primary rounded-md bg-bg border w-72 p-4 hover:brightness-110"
         >
-            <div className="head flex place-items-center justify-between text-xl flex-wrap">
+            <div className="head heading flex place-items-center justify-between text-2xl flex-wrap">
                 {feature.name}
                 {icon && <div className="icon">{icon}</div>}
             </div>
