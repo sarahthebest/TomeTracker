@@ -29,14 +29,20 @@ function App() {
         <>
             <ConfigProvider
                 theme={{
-                    components: {
-                        Button: {
-                            defaultHoverBorderColor: "var(--pop)",
-                            defaultHoverColor: "var(--pop)",
-                            defaultBorderColor:"var(--border)",
-                            defaultColor:"var(--text)"
-                        },
+                    token: {
+                        colorPrimaryHover: "var(--pop)",
+                        colorPrimaryTextHover:"var(--accent)",
+                        colorPrimary:"var(--primary)",
+                        colorLinkHover:"var(--accent)",
+                        colorBorder:"var(--border)",
+                        colorPrimaryActive:"var(--accent)",
+                        colorBgContainer:"var(--input)",
                     },
+                    components: {
+                        Modal: {
+                            contentBg:"var(--pop)",
+                        },
+                    }
                 }}
             >
                 <RouterProvider router={router} />

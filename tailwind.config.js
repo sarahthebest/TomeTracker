@@ -10,6 +10,7 @@ export default {
         primary: '#3B1C32',
         secondary: '#6A1E55',
         bg: '#1A1A1D',
+        input:'rgb(232, 232, 232)',
         accent: '#A64D79',
         pop: '#F0C1E1',
         border: 'rgba(254, 253, 255, 0.495)',

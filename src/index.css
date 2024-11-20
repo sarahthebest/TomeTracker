@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 :root {
-    --primary: #3B1C32;
-    --secondary: #6A1E55;
-    --bg: #1A1A1D;
-    --accent: #A64D79;
-    --pop: #F0C1E1;
+    --primary: #3b1c32;
+    --secondary: #6a1e55;
+    --bg: #1a1a1d;
+    --input:rgb(232, 232, 232);
+    --accent: #a64d79;
+    --pop: #f0c1e1;
     --border: rgba(254, 253, 255, 0.495);
     --text: #f1f1f1;
 }
@@ -31,24 +32,28 @@ button {
     border-color: var(--border);
 }
 
-.cartoon-shadow{
+.cartoon-shadow {
     box-shadow: 0px 2px 0px 2px var(--accent);
     border: 1px solid var(--accent);
 }
 
 /*  TEXT STYLES */
-
 @font-face {
     font-family: "Geist";
-    src: url("src/assets/GeistMono.otf") format("opentype");
+    src: url("src/assets/fonts/GeistMono.otf") format("opentype");
+}
+@font-face {
+    font-family: "Cottage";
+    src: url("src/assets/fonts/LoficottagefreeRegular-BW4O8.otf")
+        format("opentype");
 }
 @font-face {
     font-family: "Geist Medium";
-    src: url("src/assets/GeistMedium.otf") format("opentype");
+    src: url("src/assets/fonts/GeistMedium.otf") format("opentype");
 }
 @font-face {
     font-family: "Geist Light";
-    src: url("src/assets/GeistLight.otf") format("opentype");
+    src: url("src/assets/fonts/GeistLight.otf") format("opentype");
 }
 
 .light {
@@ -57,6 +62,9 @@ button {
 .medium {
     font-family: "Geist Medium";
 }
+.heading {
+    font-family: "Cottage";
+}
 .huge {
-    font-size: 3em;
+    font-size: 4em;
 }
