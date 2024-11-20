@@ -23,7 +23,7 @@ const Btn: React.FC<BtnProps> = ({
             icon={icon}
             onClick={onClick}
             disabled={disabled}
-            className="def_btn"
+            className="def_btn text-text"
         >
             {text}
         </Button>
