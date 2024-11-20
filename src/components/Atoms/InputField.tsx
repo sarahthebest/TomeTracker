@@ -1,10 +1,6 @@
-export type InputFieldProps = {
-    label: string;
-    type: string;
-    id: string;
-    value: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
+import React from "react";
+import { Input } from "antd";
+import { InputFieldProps } from "../../types/InputFieldProps"; 
 
 const InputField: React.FC<InputFieldProps> = ({
     label,
@@ -14,16 +10,16 @@ const InputField: React.FC<InputFieldProps> = ({
     onChange,
 }) => {
     return (
-        <div className="input_wrapper flex justify-between">
-            <label className="" htmlFor={id}>
+        <div className="input_wrapper flex flex-col gap-2">
+            <label htmlFor={id}>
                 {label}
             </label>
-            <input
-                className="border p-1 w-3/4 rounded focus:outline-none"
+            <Input
                 type={type}
                 id={id}
                 value={value}
                 onChange={onChange}
+                className="w-full"
             />
         </div>
     );
