@@ -4,14 +4,14 @@ const Logo = () => {
     return (
         <Link
             to={"/"}
-            className="logo_wrapper w-60 h-full group rounded-e-full pe-2 flex items-center"
+            className="logo_wrapper w-60 h-full rounded-e-full pe-2 flex items-center"
         >
             <img
-                src="src/assets/logo.png"
-                className="h-fit w-16 ms-3 mt-2 duration-200 group-hover:invert"
+                src="src/assets/img/logo.png"
+                className="h-fit w-16 ms-3 mt-2 invert"
                 alt="Logo image"
             />
-            <h1 className="medium text-gray-900 duration-200 group-hover:invert">
+            <h1 className="heading">
                 TomeTracker
             </h1>
         </Link>

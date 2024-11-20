@@ -12,7 +12,7 @@ input{
     padding: 8px;
 }
 .login_bg{
-    background-image: url(src/assets/bg1.webp);
+    background-image: url(src/assets/img/bg1.webp);
     background-size: 160%;
     background-color: rgba(255, 193, 191, 0.245);
     background-blend-mode: lighten;

@@ -15,11 +15,11 @@ const Header = () => {
                 <div className="headerContent flex flex-row place-content-center">
                     <img
                         className="w-1/4"
-                        src="src/assets/reading.svg"
+                        src="src/assets/img/reading.svg"
                         alt="Illustration from undraw.co"
                     />
                     <div className="content w-2/5 ">
-                        <h1 className="huge medium font-bold text-accent">
+                        <h1 className="huge heading font-bold text-pop">
                             TomeTracker
                         </h1>
                         <p className="light mb-4 ">
