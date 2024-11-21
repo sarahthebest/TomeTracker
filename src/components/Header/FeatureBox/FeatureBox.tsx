@@ -29,7 +29,7 @@ const iconMap: { [key: string]: ReactNode } = {
 const FeatureBox = ({ feature, icon }: FeatureBoxProps) => {
     return (
         <div
-            className="featureBox text-accent flex flex-col gap-2
+            className="featureBox text-pop flex flex-col gap-2
          border-primary rounded-md bg-bg border w-72 p-4 hover:brightness-110"
         >
             <div className="head heading flex place-items-center justify-between text-2xl flex-wrap">
