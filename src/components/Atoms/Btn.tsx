@@ -1,5 +1,5 @@
 import React from "react";
-import { BtnProps } from "../../types/Btn";
+import { BtnProps } from "./button.types";
 import { Button } from "antd";
 
 const Btn: React.FC<BtnProps> = ({
