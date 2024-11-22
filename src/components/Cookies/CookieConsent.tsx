@@ -25,24 +25,22 @@ const CookieConsent = () => {
     if (consent) return null;
 
     return (
-        <div className="cookie_bar sticky bottom-0 bg-rose-800 p-2 flex flex-row justify-between">
-            <p>
+        <div className="cookie_bar absolute bottom-0 bg-primary p-3 flex flex-row justify-between">
+            <p className="w-2/3">
                 This app can be ran without accepting cookies however if you
                 wish to save your books and data across sessions you need to
                 accept cookies!
             </p>
             <div className="btn_wrapper flex flex-row gap-4">
                 <Btn
-                    id="cookiesYes"
                     onClick={() => handle_consent_click("decline")}
                     text="Decline"
-                    backgroundColor="white"
+                    backgroundColor="var(--accent)"
                 />
                 <Btn
-                    id="cookiesNo"
                     onClick={() => handle_consent_click("accept")}
                     text="Accept"
-                    backgroundColor="white"
+                    backgroundColor="var(--accent)"
                 />
             </div>
         </div>
