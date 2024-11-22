@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Login_form from "./Login_form/LoginForm";
+import Login_form from "../../components/Login_form/LoginForm";
 import Login_bg from "./Login_bg/Login_bg";
 import "./Login.css";
 import Btn from "../../components/Atoms/Btn";
@@ -50,7 +50,6 @@ const Login = () => {
                 <Btn
                     onClick={() => handleLogin(email, password)}
                     backgroundColor="var(--primary)"
-                    id="login_btn"
                     text="Login"
                     disabled={!captchaVal}
                 />

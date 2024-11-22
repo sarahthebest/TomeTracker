@@ -1,6 +1,6 @@
 import React from "react";
 import { Input } from "antd";
-import { InputFieldProps } from "../../types/InputFieldProps"; 
+import { InputFieldProps } from "../../types/input_field.types"; 
 
 const InputField: React.FC<InputFieldProps> = ({
     label,
