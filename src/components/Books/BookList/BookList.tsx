@@ -1,4 +1,4 @@
-import { Book } from "../../../types/Book";
+import { Book } from "../book.types";
 import BookRow from "../BookRow/BookRow";
 
 interface BookListProps {

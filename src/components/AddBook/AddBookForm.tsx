@@ -1,6 +1,6 @@
 import InputField from "../Atoms/InputField";
 import Dropdown from "../Atoms/Dropdown";
-import { AddBookFormProps } from "../../types/AddBook.types";
+import { AddBookFormProps } from "../Books/add_book.types";
 
 const AddBookForm = ({
     book_author,
