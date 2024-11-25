@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Atom.css";
 import { Flex } from "antd";
 import excerptsData from "../../assets/json/excerpts.json";

@@ -45,7 +45,7 @@ const RegisterPage = () => {
             </div>
             <Link
                 className="mx-auto mb-3 light z-10 hover:text-rose-400 duration-200"
-                to={"/register"}
+                to={"/login"}
             >
                 Already have a account? Go to Login :3
             </Link>
