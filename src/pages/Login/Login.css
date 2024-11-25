@@ -20,3 +20,6 @@ input{
     height: 90%;
     z-index: 0;
 }
+label{
+    color: white !important;
+}

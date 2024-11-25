@@ -1,10 +1,11 @@
 import { useState } from "react";
-import Login_form from "../../components/Login_form/LoginForm";
-import Login_bg from "./Login_bg/Login_bg";
+import Login_form from "../../components/LoginForm/LoginForm";
 import "./Login.css";
 import Btn from "../../components/Atoms/Btn";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Link } from "react-router-dom";
+import { Flex } from "antd";
+import Background from "../../components/Atoms/Background";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -32,8 +33,8 @@ const Login = () => {
     };
 
     return (
-        <div className="login_wrapper flex flex-col h-full relative">
-            <div className="form_wrapper relative rounded h-fit p-4 m-auto flex flex-col justify-between">
+        <Flex className="login_wrapper h-full" justify="center" vertical>
+            <div className="form_wrapper relative rounded h-fit p-4 m-auto flex flex-col justify-between z-10">
                 <Login_form
                     email={email}
                     setEmail={setEmail}
@@ -54,9 +55,14 @@ const Login = () => {
                     disabled={!captchaVal}
                 />
             </div>
-            <Login_bg />
-            <Link className="mx-auto mb-3 light hover:text-rose-400 duration-200" to={"/register"}>Don't have a account? Go to register :3</Link>
-        </div>
+            <Link
+                className="mx-auto mb-3 light z-10 hover:text-rose-400 duration-200"
+                to={"/register"}
+            >
+                Don't have a account? Go to register :3
+            </Link>
+            <Background background={"src/assets/img/bg1.webp"} />
+        </Flex>
     );
 };
 
