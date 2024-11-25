@@ -1,53 +1,35 @@
 import { FC, useState, useEffect } from "react";
 import "./Atom.css";
 import { Flex } from "antd";
+import excerptsData from "../../assets/json/excerpts.json";
 
-interface BackgroundProps {
-    background: string;
-}
-
-const Background: FC<BackgroundProps> = ({ background }) => {
+const Background = () => {
     const [snippet, setSnippet] = useState<string | null>(null);
     const [author, setAuthor] = useState<string | null>(null);
+    const [bookTitle, setBookTitle] = useState<string | null>(null);
 
     useEffect(() => {
-        const fetchBooks = async () => {
-            const response = await fetch(
-                "https://www.googleapis.com/books/v1/volumes?q=1984&orderBy=relevance&maxResults=1"
-            );
-            const data = await response.json();
-
-            if (data.items && data.items.length > 0) {
-                const randomBook =
-                    data.items[Math.floor(Math.random() * data.items.length)];
-
-                const textSnippet =
-                    randomBook.searchInfo?.textSnippet ||
-                    "No snippet available";
-                const author =
-                    randomBook.volumeInfo.authors?.join(", ") ||
-                    "No author available"; // Ensure it's a string
-                setSnippet(textSnippet);
-                setAuthor(author);
-            }
-        };
-
-        fetchBooks();
+        const randomExcerpt =
+            excerptsData[Math.floor(Math.random() * excerptsData.length)];
+        setSnippet(randomExcerpt.excerpt);
+        setAuthor(randomExcerpt.author);
+        setBookTitle(randomExcerpt.title);
     }, []);
 
     return (
         <Flex className="absolute h-full w-full">
-            <div className="text flex flex-col w-1/2 h-full justify-center">
-            <div className="text-container mr-32 px-20 flex flex-col gap-10">
-                <h1>{snippet ? snippet : "Loading snippet..."}</h1>
-                <p>{author ? `- ${author}` : "Loading author..."}</p>
-
-            </div>
+            <div className="text w-1/2 flex flex-col justify-center">
+                <div className="excerpt w-3/5 mx-auto flex flex-col gap-4">
+                    <h2>{snippet ? `"${snippet}"` : "Loading excerpt..."}</h2>
+                    <p className="text-accent">
+                        - {author}, <em>{bookTitle}</em>
+                    </p>
+                </div>
             </div>
             <div
                 className="background w-1/2"
                 style={{
-                    backgroundImage: `url(${background})`,
+                    backgroundImage: `url(src/assets/img/bg1.webp)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
