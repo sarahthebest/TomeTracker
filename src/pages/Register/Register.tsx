@@ -3,8 +3,9 @@ import { useState } from "react";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
 import Btn from "../../components/Atoms/Btn";
 import Background from "../../components/Atoms/Background";
+import { Link } from "react-router-dom";
 
-const Register_Page = () => {
+const RegisterPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
@@ -26,7 +27,7 @@ const Register_Page = () => {
     };
 
     return (
-        <Flex vertical>
+        <Flex className="register_wrapper h-full" justify="center" vertical>
             <div className="form_wrapper relative rounded h-fit p-4 m-auto flex flex-col justify-between">
             <RegisterForm
                     email={email}
@@ -35,16 +36,22 @@ const Register_Page = () => {
                     setPassword={setPassword}
                     username={username}
                     setUsername={setUsername}
-                    error={""}            />
+                    error={error}            />
                 <Btn
                     onClick={() => handleRegister(email, password)}
-                    backgroundColor="var(--primary)"
+                    backgroundColor="var(--secondary)"
                     text="Register"
                 />
             </div>
-            <Background />
+            <Link
+                className="mx-auto mb-3 light z-10 hover:text-rose-400 duration-200"
+                to={"/register"}
+            >
+                Already have a account? Go to Login :3
+            </Link>
+            <Background/>
         </Flex>
     );
 };
 
-export default Register_Page;
+export default RegisterPage;

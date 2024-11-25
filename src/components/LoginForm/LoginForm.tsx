@@ -11,13 +11,15 @@ interface LoginFormProps {
     error: string;
 }
 
-const LoginForm: FC<LoginFormProps> = ({ email, setEmail, password, setPassword, error }) => {
+const LoginForm: FC<LoginFormProps> = ({
+    email,
+    setEmail,
+    password,
+    setPassword,
+    error,
+}) => {
     return (
-        <Form 
-            layout="vertical" 
-            className="login-form" 
-            style={{ width: '100%', display: 'flex', flexDirection: 'column'}}
-        >
+        <Form layout="vertical" className="login-form w-full flex flex-col">
             <Form.Item label="Email" required>
                 <Input
                     type="email"

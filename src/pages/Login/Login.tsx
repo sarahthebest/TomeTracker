@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Login_form from "../../components/LoginForm/LoginForm";
 import "./Login.css";
 import Btn from "../../components/Atoms/Btn";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Link } from "react-router-dom";
 import { Flex } from "antd";
 import Background from "../../components/Atoms/Background";
+import LoginForm from "../../components/LoginForm/LoginForm";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -35,7 +35,7 @@ const Login = () => {
     return (
         <Flex className="login_wrapper h-full" justify="center" vertical>
             <div className="form_wrapper relative rounded h-fit p-4 m-auto flex flex-col justify-between z-10">
-                <Login_form
+                <LoginForm
                     email={email}
                     setEmail={setEmail}
                     password={password}
@@ -50,7 +50,7 @@ const Login = () => {
                 </div>
                 <Btn
                     onClick={() => handleLogin(email, password)}
-                    backgroundColor="var(--primary)"
+                    backgroundColor="var(--secondary)"
                     text="Login"
                     disabled={!captchaVal}
                 />
@@ -61,7 +61,7 @@ const Login = () => {
             >
                 Don't have a account? Go to register :3
             </Link>
-            <Background background={"src/assets/img/bg1.webp"} />
+            <Background/>
         </Flex>
     );
 };

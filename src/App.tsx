@@ -31,18 +31,18 @@ function App() {
                 theme={{
                     token: {
                         colorPrimaryHover: "var(--pop)",
-                        colorPrimaryTextHover:"var(--accent)",
-                        colorPrimary:"var(--primary)",
-                        colorLinkHover:"var(--accent)",
-                        colorBorder:"var(--border)",
-                        colorPrimaryActive:"var(--accent)",
-                        colorBgContainer:"var(--input)",
+                        colorPrimaryTextHover: "var(--accent)",
+                        colorPrimary: "var(--primary)",
+                        colorLinkHover: "var(--accent)",
+                        colorBorder: "var(--border)",
+                        colorPrimaryActive: "var(--accent)",
+                        colorBgContainer: "var(--input)",
                     },
                     components: {
                         Modal: {
-                            contentBg:"var(--pop)",
+                            contentBg: "var(--pop)",
                         },
-                    }
+                    },
                 }}
             >
                 <RouterProvider router={router} />

@@ -13,12 +13,15 @@
     --text: #f1f1f1;
 }
 
+*{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 html,
 body,
 #root {
     min-height: 100%;
     height: 100%;
-    font-family: "Geist";
     color: var(--text);
     letter-spacing: 0.1em;
 }
@@ -38,30 +41,14 @@ button {
 
 
 /*  TEXT STYLES */
-@font-face {
-    font-family: "Geist";
-    src: url("src/assets/fonts/GeistMono.otf") format("opentype");
-}
+
 @font-face {
     font-family: "Cottage";
     src: url("src/assets/fonts/LoficottagefreeRegular-BW4O8.otf")
         format("opentype");
 }
-@font-face {
-    font-family: "Geist Medium";
-    src: url("src/assets/fonts/GeistMedium.otf") format("opentype");
-}
-@font-face {
-    font-family: "Geist Light";
-    src: url("src/assets/fonts/GeistLight.otf") format("opentype");
-}
 
-.light {
-    font-family: "Geist Light";
-}
-.medium {
-    font-family: "Geist Medium";
-}
+
 .heading {
     font-family: "Cottage";
 }
