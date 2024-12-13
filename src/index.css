@@ -6,15 +6,15 @@
     --primary: #3b1c32;
     --secondary: #6a1e55;
     --bg: #1a1a1d;
-    --input:rgb(232, 232, 232);
+    --input: rgb(232, 232, 232);
     --accent: #a64d79;
     --pop: #f0c1e1;
     --border: rgba(254, 253, 255, 0.495);
     --text: #f1f1f1;
 }
 
-*{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+* {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html,
@@ -36,9 +36,8 @@ button {
 }
 
 .ant-modal-title {
-    background-color: var(--pop); 
+    background-color: var(--pop);
 }
-
 
 /*  TEXT STYLES */
 
@@ -47,8 +46,6 @@ button {
     src: url("src/assets/fonts/LoficottagefreeRegular-BW4O8.otf")
         format("opentype");
 }
-
-
 .heading {
     font-family: "Cottage";
 }
