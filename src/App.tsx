@@ -4,6 +4,7 @@ import Register_Page from "./pages/Register/Register";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import UserShelf from "./pages/UserShelf/UserShelf";
 import { ConfigProvider } from "antd";
+import BookPage from "./pages/BookPage.tsx/BookPage";
 
 const router = createBrowserRouter([
     {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
     {
         path: "/shelves",
         element: <UserShelf />,
+    },
+    {
+        path: "/book/:bookname",
+        element: <BookPage />,
     },
 ]);
 
