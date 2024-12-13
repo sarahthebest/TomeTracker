@@ -9,10 +9,17 @@ interface BookRowProps {
 const BookRow = ({ book }: BookRowProps) => {
     const thumbnailUrl = book.imageLinks?.thumbnail || null;
     const year = parseInt(book.publishedDate);
+    const generateSlug = (bookName: string) => {
+        return bookName
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+            .replace(/[^a-z0-9-]/g, "");
+    };
 
     return (
         <div className="bookRow flex flex-row gap-6 w-full border-b border-border pb-2 text-white/90">
-            <Link to={`/book/${book.id}`}>
+            <Link to={`/book/${generateSlug(book.title)}`}
+            state={{ book }} >
                 {thumbnailUrl ? (
                     <img
                         src={thumbnailUrl}
@@ -29,12 +36,19 @@ const BookRow = ({ book }: BookRowProps) => {
                     <p>{book.authors}</p>
                 </div>
                 <div className="flex gap-2">
-                    {[year, `${book.pageCount} pages`, `${book.averageRating} rating`, book.categories]
+                    {[
+                        year,
+                        `${book.pageCount} pages`,
+                        `${book.averageRating} rating`,
+                        book.categories,
+                    ]
                         .filter(Boolean)
                         .map((detail, index, arr) => (
                             <span key={index}>
                                 {detail}
-                                {index < arr.length - 1 && <span className="mx-1">•</span>}
+                                {index < arr.length - 1 && (
+                                    <span className="mx-1">•</span>
+                                )}
                             </span>
                         ))}
                 </div>
