@@ -1,32 +1,18 @@
 import { FC } from "react";
-import { Form, Input, Typography, Button } from "antd";
+import { Form, Input, Typography } from "antd";
+import { useAuthStore } from "../../stores/authStore"; 
 
 const { Text } = Typography;
 
-interface RegisterFormProps {
-    email: string;
-    setEmail: React.Dispatch<React.SetStateAction<string>>;
-    password: string;
-    setPassword: React.Dispatch<React.SetStateAction<string>>;
-    username: string;
-    setUsername: React.Dispatch<React.SetStateAction<string>>;
-    error: string;
-}
+const RegisterForm: FC = () => {
+    const { email, setEmail, password, setPassword, username, setUsername, error } =
+        useAuthStore();
 
-const RegisterForm: FC<RegisterFormProps> = ({
-    email,
-    setEmail,
-    password,
-    setPassword,
-    username,
-    setUsername,
-    error,
-}) => {
     return (
         <Form
             layout="vertical"
             className="register-form"
-            style={{ width: "100%", display: "flex", flexDirection: "column", gap: "16px" }}
+            style={{ width: "100%", display: "flex", flexDirection: "column" }}
         >
             <Form.Item label="Username" required>
                 <Input
