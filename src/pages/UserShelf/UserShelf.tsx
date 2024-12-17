@@ -24,7 +24,7 @@ const UserShelf = () => {
     }, [books]);
 
     return (
-        <section className="shelvesWrapper flex flex-col relative">
+        <section className="shelvesWrapper flex flex-col relative pb-20">
             <Navbar />
             <Bg />
             <div className="shelfHeader flex gap-10 place-items-center mx-auto mt-20 z-30" >

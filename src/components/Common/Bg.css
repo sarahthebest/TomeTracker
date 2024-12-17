@@ -2,7 +2,7 @@
     background-image: url(src/assets/img/shelfBG.webp);
     background-size: cover;
     height: 500px;
-    background-position: bottom;
+    background-position: top;
     -webkit-mask-image: linear-gradient(to top, transparent 0%, black 100%);
     mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.865) 100%);
 }
