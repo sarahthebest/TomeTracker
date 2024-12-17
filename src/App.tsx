@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import UserShelf from "./pages/UserShelf/UserShelf";
 import { ConfigProvider } from "antd";
 import BookPage from "./pages/BookPage.tsx/BookPage";
+import Footer from "./components/Footer/Footer"; 
 
 const router = createBrowserRouter([
     {
@@ -50,7 +51,12 @@ function App() {
                     },
                 }}
             >
-                <RouterProvider router={router} />
+                <div className="app-container">
+                    <main className="content min-h-screen">
+                        <RouterProvider router={router} />
+                    </main>
+                    <Footer />
+                </div>
             </ConfigProvider>
         </>
     );
