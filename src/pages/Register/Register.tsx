@@ -23,7 +23,7 @@ const RegisterPage = () => {
     };
 
     return (
-        <Flex className="register_wrapper h-full" justify="center" vertical>
+        <Flex className="register_wrapper min-h-screen" justify="center" vertical>
             <div className="form_wrapper relative rounded h-fit p-4 m-auto flex flex-col justify-between">
                 <RegisterForm />
                 <Btn
