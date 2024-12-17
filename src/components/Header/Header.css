@@ -1,6 +1,16 @@
-.header{
-    background-color: var(--secondary);
+.header {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
 }
-.content{
+
+.headerContent {
+    display: flex;
+    justify-content: center;
+    gap: 0; 
+}
+
+.content {
     align-content: center;
 }
+
