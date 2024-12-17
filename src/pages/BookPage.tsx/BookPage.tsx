@@ -15,13 +15,21 @@ const BookPage = () => {
             <Bg />
             <CookieConsent />
             <div className="book_wrapper flex flex-col gap-4 relative z-10 mt-20 w-2/3 mx-auto">
-            <Link to="/shelves">Return</Link>
+                <Link to="/shelves">Return</Link>
                 <div className="book_info gap-8 flex">
                     <img src={thumbnailUrl} alt="" className="w-fit" />
                     <Flex vertical gap={8}>
                         <h1 className="heading text-3xl">{book.title}</h1>
-                        <p>Written by {book.authors}</p>
-                        <Tag color="magenta" className="w-fit">{book.categories}</Tag>
+                        <p>
+                            Written by {book.authors}
+                            <br />
+                            Published {book.publishedDate} <br />
+                            {book.pageCount} pages
+                        </p>
+
+                        <Tag color="magenta" className="w-fit">
+                            {book.categories}
+                        </Tag>
                         <div className="status"></div>
                     </Flex>
                 </div>
