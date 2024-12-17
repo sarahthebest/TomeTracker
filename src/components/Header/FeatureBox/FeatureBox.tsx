@@ -30,7 +30,7 @@ const FeatureBox = ({ feature, icon }: FeatureBoxProps) => {
     return (
         <div
             className="featureBox text-pop flex flex-col gap-2
-         border-primary rounded-md bg-bg border w-72 p-4 hover:brightness-110"
+         border-primary rounded-md bg-secondary border p-4 hover:brightness-110"
         >
             <div className="head heading flex place-items-center justify-between text-2xl flex-wrap">
                 {feature.name}
@@ -43,7 +43,7 @@ const FeatureBox = ({ feature, icon }: FeatureBoxProps) => {
 
 const FeaturesList = () => {
     return (
-        <div className="featuresList flex flex-row gap-4 rounded place-content-center">
+        <div className="featuresList flex flex-row gap-4 rounded w-2/3 mx-auto">
             {featureData.map((feature: Feature) => (
                 <FeatureBox
                     key={feature.id}
