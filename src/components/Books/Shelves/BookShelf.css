@@ -2,13 +2,13 @@
     height: fit-content;
     width: 98%;
     overflow:hidden;
-    background-color: var(--secondary);
+    background-color: var(--primary);
 }
 .shelf_label{
     width: 10em;
 }
 .active{
-    background-color: var(--secondary);
+    background-color: var(--primary);
     height: 2em;
     align-content: center;
 }
