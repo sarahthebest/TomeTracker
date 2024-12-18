@@ -1,6 +1,7 @@
 import { Book } from "../book.types";
 import { Link } from "react-router-dom";
 import "./BookRow.css";
+import BookStatusDropdown from "../../Atoms/Dropdown";
 
 interface BookRowProps {
     book: Book;
@@ -17,7 +18,8 @@ const BookRow = ({ book }: BookRowProps) => {
     };
 
     return (
-        <div className="bookRow flex flex-row gap-6 w-full border-b border-border pb-2 text-white/90">
+        <div className="bookRow flex flex-row w-full border-b border-border pb-2 text-white/90 justify-between">
+            <div className="flex gap-6">
             <Link to={`/book/${generateSlug(book.title)}`}
             state={{ book }} >
                 {thumbnailUrl ? (
@@ -53,6 +55,11 @@ const BookRow = ({ book }: BookRowProps) => {
                         ))}
                 </div>
             </div>
+
+            </div>
+            <BookStatusDropdown book_status={"Reading"} set_book_status={function (status: "Reading" | "Completed" | "Want to read"): void {
+                throw new Error("Function not implemented.");
+            } } />
         </div>
     );
 };
