@@ -42,7 +42,7 @@ const BookStatusDropdown = ({
       }}
       trigger={["click"]}
     >
-      <a onClick={(e) => e.preventDefault()}>
+      <a className="h-fit" onClick={(e) => e.preventDefault()}>
         <Space>
           {book_status}
           <DownOutlined />
