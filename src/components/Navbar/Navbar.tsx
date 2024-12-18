@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { GiBookshelf } from "react-icons/gi";
+import { GiBookshelf, GiSpellBook } from "react-icons/gi";
 import Btn from "../Atoms/Btn";
 import Logo from "../Logo/Logo";
 import "./Navbar.css";
@@ -25,6 +25,12 @@ const Navbar = () => {
                     backgroundColor="var(--primary)"
                     icon={<GiBookshelf />}
                 />
+                <Btn
+                    onClick={() => handleNavigate("/library")}
+                    text="Browse"
+                    backgroundColor="var(--primary)"
+                    icon={<GiSpellBook />}
+                ></Btn>
                 <Btn
                     onClick={() => handleNavigate("/login")}
                     text="Login"
