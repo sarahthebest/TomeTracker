@@ -7,13 +7,10 @@ const Logo = () => {
             className="logo_wrapper w-60 h-full rounded-e-full pe-2 flex items-center"
         >
             <img
-                src="src/assets/img/logo.webp"
-                className="h-fit w-16 ms-3 mt-2 invert"
+                src="src/assets/img/logo.png"
+                className="h-fit w-5/6 ms-3"
                 alt="Logo image"
             />
-            <h1 className="heading">
-                TomeTracker
-            </h1>
         </Link>
     );
 };

@@ -27,7 +27,11 @@ const Footer = () => {
                     </a>
                 </div>
             </div>
-            <h2 className="text-4xl heading mx-auto">TomeTracker</h2>
+            <img
+                src="src/assets/img/logo.png"
+                className="h-fit w-56  mx-auto"
+                alt="Logo image"
+            />
         </footer>
     );
 };
