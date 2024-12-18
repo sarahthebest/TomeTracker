@@ -3,12 +3,15 @@ import Navbar from "../../components/Navbar/Navbar";
 import Bg from "../../components/Common/Bg";
 import CookieConsent from "../../components/Cookies/CookieConsent";
 import { Tag, Flex } from "antd";
+import BookStatusDropdown from "../../components/Atoms/Dropdown";
 
 const BookPage = () => {
     const location = useLocation();
     const book = location.state?.book;
     const thumbnailUrl = book.imageLinks?.thumbnail || null;
+
     console.log(book);
+
     return (
         <section className="page flex flex-col relative min-h-screen ">
             <Navbar />
@@ -16,7 +19,7 @@ const BookPage = () => {
             <CookieConsent />
             <div className="book_wrapper flex flex-col gap-4 relative z-10 mt-20 w-2/3 mx-auto">
                 <Link to="/shelves">Return</Link>
-                <div className="book_info gap-8 flex">
+                <div className="book_info gap-8 flex ">
                     <img src={thumbnailUrl} alt="" className="w-fit" />
                     <Flex vertical gap={8}>
                         <h1 className="heading text-3xl">{book.title}</h1>
@@ -32,8 +35,12 @@ const BookPage = () => {
                         </Tag>
                         <div className="status"></div>
                     </Flex>
+                    <BookStatusDropdown book_status={"Reading"} set_book_status={function (status: "Reading" | "Completed" | "Want to read"): void {
+                    throw new Error("Function not implemented.");
+                } } />
                 </div>
                 <p>{book.description}</p>
+
             </div>
         </section>
     );

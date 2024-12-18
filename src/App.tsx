@@ -46,7 +46,7 @@ function App() {
                     },
                     components: {
                         Modal: {
-                            contentBg: "var(--pop)",
+                            contentBg: "var(--secondary)",
                         },
                     },
                 }}
