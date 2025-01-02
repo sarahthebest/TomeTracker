@@ -4,7 +4,7 @@ const Logo = () => {
     return (
         <Link
             to={"/"}
-            className="logo_wrapper w-60 h-full rounded-e-full pe-2 flex items-center"
+            className="w-60 h-full rounded-e-full pe-2 flex items-center"
         >
             <img
                 src="src/assets/img/logo.png"
