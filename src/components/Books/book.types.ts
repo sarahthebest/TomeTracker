@@ -11,6 +11,7 @@ export interface Book {
     authors: string[]; 
     categories?: string[]; 
     averageRating?: number; 
+    isbn?:string;
     pageCount?: number; 
     publishedDate?: string; 
     description?: string; 

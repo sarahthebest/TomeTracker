@@ -1,10 +1,10 @@
 import { SetStateAction } from "react";
 
 export enum UserRole {
-    ADMIN = 'admin',
-    USER = 'user',
-    GUEST = 'guest',
-};
+    ADMIN = "admin",
+    USER = "user",
+    GUEST = "guest",
+}
 
 export type Nullable<T> = T | null;
 
@@ -18,28 +18,28 @@ export type ApiResponse<T> = {
 export interface LoginRequest {
     username: string;
     password: string;
-};
+}
 
-export interface  LoginResponse {
+export interface LoginResponse {
     csrfToken: string;
-    error:string;
-};
+    error: string;
+}
 
 export interface BaseProps {
     className?: string;
     style?: React.CSSProperties;
-};
+}
 
 export interface User {
     uuid: string;
     username: string;
     email: string;
-};
+}
 
 export interface ErrorResponse {
     code: number;
     message: string;
-};
+}
 
 export type BookStatus = "Reading" | "Completed" | "Want to read";
 
@@ -50,3 +50,12 @@ export type Position =
     | "fixed"
     | "sticky"
     | "inherit";
+
+export type VolumeInfo = {
+    title: string;
+    authors?: string[];
+    imageLinks?: {
+        smallThumbnail?: string;
+        thumbnail?: string;
+    };
+};

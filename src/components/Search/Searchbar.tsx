@@ -3,8 +3,14 @@ import { useState } from "react";
 import axios from "axios";
 import "./Search.css";
 import { Link } from "react-router-dom";
+import { VolumeInfo } from "../../types/global.types";
 
 const { Search } = Input;
+
+type Book = {
+    volumeInfo: VolumeInfo;
+};
+
 const generateSlug = (bookName: string) => {
     return bookName
         .toLowerCase()
@@ -15,7 +21,7 @@ const generateSlug = (bookName: string) => {
 const Searchbar = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
-    const [searchResults, setSearchResults] = useState([]);
+    const [searchResults, setSearchResults] = useState<Book[]>([]);
     const [error, setError] = useState<string | null>(null);
 
     const toggleModal = (open: boolean) => {

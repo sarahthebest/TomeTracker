@@ -5,6 +5,8 @@ import CookieConsent from "../../components/Cookies/CookieConsent";
 import { Tag, Flex } from "antd";
 import BookStatusDropdown from "../../components/Atoms/Dropdown";
 import { useState } from "react";
+import { IoReturnUpBackOutline } from "react-icons/io5";
+import BookStoreLinks from "./BookStoreLinks";
 
 const BookPage = () => {
     const location = useLocation();
@@ -41,22 +43,30 @@ const BookPage = () => {
     const thumbnailUrl = book?.imageLinks?.thumbnail || "default-thumbnail.png";
 
     return (
-        <section className="page flex flex-col relative min-h-screen ">
+        <section className="page flex flex-col relative min-h-screen">
             <Navbar />
             <Bg />
             <CookieConsent />
             <div className="book_wrapper flex flex-col gap-4 relative z-10 mt-20 w-2/3 mx-auto">
-                <Link to="/shelves">Return</Link>
+                <Link
+                    to="/shelves"
+                    className="flex flex-row place-items-center gap-2"
+                >
+                    <IoReturnUpBackOutline size={20} /> Return
+                </Link>
                 <div className="book_info gap-8 flex ">
-                    <img src={thumbnailUrl} alt="" className="w-fit" />
+                    <img
+                        src={thumbnailUrl}
+                        alt={`Thumbnail for ${book.title}`}
+                        className="w-fit"
+                    />
                     <Flex vertical gap={8}>
                         <h1 className="heading text-4xl">{book.title}</h1>
                         <p>
                             Written by {""}
                             {book.authors?.join(", ") || "Unknown Author"}
                             <br />
-                            Published {book.publishedDate ||
-                                "Unknown Date"}
+                            Published {book.publishedDate || "Unknown Date"}
                             <br />
                             {book.pageCount || "N/A"} pages
                         </p>
@@ -69,16 +79,22 @@ const BookPage = () => {
                         set_book_status={handleStatusChange}
                     />
                 </div>
-                <Flex vertical>
-                    <p>
-                        {collapsedText
-                            ? book.description
-                            : limitCharacters(book.description, 500)}
-                    </p>
-                    <button className="hover:bg-pop/10 py-1 rounded-xl mt-4" onClick={() => setCollapsedText(!collapsedText)}>
-                        {collapsedText ? "Show Less" : "Read More"}
-                    </button>
-                </Flex>
+                {book.description ? (
+                    <Flex vertical>
+                        <p>
+                            {collapsedText
+                                ? book.description
+                                : limitCharacters(book.description, 500)}
+                        </p>
+                        <button
+                            className="hover:bg-pop/10 py-1 rounded-xl mt-4"
+                            onClick={() => setCollapsedText(!collapsedText)}
+                        >
+                            {collapsedText ? "Show Less" : "Read More"}
+                        </button>
+                    </Flex>
+                ) : null}
+                <BookStoreLinks book={book} />
             </div>
         </section>
     );
