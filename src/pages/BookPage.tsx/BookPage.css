@@ -1,0 +1,14 @@
+.anticon, .anticon-right, .ant-collapse-arrow {
+    color: var(--text) !important; 
+}
+.bookSlider{
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+.bookWrapper{
+    width: 300px !important;
+}
+.ant-collapse-header{
+    padding: 0px !important;
+}

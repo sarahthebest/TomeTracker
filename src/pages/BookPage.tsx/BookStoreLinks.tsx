@@ -1,10 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { List, Divider } from "antd";
+import { Flex, Collapse } from "antd";
 import { Book } from "../../components/Books/book.types";
 import akademiLogo from "../../assets/img/akademilogo.svg";
 import bokusLogo from "../../assets/img/bokuslogo.png";
 import adlibrisLogo from "../../assets/img/adlibrislogo.png";
+import { IoStorefront } from "react-icons/io5";
+import "./BookPage.css";
+import { Link } from "react-router-dom";
 
 const sellers = [
     {
@@ -46,43 +48,63 @@ interface Props {
 
 const BookStoreLinks: React.FC<Props> = ({ book }) => {
     return (
-        <>
-            <Divider
-                orientation="left"
-                className="text-text"
-                style={{ color: "#fff" }}
-            >
-                Where to purchase?
-            </Divider>
-            <List
-                bordered
-                dataSource={sellers}
-                renderItem={(seller) => (
-                    <List.Item key={seller.name}>
-                        <Link
-                            to={
-                                typeof seller.url === "function"
-                                    ? seller.url(book)
-                                    : `${seller.url}${encodeURIComponent(
-                                          book.title
-                                      )}`
-                            }
-                            style={{ color: "#fff" }}
-                            className="flex flex-row place-items-center gap-2"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img
-                                src={seller.logo}
-                                className="w-10 h-10 bg-white rounded-full"
-                                alt=""
-                            />
-                            {seller.name}
-                        </Link>
-                    </List.Item>
-                )}
+        <Flex align="center" gap={6} className="my-10">
+            <Collapse
+                className="w-full bg-transparent p-0"
+                bordered={false}
+                items={[
+                    {
+                        key: "1",
+                        label: (
+                            <Flex align="center" gap={6} className="text-text">
+                                <IoStorefront />
+                                Available to buy at{" "}
+                                <span className="bg-accent px-2 rounded-full hover:brightness-125">
+                                    {sellers.length} sellers
+                                </span>
+                            </Flex>
+                        ),
+                        children: (
+                            <ul className="flex flex-col mt-4">
+                                {sellers.map((store) => (
+                                    <li
+                                        key={store.name}
+                                        className="flex border-b p-2 border-white/20 w-2/4 flex-row
+                                     hover:bg-pop/10 text-text justify-between place-items-center"
+                                    >
+                                        <Flex className="place-items-center gap-2">
+                                            <img
+                                                src={store.logo}
+                                                className="w-10 h-10 bg-white rounded-full"
+                                                alt=""
+                                            />
+                                            {store.name}
+                                        </Flex>
+                                        <Link
+                                            className="rounded-full bg-accent px-2 shadow-md hover:brightness-125"
+                                            to={
+                                                typeof store.url === "function"
+                                                    ? store.url(book)
+                                                    : `${
+                                                          store.url
+                                                      }${encodeURIComponent(
+                                                          book.title
+                                                      )}`
+                                            }
+                                            style={{ color: "#fff" }}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            Buy Book
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        ),
+                    },
+                ]}
             />
-        </>
+        </Flex>
     );
 };
 

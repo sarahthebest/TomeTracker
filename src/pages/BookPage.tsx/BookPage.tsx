@@ -7,6 +7,7 @@ import BookStatusDropdown from "../../components/Atoms/Dropdown";
 import { useState } from "react";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import BookStoreLinks from "./BookStoreLinks";
+import MoreBooksByAuthor from "./MoreBooksByAuthor";
 
 const BookPage = () => {
     const location = useLocation();
@@ -64,7 +65,9 @@ const BookPage = () => {
                         <h1 className="heading text-4xl">{book.title}</h1>
                         <p>
                             Written by {""}
-                            {book.authors?.join(", ") || "Unknown Author"}
+                            <span className="text-accent">
+                                {book.authors?.join(", ") || "Unknown Author"}
+                            </span>
                             <br />
                             Published {book.publishedDate || "Unknown Date"}
                             <br />
@@ -87,14 +90,17 @@ const BookPage = () => {
                                 : limitCharacters(book.description, 500)}
                         </p>
                         <button
-                            className="hover:bg-pop/10 py-1 rounded-xl mt-4"
+                            className="hover:bg-pop/10 w-full py-1 rounded-xl mt-4"
                             onClick={() => setCollapsedText(!collapsedText)}
                         >
                             {collapsedText ? "Show Less" : "Read More"}
                         </button>
                     </Flex>
                 ) : null}
-                <BookStoreLinks book={book} />
+                <Flex justify="space-between" vertical>
+                    <BookStoreLinks book={book} />
+                    <MoreBooksByAuthor book={book} />
+                </Flex>
             </div>
         </section>
     );
