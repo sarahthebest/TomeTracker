@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { cookie_consent } from "../../hooks/custom_hooks";
 import Btn from "../Atoms/Btn";
-import "./CookieConsent.css";
 
 const CookieConsent = () => {
     const [consent, set_consent] = useState("");
