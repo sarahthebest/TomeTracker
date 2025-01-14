@@ -5,8 +5,20 @@ export interface ImageLinks {
     thumbnail?: string;
 }
 
+export interface VolumeInfo {
+    title: string;
+    authors: string[];
+    description?: string;
+    publisher?: string;
+    publishedDate?: string;
+    pageCount?: number;
+    categories?: string[];
+    imageLinks?: ImageLinks;
+}
+
 export interface Book {
     id: string; 
+    volumeInfo: VolumeInfo;
     title: string; 
     authors: string[]; 
     categories?: string[]; 
