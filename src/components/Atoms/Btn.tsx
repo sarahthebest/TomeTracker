@@ -9,7 +9,8 @@ const Btn: React.FC<BtnProps> = ({
     backgroundColor,
     position,
     disabled,
-    size
+    size,
+    type
 }) => {
     const buttonStyle: React.CSSProperties = {
         backgroundColor: backgroundColor || "var(--primary)",
@@ -24,6 +25,7 @@ const Btn: React.FC<BtnProps> = ({
             onClick={onClick}
             disabled={disabled}
             className="def_btn text-text"
+            htmlType={type}
         >
             {text}
         </Button>
