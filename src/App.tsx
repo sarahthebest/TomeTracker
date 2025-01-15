@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import UserShelf from "./pages/UserShelf/UserShelf";
 import { ConfigProvider } from "antd";
 import BookPage from "./pages/BookPage.tsx/BookPage";
-import Footer from "./components/Footer/Footer"; 
+import Footer from "./components/Footer/Footer";
 
 const router = createBrowserRouter([
     {
@@ -46,7 +46,7 @@ function App() {
                     },
                     components: {
                         Modal: {
-                            contentBg: "var(--secondary)",
+
                         },
                     },
                 }}

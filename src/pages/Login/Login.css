@@ -11,6 +11,6 @@ input{
     outline: none;
     padding: 8px;
 }
-label{
+.form-label{
     color: white !important;
 }

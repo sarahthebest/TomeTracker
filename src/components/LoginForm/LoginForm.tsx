@@ -20,7 +20,7 @@ const LoginForm: FC<LoginFormProps> = ({
 }) => {
     return (
         <Form layout="vertical" className="login-form w-full flex flex-col">
-            <Form.Item label="Email" required>
+            <Form.Item label="Email" required className="form-label">
                 <Input
                     type="email"
                     value={email}
@@ -28,7 +28,7 @@ const LoginForm: FC<LoginFormProps> = ({
                     placeholder="Enter your email"
                 />
             </Form.Item>
-            <Form.Item label="Password" required>
+            <Form.Item label="Password" required className="form-label"> 
                 <Input.Password
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}

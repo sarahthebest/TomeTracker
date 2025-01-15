@@ -59,7 +59,7 @@ const Searchbar = ({ book }: SearchbarProps) => {
   return (
     <>
       <div onClick={() => toggleModal(true)} className="search-container">
-        <Search className="w-full" placeholder="So much to read!" />
+        <Search allowClear className="w-full" placeholder="So much to read!"/>
       </div>
       <Modal
         open={isModalOpen}

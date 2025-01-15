@@ -3,12 +3,13 @@ import BookShelf from "../../components/Books/Shelves/BookShelf";
 import CookieConsent from "../../components/Cookies/CookieConsent";
 import Navbar from "../../components/Navbar/Navbar";
 import { getBooks } from "../../hooks/custom_hooks";
-import "./UserShelf.css";
 import AddBook from "../../components/AddBook/AddBook";
 import Bg from "../../components/Common/Bg";
+import { getErrorMessage } from "../../utils/globalUtils";
+import { Book } from "../../components/Books/book.types";
 
 const UserShelf = () => {
-    const [books, setBooks] = useState<unknown[]>([]);
+    const [books, setBooks] = useState<Book[]>([]);
 
     useEffect(() => {
         const fetchBooks = async () => {
@@ -16,7 +17,7 @@ const UserShelf = () => {
                 const fetchedBooks = await getBooks();
                 setBooks(fetchedBooks);
             } catch (error) {
-                console.error("Error fetching books:", error);
+                console.error("Error fetching books:", getErrorMessage(error));
             }
         };
 
@@ -24,7 +25,7 @@ const UserShelf = () => {
     }, [books]);
 
     return (
-        <section className="shelvesWrapper flex flex-col relative pb-20">
+        <section className="shelvesWrapper flex flex-col relative pb-20 min-h-screen">
             <Navbar />
             <Bg />
             <div className="shelfHeader flex gap-10 place-items-center mx-auto mt-20 z-30" >

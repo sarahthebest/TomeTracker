@@ -19,7 +19,7 @@ const BookShelf = ({ books }: BookShelfProps) => {
                         key={index}
                         onClick={() => setSelectedShelf(shelf)}
                         className={`tab_button pb-4 p-2 rounded-t-xl text-lg text-white/90 ${
-                            selectedShelf === shelf ? "active" : " bg-gray-400 text-white/50"
+                            selectedShelf === shelf ? "active" : " bg-pop text-gray-900"
                         }`}
                     >
                         {shelf}
