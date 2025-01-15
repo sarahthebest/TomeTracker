@@ -29,17 +29,13 @@ const MoreBooksByAuthor: React.FC<Props> = ({ book }) => {
                 const { data } = await axios.get(endpoint, {
                     params: { author },
                 });
-                console.log(data);
-
                 setBooks(data);
             } catch (error) {
                 const errorMessage = getErrorMessage(error);
                 console.error("Error:", errorMessage);
             }
-        };
-
+        };a
         if (author) {
-            console.log(author);
             fetchBooks();
         }
     }, [author]);
@@ -57,7 +53,7 @@ const MoreBooksByAuthor: React.FC<Props> = ({ book }) => {
                             key={index}
                             to={`/book/${generateSlug(title)}`}
                         >
-                            <Tooltip title={book.volumeInfo.title}>
+                            <Tooltip placement="bottom" color="var(--primary)" title={book.volumeInfo.title}>
                             <img
                                 className="bookThumbnail rounded-md"
                                 src={book.volumeInfo?.imageLinks?.thumbnail}

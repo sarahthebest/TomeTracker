@@ -69,7 +69,7 @@ const BookStoreLinks: React.FC<Props> = ({ book }) => {
                                 {sellers.map((store) => (
                                     <li
                                         key={store.name}
-                                        className="flex border-b p-2 border-white/20 w-2/4 flex-row
+                                        className="flex  border-b p-2 border-white/20 w-2/4 flex-row
                                      hover:bg-pop/10 text-text justify-between place-items-center"
                                     >
                                         <Flex className="place-items-center gap-2">

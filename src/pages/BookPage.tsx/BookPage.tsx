@@ -3,19 +3,16 @@ import Navbar from "../../components/Navbar/Navbar";
 import Bg from "../../components/Common/Bg";
 import CookieConsent from "../../components/Cookies/CookieConsent";
 import { Tag, Flex } from "antd";
-import BookStatusDropdown from "../../components/Atoms/Dropdown";
 import { useState } from "react";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import BookStoreLinks from "./BookStoreLinks";
 import MoreBooksByAuthor from "./MoreBooksByAuthor";
+import AddToShelf from "../../components/Books/Shelves/AddToShelf";
 
 const BookPage = () => {
     const location = useLocation();
     const book = location.state?.book;
     const [collapsedText, setCollapsedText] = useState(false);
-    const [bookStatus, setBookStatus] = useState<
-        "Reading" | "Completed" | "Want to read"
-    >("Reading");
 
     if (!book) {
         return (
@@ -35,12 +32,6 @@ const BookPage = () => {
         return str.length > limit ? `${str.slice(0, limit)}...` : str;
     };
 
-    const handleStatusChange = (
-        status: "Reading" | "Completed" | "Want to read"
-    ) => {
-        setBookStatus(status);
-    };
-
     const thumbnailUrl = book?.imageLinks?.thumbnail || "default-thumbnail.png";
 
     return (
@@ -55,32 +46,33 @@ const BookPage = () => {
                 >
                     <IoReturnUpBackOutline size={20} /> Return
                 </Link>
-                <div className="book_info gap-8 flex ">
-                    <img
-                        src={thumbnailUrl}
-                        alt={`Thumbnail for ${book.title}`}
-                        className="w-fit"
-                    />
-                    <Flex vertical gap={8}>
-                        <h1 className="heading text-4xl">{book.title}</h1>
-                        <p>
-                            Written by {""}
-                            <span className="text-accent">
-                                {book.authors?.join(", ") || "Unknown Author"}
-                            </span>
-                            <br />
-                            Published {book.publishedDate || "Unknown Date"}
-                            <br />
-                            {book.pageCount || "N/A"} pages
-                        </p>
-                        <Tag color="magenta" className="w-fit">
-                            {book.categories?.join(", ") || "Uncategorized"}
-                        </Tag>
+                <div className="book_info flex justify-between">
+                    <Flex className="gap-8">
+                        <img
+                            src={thumbnailUrl}
+                            alt={`Thumbnail for ${book.title}`}
+                            className="w-fit"
+                        />
+                        <Flex vertical gap={8}>
+                            <h1 className="heading text-4xl">{book.title}</h1>
+                            <p>
+                                Written by {""}
+                                <span className="text-accent">
+                                    {book.authors?.join(", ") ||
+                                        "Unknown Author"}
+                                </span>
+                                <br />
+                                Published {book.publishedDate || "Unknown Date"}
+                                <br />
+                                {book.pageCount || "N/A"} pages
+                            </p>
+                            <Tag color="magenta" className="w-fit">
+                                {book.categories?.join(", ") || "Uncategorized"}
+                            </Tag>
+                        </Flex>
                     </Flex>
-                    <BookStatusDropdown
-                        book_status={bookStatus}
-                        set_book_status={handleStatusChange}
-                    />
+
+                    <AddToShelf book={book} />
                 </div>
                 {book.description ? (
                     <Flex vertical>
