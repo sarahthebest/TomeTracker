@@ -1,6 +1,6 @@
 import Home from "./pages/Home/Home";
-import Login_Page from "./pages/Login/Login";
-import Register_Page from "./pages/Register/Register";
+import Login_Page from "./pages/UserHandler/Login";
+import Register_Page from "./pages/UserHandler/Register";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import UserShelf from "./pages/UserShelf/UserShelf";
 import { ConfigProvider } from "antd";

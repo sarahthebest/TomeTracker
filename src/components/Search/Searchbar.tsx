@@ -1,10 +1,11 @@
 import { Input, Modal } from "antd";
-import { Book } from "../Books/book.types";
 import { useState } from "react";
 import axios from "axios";
 import "./Search.css";
 import { Link } from "react-router-dom";
 import { VolumeInfo } from "../../types/global.types";
+import Btn from "../Atoms/Btn";
+import { IoIosSearch } from "react-icons/io";
 
 const { Search } = Input;
 
@@ -16,15 +17,11 @@ const generateSlug = (bookName: string) => {
     .replace(/[^a-z0-9-]/g, "");
 };
 
-interface SearchbarProps {
-  book: Book;
-}
-
 interface SearchResult {
   volumeInfo: VolumeInfo;
 }
 
-const Searchbar = ({ book }: SearchbarProps) => {
+const Searchbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
@@ -59,7 +56,11 @@ const Searchbar = ({ book }: SearchbarProps) => {
   return (
     <>
       <div onClick={() => toggleModal(true)} className="search-container">
-        <Search allowClear className="w-full" placeholder="So much to read!"/>
+      <Btn
+                        text="Search"
+                        backgroundColor="var(--primary)"
+                        icon={<IoIosSearch />}
+                    />
       </div>
       <Modal
         open={isModalOpen}

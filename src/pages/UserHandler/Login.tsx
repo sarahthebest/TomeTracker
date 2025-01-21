@@ -1,11 +1,11 @@
 import { useState } from "react";
-import "./Login.css";
 import Btn from "../../components/Atoms/Btn";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Link } from "react-router-dom";
 import { Flex } from "antd";
 import Background from "../../components/Atoms/Background";
-import LoginForm from "../../components/LoginForm/LoginForm";
+import LoginForm from "../../components/UserHandler/LoginForm";
+import "./Login.css";
 
 const Login = () => {
     const [email, setEmail] = useState("");

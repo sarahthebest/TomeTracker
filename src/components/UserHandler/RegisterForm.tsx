@@ -1,11 +1,9 @@
 import { FC } from "react";
-import { Form, Input, Typography } from "antd";
+import { Form, Input } from "antd";
 import { useAuthStore } from "../../stores/authStore"; 
 
-const { Text } = Typography;
-
 const RegisterForm: FC = () => {
-    const { email, setEmail, password, setPassword, username, setUsername, error } =
+    const { email, setEmail, password, setPassword, username, setUsername } =
         useAuthStore();
 
     return (
@@ -37,7 +35,6 @@ const RegisterForm: FC = () => {
                     placeholder="Enter your password"
                 />
             </Form.Item>
-            {error && <Text type="danger">{error}</Text>}
         </Form>
     );
 };

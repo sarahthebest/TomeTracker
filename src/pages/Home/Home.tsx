@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import TomeTrackerBox from "../../components/StartPage/TomeTrackerBox";
 import FeaturesList from "../../components/Header/FeatureBox/FeatureBox";
 import Genres from "../../components/StartPage/Genres";
+import { Flex } from "antd";
 
 const Home = () => {
     return (
@@ -14,11 +15,11 @@ const Home = () => {
                 <Header />
             </div>
             {/* Main Content */}
-            <div className="page_content flex flex-col gap-16 px-4">
+            <Flex className="page_content flex flex-col gap-16 px-4 ">
                 <FeaturesList />
                 <TomeTrackerBox />
                 <Genres />
-            </div>
+            </Flex>
             <CookieConsent />
         </div>
     );

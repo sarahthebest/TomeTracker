@@ -1,7 +1,6 @@
 import { FC } from "react";
-import { Form, Input, Typography } from "antd";
+import { Form, Input } from "antd";
 
-const { Text } = Typography;
 
 interface LoginFormProps {
     email: string;
@@ -16,7 +15,6 @@ const LoginForm: FC<LoginFormProps> = ({
     setEmail,
     password,
     setPassword,
-    error,
 }) => {
     return (
         <Form layout="vertical" className="login-form w-full flex flex-col">
@@ -35,7 +33,6 @@ const LoginForm: FC<LoginFormProps> = ({
                     placeholder="Enter your password"
                 />
             </Form.Item>
-            {error && <Text type="danger">{error}</Text>}
         </Form>
     );
 };

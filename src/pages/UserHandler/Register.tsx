@@ -1,31 +1,45 @@
 import { Flex } from "antd";
 import { Link } from "react-router-dom";
-import { useAuthStore } from "../../stores/authStore"; 
+import { useAuthStore } from "../../stores/authStore";
 import { getErrorMessage } from "../../utils/globalUtils";
 import axios from "axios";
-import RegisterForm from "../../components/RegisterForm/RegisterForm";
+import RegisterForm from "../../components/UserHandler/RegisterForm";
 import Btn from "../../components/Atoms/Btn";
 import Background from "../../components/Atoms/Background";
 
 const RegisterPage = () => {
-    const { email, password, username, setError, reset } = useAuthStore();
+    const { email, password, username, success, error, setError, setSuccess, reset } = useAuthStore();
+
 
     const handleRegister = async () => {
         try {
-            console.log("Attempting to register with:", { email, password, username });
+            console.log("Attempting to register with:", {
+                email,
+                password,
+                username,
+            });
             const newUserData = { username, password, email };
-            await axios.post("http://localhost:5000/api/auth/register", newUserData);
-            alert("Registration successful!");
-            reset(); 
+            await axios.post(
+                "http://localhost:5000/api/auth/register",
+                newUserData
+            );
+            setSuccess("Registration success!")
+            reset();
         } catch (err) {
             setError(getErrorMessage(err));
         }
     };
 
     return (
-        <Flex className="register_wrapper min-h-screen" justify="center" vertical>
+        <Flex
+            className="register_wrapper min-h-screen"
+            justify="center"
+            vertical
+        >
             <div className="form_wrapper relative rounded h-fit p-4 m-auto flex flex-col justify-between">
                 <RegisterForm />
+                {error && <div className="error text-red-400 mx-auto">{error}</div>}
+                {success && <div className="success text-green-400 w-fit mx-auto">{success}</div>}
                 <Btn
                     onClick={handleRegister}
                     backgroundColor="var(--secondary)"
