@@ -34,14 +34,14 @@ const MoreBooksByAuthor: React.FC<Props> = ({ book }) => {
                 const errorMessage = getErrorMessage(error);
                 console.error("Error:", errorMessage);
             }
-        };a
+        };
         if (author) {
             fetchBooks();
         }
     }, [author]);
 
     return (
-        <Flex align="" gap={6} vertical>
+        <Flex gap={6} vertical>
             <h2>
                 More books by <span className="text-accent">{author}</span>
             </h2>
