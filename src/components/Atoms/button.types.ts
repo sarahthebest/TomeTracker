@@ -5,7 +5,7 @@ export type BtnProps = {
     icon?: ReactNode;
     size?:"large" | "small";
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void; 
-    text: string;
+    text?: string;
     backgroundColor?: string;
     disabled?: boolean;
     type?:"submit" | "reset" | "button";
