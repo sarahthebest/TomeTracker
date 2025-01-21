@@ -6,6 +6,7 @@ import UserShelf from "./pages/UserShelf/UserShelf";
 import { ConfigProvider } from "antd";
 import BookPage from "./pages/BookPage.tsx/BookPage";
 import Footer from "./components/Footer/Footer";
+import Library from "./pages/Library/Library";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
     {
         path: "/book/:bookname",
         element: <BookPage />,
+    },
+    {
+        path: "/library",
+        element: <Library />,
     },
 ]);
 

@@ -4,13 +4,30 @@ import Btn from "../Atoms/Btn";
 import Logo from "../Logo/Logo";
 import "./Navbar.css";
 import Searchbar from "../Search/Searchbar";
+import { CiLogin } from "react-icons/ci";
 
 const Navbar = () => {
     const navigate = useNavigate();
     const handleNavigate = (path: string) => {
         navigate(path);
     };
-
+    const navLinks = [
+        {
+            name: "Shelves",
+            icon: <GiBookshelf />,
+            link: "/shelves",
+        },
+        {
+            name: "Browse",
+            icon: <GiSpellBook />,
+            link: "/library",
+        },
+        {
+            name: "Login",
+            icon: <CiLogin />,
+            link: "/login",
+        },
+    ];
     return (
         <div
             className="nav w-full flex border-b border-border/20 flex-row place-items-center
@@ -19,23 +36,15 @@ const Navbar = () => {
             <Logo />
             <div className="user_handler flex flex-row gap-4 h-10 my-auto z-10 me-0 place-items-center pe-10">
                 <Searchbar />
-                <Btn
-                    onClick={() => handleNavigate("/shelves")}
-                    text="Shelves"
-                    backgroundColor="var(--primary)"
-                    icon={<GiBookshelf />}
-                />
-                <Btn
-                    onClick={() => handleNavigate("/library")}
-                    text="Browse"
-                    backgroundColor="var(--primary)"
-                    icon={<GiSpellBook />}
-                ></Btn>
-                <Btn
-                    onClick={() => handleNavigate("/login")}
-                    text="Login"
-                    backgroundColor="var(--primary)"
-                />
+                {navLinks.map((link, index) => (
+                    <Btn
+                        key={index}
+                        onClick={() => handleNavigate(link.link)}
+                        text={link.name}
+                        backgroundColor="var(--primary)"
+                        icon={link.icon}
+                    />
+                ))}
             </div>
         </div>
     );
