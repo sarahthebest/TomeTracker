@@ -17,9 +17,9 @@ const Background = () => {
     }, []);
 
     return (
-        <Flex className="absolute h-full min-h-screen top-0 w-full">
+        <Flex className="absolute flex h-full min-h-screen top-0 w-full">
             <div className="text w-1/2 flex flex-col justify-center h-full">
-                <div className="excerpt w-3/5 ml-20 flex flex-col gap-4">
+                <div className="excerpt w-3/5 ml-20 flex-col gap-4 hidden md:flex">
                     <h2>{snippet ? `"${snippet}"` : "Loading excerpt..."}</h2>
                     <p className="text-accent">
                         - {author}, <em>{bookTitle}</em>
