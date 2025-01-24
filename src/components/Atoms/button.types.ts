@@ -12,4 +12,5 @@ export type BtnProps = {
     position?:Position;
     ariaLabel?: string;
     children?: React.ReactNode;
+    className?: string;
 };

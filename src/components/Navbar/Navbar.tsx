@@ -1,17 +1,34 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { GiBookshelf, GiSpellBook } from "react-icons/gi";
 import Btn from "../Atoms/Btn";
 import Logo from "../Logo/Logo";
 import "./Navbar.css";
 import Searchbar from "../Search/Searchbar";
-import { CiLogin } from "react-icons/ci";
+import { CiLogin, CiLogout } from "react-icons/ci";
+import { useAuth } from "../Auth/AuthProvider";
+
+type NavLink = {
+    name: string;
+    icon: React.ReactNode;
+    link?: string; 
+    action?: () => void;
+};
 
 const Navbar = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const handleNavigate = (path: string) => {
         navigate(path);
     };
-    const navLinks = [
+    const { isAuthenticated, logout } = useAuth();
+    const isActive = (path: string) => location.pathname === path;
+
+    const handleLogout = () => {
+        logout();
+        navigate("/");
+    };
+
+    const navLinks: NavLink[] = [
         {
             name: "Shelves",
             icon: <GiBookshelf />,
@@ -22,12 +39,22 @@ const Navbar = () => {
             icon: <GiSpellBook />,
             link: "/library",
         },
-        {
+    ];
+
+    if (isAuthenticated) {
+        navLinks.push({
+            name: "Logout",
+            icon: <CiLogout />,
+            action: handleLogout,
+        });
+    } else {
+        navLinks.push({
             name: "Login",
             icon: <CiLogin />,
             link: "/login",
-        },
-    ];
+        });
+    }
+
     return (
         <div
             className="nav w-full flex border-b border-border/20 flex-row place-items-center
@@ -39,10 +66,14 @@ const Navbar = () => {
                 {navLinks.map((link, index) => (
                     <Btn
                         key={index}
-                        onClick={() => handleNavigate(link.link)}
+                        className={isActive("/shelves") ? "active-link" : ""}
                         text={link.name}
-                        backgroundColor="var(--primary)"
                         icon={link.icon}
+                        onClick={() =>
+                            link.action
+                                ? link.action()
+                                : link.link ? handleNavigate(link.link) : null
+                        }
                     />
                 ))}
             </div>

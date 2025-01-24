@@ -38,8 +38,8 @@ const RegisterPage = () => {
         >
             <div className="form_wrapper relative rounded h-fit p-4 m-auto flex flex-col justify-between">
                 <RegisterForm />
-                {error && <div className="error text-red-400 mx-auto">{error}</div>}
-                {success && <div className="success text-green-400 w-fit mx-auto">{success}</div>}
+                {error && <div className="error text-red-400 mx-auto text-center py-4">{error}</div>}
+                {success && <div className="success text-green-400 text-center w-fit mx-auto py-4">{success}</div>}
                 <Btn
                     onClick={handleRegister}
                     backgroundColor="var(--secondary)"
