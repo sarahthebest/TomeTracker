@@ -7,6 +7,8 @@ import { ConfigProvider } from "antd";
 import BookPage from "./pages/BookPage.tsx/BookPage";
 import Footer from "./components/Footer/Footer";
 import Library from "./pages/Library/Library";
+import { AuthProvider } from "./components/Auth/AuthProvider";
+import { ProtectedRoute } from "./components/Auth/ProtectedRoute";
 
 const router = createBrowserRouter([
     {
@@ -23,7 +25,11 @@ const router = createBrowserRouter([
     },
     {
         path: "/shelves",
-        element: <UserShelf />,
+        element: (
+            <ProtectedRoute>
+                <UserShelf />
+            </ProtectedRoute>
+        ),
     },
     {
         path: "/book/:bookname",
@@ -50,18 +56,18 @@ function App() {
                         colorBgContainer: "var(--input)",
                     },
                     components: {
-                        Modal: {
-
-                        },
+                        Modal: {},
                     },
                 }}
             >
-                <div className="app-container">
-                    <main className="content min-h-screen">
-                        <RouterProvider router={router} />
-                    </main>
-                    <Footer />
-                </div>
+                <AuthProvider>
+                    <div className="app-container">
+                        <main className="content min-h-screen">
+                            <RouterProvider router={router} />
+                        </main>
+                        <Footer />
+                    </div>
+                </AuthProvider>
             </ConfigProvider>
         </>
     );
