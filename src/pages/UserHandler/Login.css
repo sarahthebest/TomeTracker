@@ -3,7 +3,6 @@
 }
 .form_wrapper{
     background-color: var(--primary);
-    height: 24em;
     width: 340px;
     z-index: 1;
 }
@@ -15,5 +14,8 @@ input{
     color: white !important;
 }
 .ant-form-item-required{
+    color: white !important;
+}
+.ant-checkbox{
     color: white !important;
 }
