@@ -7,7 +7,7 @@ const Genres = () => {
             </h2>
             <div className="genreBoxes flex gap-4">
                 {genres.map((genre, index) => (
-                    <div className="genre bg-secondary p-4 rounded" key={index}>
+                    <div className="genre bg-secondary p-4 rounded border h-60 w-60" key={index}>
                         <h3>{genre}</h3>
                     </div>
                 ))}

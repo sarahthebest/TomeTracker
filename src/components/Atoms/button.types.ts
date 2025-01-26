@@ -13,4 +13,5 @@ export type BtnProps = {
     ariaLabel?: string;
     children?: React.ReactNode;
     className?: string;
+    hideText?:boolean;
 };

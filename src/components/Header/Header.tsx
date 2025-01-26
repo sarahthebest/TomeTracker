@@ -14,13 +14,17 @@ const Header = () => {
         <>
             <div className="header px-4 flex flex-col gap-4 mb-4 relative w-full pt-10 md:pt-28 bg-gradient-to-b  from-primary">
                 <Flex
-                    className="headerContent gap-0 md:gap-36 flex flex-col text-center md:text-left align-center  
+                    className="headerContent gap-0 md:gap-10 flex-col text-center md:text-left 
                 md:flex-row w-full relative align-center"
                 >
                     <img
-                        src="src/assets/img/group.png"
-                        alt=""
-                        className="w-96 md:w-1/3 mx-auto md:mx-0"
+                        src="src/assets/img/headerImgMD.png"
+                        alt="Some of the books at TomeTracker"
+                        className="md:w-96 lg:w-auto mx-auto md:mx-0"
+                        srcSet="
+                                src/assets/img/headerImgMD.png 768w, 
+                                src/assets/img/headerImgLG.png 1280w"
+                        sizes="(max-width: 768px) 100vw, 1280px"
                     />
 
                     <div className="content w-fit max-w-min align-center mx-auto md:mx-0">
