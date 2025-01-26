@@ -1,5 +1,5 @@
 import { Dropdown as AntDropdown, Space, MenuProps } from "antd";
-import { DownOutlined } from "@ant-design/icons";
+import { IoChevronDownOutline } from "react-icons/io5";
 
 interface DropdownProps {
     book_status: "Reading" | "Completed" | "Want to read";
@@ -46,9 +46,9 @@ const BookStatusDropdown = ({
             className="w-fit"
         >
             <a className="h-fit" onClick={(e) => e.preventDefault()}>
-                <Space className="bg-primary w-fit h-fit px-2 py-1 rounded-full flex items-center text-text">
+                <Space className="bg-primary w-fit h-fit px-4 py-1 rounded-full flex items-center text-text">
                     {book_status}
-                    <DownOutlined />
+                    <IoChevronDownOutline size={16} className=""/>
                 </Space>
             </a>
         </AntDropdown>

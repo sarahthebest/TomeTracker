@@ -28,7 +28,7 @@ const UserShelf = () => {
         <section className="shelvesWrapper flex flex-col relative pb-20 min-h-screen">
             <Navbar />
             <Bg />
-            <div className="shelfHeader flex gap-10 place-items-center mx-auto mt-20 z-30" >
+            <div className="shelfHeader flex gap-10 place-items-center mx-auto mt-20 z-30">
             <h2 className="text-2xl heading">Your Books</h2>
             <AddBook />
             </div>

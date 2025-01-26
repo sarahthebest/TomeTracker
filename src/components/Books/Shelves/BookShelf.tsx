@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Book } from "../book.types";
 import BookList from "../BookList/BookList";
 import "./BookShelf.css";
+import { Space } from "antd";
 
 type BookShelfProps = {
     books: Book[];
@@ -12,21 +13,23 @@ const BookShelf = ({ books }: BookShelfProps) => {
     const [selectedShelf, setSelectedShelf] = useState<string>(shelves[0]);
 
     return (
-        <div className="shelf_wrapper h-full w-2/3 mx-auto mt-16 z-10 flex flex-col mb-2">
-            <div className="shelf_tabs flex ms-4 rounded-t-xl">
+        <div className="shelf_wrapper h-full md:w-2/3 mx-auto mt-10 z-10 flex flex-col mb-2">
+            <Space className="shelf_tabs flex mb-10 mx-auto md:mx-0 gap-4">
                 {shelves.map((shelf, index) => (
                     <button
                         key={index}
                         onClick={() => setSelectedShelf(shelf)}
-                        className={`tab_button pb-4 p-2 rounded-t-xl text-lg text-white/90 ${
-                            selectedShelf === shelf ? "active" : " bg-pop text-gray-900"
+                        className={`tab_button shadow-lg bg-bg px-4 py-2 rounded-full text-white/90 transition duration-300 ease-in-out transform ${
+                            selectedShelf === shelf
+                                ? "active"
+                                : ""
                         }`}
                     >
                         {shelf}
                     </button>
                 ))}
-            </div>
-            <div className="shelf_content w-full ms-4 pb-4 pe-4 rounded-r rounded-b">
+            </Space>
+            <div className="shelf_content w-full">
                 <BookList
                     books={books.filter(
                         (book) => book.status === selectedShelf

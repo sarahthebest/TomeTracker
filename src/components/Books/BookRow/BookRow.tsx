@@ -37,7 +37,7 @@ const BookRow = ({ book }: BookRowProps) => {
                         <h3 className="text-2xl font-serif">{book.title}</h3>
                         <p>{book.authors}</p>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="md:flex gap-2 hidden">
                         {[
                             year,
                             `${book.pageCount} pages`,
@@ -45,7 +45,7 @@ const BookRow = ({ book }: BookRowProps) => {
                                 "No Ratings"
                             ) : (
                                 <div className="flex gap-1 items-center">
-                                    {book.averageRating} {" "}
+                                    {book.averageRating}{" "}
                                     <FaStar color="#facc15" />
                                 </div>
                             ),

@@ -1,16 +1,13 @@
 .shelf_content{
     height: fit-content;
-    width: 98%;
     overflow:hidden;
-    background-color: var(--primary);
 }
 .shelf_label{
     width: 10em;
 }
 .active{
     background-color: var(--primary);
-    height: 2em;
-    align-content: center;
+    border: 1px white solid;
 }
 .shelf_tabs{
     height: 3.6em;
