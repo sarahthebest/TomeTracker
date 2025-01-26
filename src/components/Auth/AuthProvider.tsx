@@ -9,15 +9,15 @@ import React, {
 import { getErrorMessage } from "../../utils/globalUtils";
 
 interface AuthContextType {
-    isAuthenticated: boolean;
-    setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
+    isLoggedIn: boolean;
+    SetisLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
     logout: () => void;
     checkAuthStatus: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType>({
-    isAuthenticated: false,
-    setIsAuthenticated: () => {},
+    isLoggedIn: false,
+    SetisLoggedIn: () => {},
     logout: () => {},
     checkAuthStatus: async () => {},
 });
@@ -25,11 +25,13 @@ const AuthContext = createContext<AuthContextType>({
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     children,
 }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isLoggedIn, SetisLoggedIn] = useState(false);
+
+    console.log()
 
     const logout = () => {
         document.cookie = "accessToken=; Max-Age=0; path=/;";
-        setIsAuthenticated(false);
+        SetisLoggedIn(false);
     };
 
     const checkAuthStatus = async () => {
@@ -43,16 +45,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
             );
             console.log("Auth verification response:", res.data);
             if (res.data.user) {
-                setIsAuthenticated(true);
+                SetisLoggedIn(true);
             } else {
-                setIsAuthenticated(false);
+                SetisLoggedIn(false);
             }
         } catch (error) {
             console.error(
                 "Error checking auth status:",
                 getErrorMessage(error)
             );
-            setIsAuthenticated(false);
+            SetisLoggedIn(false);
         }
     };
 
@@ -88,12 +90,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
     const value = useMemo(
         () => ({
-            isAuthenticated,
-            setIsAuthenticated,
+            isLoggedIn,
+            SetisLoggedIn,
             logout,
             checkAuthStatus,
         }),
-        [isAuthenticated]
+        [isLoggedIn]
     );
 
     return (

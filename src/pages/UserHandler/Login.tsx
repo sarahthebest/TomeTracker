@@ -16,27 +16,27 @@ const Login = () => {
     const [error, setError] = useState<string>("");
     const [success, setSuccess] = useState<string>("");
     const [captchaVal, setCaptchaVal] = useState<string>("");
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const { checkAuthStatus } = useAuth();
 
     const handleLogin = async (email: string, password: string) => {
         try {
-            const userLoginCredentials = { email, password};
-            const response = await axios.post("http://localhost:5000/api/auth/login", userLoginCredentials, { withCredentials: true });
-            const { accessToken } = response.data; 
-            if (accessToken) {
-                localStorage.setItem("accessToken", accessToken);
-            }
-            localStorage.setItem("accessToken", accessToken);
+            const userLoginCredentials = { email, password };
+            await axios.post(
+                "http://localhost:5000/api/auth/login",
+                userLoginCredentials,
+                { withCredentials: true }
+            );
             setSuccess("Login successful, redirecting to start page!");
-            await checkAuthStatus(); 
+            await checkAuthStatus();
             setTimeout(() => {
                 navigate("/");
             }, 2000);
         } catch (error) {
-            setError(getErrorMessage(error)); 
+            setError(getErrorMessage(error));
         }
     };
+
     const handleCaptchaChange = (value: string | null) => {
         setCaptchaVal(value || "");
     };
@@ -58,8 +58,16 @@ const Login = () => {
                         onChange={handleCaptchaChange}
                     />
                 </div>
-                {error && <div className="text-red-400 mx-auto text-center py-4"> {error} </div>}
-                {success && <div className="text-green-400 mx-auto text-center py-4"> {success} </div>}
+                {error && (
+                    <div className="text-red-400 mx-auto text-center py-4">
+                        {error}{" "}
+                    </div>
+                )}
+                {success && (
+                    <div className="text-green-400 mx-auto text-center py-4">
+                        {success}{" "}
+                    </div>
+                )}
                 <Btn
                     onClick={() => handleLogin(email, password)}
                     backgroundColor="var(--secondary)"
@@ -73,7 +81,7 @@ const Login = () => {
             >
                 Don't have a account? Go to register :3
             </Link>
-            <Background/>
+            <Background />
         </Flex>
     );
 };

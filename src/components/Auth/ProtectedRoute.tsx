@@ -2,7 +2,7 @@ import { useAuth } from "./AuthProvider";
 import { Navigate } from "react-router-dom";
 
 export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-    const { isAuthenticated } = useAuth();
+    const { isLoggedIn } = useAuth();
 
-    return isAuthenticated ? <>{children}</> : <Navigate to="/login" replace />;
+    return isLoggedIn ? <>{children}</> : <Navigate to="/login" replace />;
 };
