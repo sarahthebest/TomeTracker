@@ -9,13 +9,13 @@ import { Flex } from "antd";
 
 const Home = () => {
     return (
-        <div className="home_wrapper flex flex-col min-h-screen pb-20">
+        <div className="home_wrapper flex flex-col min-h-screen pb-20 overflow-hidden">
             <Navbar />
             <div className=" top-0 z-10 flex flex-col">
                 <Header />
             </div>
             {/* Main Content */}
-            <Flex className="page_content mt-10  flex flex-col gap-16 px-4">
+            <Flex className="page_content mt-10  flex flex-col gap-16 px-4 overflow-hidden">
                 <FeaturesList />
                 <TomeTrackerBox />
                 <Genres />

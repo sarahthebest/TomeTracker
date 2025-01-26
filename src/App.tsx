@@ -61,7 +61,7 @@ function App() {
                 }}
             >
                 <AuthProvider>
-                    <div className="app-container">
+                    <div className="app-container overflow-hidden">
                         <main className="content min-h-screen">
                             <RouterProvider router={router} />
                         </main>

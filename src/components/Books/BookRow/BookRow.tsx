@@ -34,7 +34,7 @@ const BookRow = ({ book }: BookRowProps) => {
                 </Link>
                 <div className="bookDetails flex flex-col justify-between">
                     <div className="bookHeader">
-                        <h3 className="text-2xl font-serif">{book.title}</h3>
+                        <h3 className="text-2xl heading">{book.title}</h3>
                         <p>{book.authors}</p>
                     </div>
                     <div className="md:flex gap-2 hidden">

@@ -18,10 +18,6 @@
     color: grey !important;
 }
 
-* {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
 html,
 body,
 #root {
@@ -47,9 +43,24 @@ button {
     src: url("src/assets/fonts/LoficottagefreeRegular-BW4O8.otf")
         format("opentype");
 }
-.heading {
-    font-family: "Cottage";
+@font-face {
+    font-family: "Archivo";
+    src: url("src/assets/fonts/Archivo-Regular.ttf")
+        format("truetype");
 }
-.huge {
-    font-size: 4em;
+@font-face {
+    font-family: "Arsenica";
+    src: url("src/assets/fonts/Archivo-SemiBold.woff2")
+        format("woff2");
+}
+.heading {
+    font-family: "Arsenica";
+    font-weight: lighter;
+}
+.hugeText {
+    font-size: 3.6em;
+}
+
+* {
+    font-family: "Archivo";
 }
