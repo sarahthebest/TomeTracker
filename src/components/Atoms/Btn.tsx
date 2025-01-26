@@ -10,7 +10,8 @@ const Btn: React.FC<BtnProps> = ({
     position,
     disabled,
     size,
-    type
+    type,
+    className
 }) => {
     const buttonStyle: React.CSSProperties = {
         backgroundColor: backgroundColor || "var(--primary)",
@@ -24,7 +25,7 @@ const Btn: React.FC<BtnProps> = ({
             icon={icon}
             onClick={onClick}
             disabled={disabled}
-            className="def_btn text-text"
+            className={`def_btn text-text ${className}`}
             htmlType={type}
         >
             {text}

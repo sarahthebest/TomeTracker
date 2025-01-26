@@ -1,5 +1,5 @@
 .header {
-    height: 300px;
+    height: fit-content;
     display: flex;
     flex-direction: column;
 }
@@ -13,4 +13,3 @@
 .content {
     align-content: center;
 }
-

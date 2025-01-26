@@ -9,20 +9,20 @@ const TomeTrackerBox = () => {
     ];
 
     return (
-        <div className="TomeTrackerBox h-72 rounded bg-gradient-to-b from-secondary w-2/3 mx-auto relative flex justify-between items-start">
+        <div className="TomeTrackerBox h-72 rounded bg-gradient-to-b from-secondary md:w-2/3 mx-auto relative flex justify-between items-start">
             <img
                 src="src/assets/img/tomes.png"
                 alt=""
-                className="w-1/3 absolute -top-10"
+                className="w-40 md:w-1/3 absolute -top-10"
             />
             <img
-                    src="src/assets/img/footer.png"
-                    className="object-contain top-0 right-4 h-32 absolute"
-                    alt=""
-                />
-            <div className="CTA ml-auto mr-20 text-left p-10 relative">
+                src="src/assets/img/footer.png"
+                className="object-contain hidden md:flex top-0 right-4 h-32 absolute"
+                alt=""
+            />
+            <div className="CTA ml-auto md:mr-20 text-left p-10 relative">
                 <Space direction="vertical">
-                    <h1 className="heading text-3xl mb-4 text-pop">
+                    <h1 className="heading text-3xl mb-4 text-pop text-end lg:text-start">
                         TomeTracker
                     </h1>
                     <ul className="flex flex-col gap-4">
@@ -35,7 +35,7 @@ const TomeTrackerBox = () => {
                                     fill="none"
                                     viewBox="0 0 200 200"
                                     version="1.1"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    xmlnsXlink="http://www.w3.org/1999/xlink"
                                     xmlns:svgjs="http://svgjs.dev/svgjs"
                                 >
                                     <path

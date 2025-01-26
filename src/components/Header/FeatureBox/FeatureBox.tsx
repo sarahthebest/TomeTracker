@@ -44,7 +44,7 @@ const FeatureBox = ({ feature, icon }: FeatureBoxProps) => {
 
 const FeaturesList = () => {
     return (
-        <Flex className="featuresList flex sm:flex-col lg:flex-row gap-4 rounded w-2/3 mx-auto">
+        <Flex className="featuresList flex flex-col lg:flex-row gap-4 rounded md:w-2/3 mx-auto">
             {featureData.map((feature: Feature) => (
                 <FeatureBox
                     key={feature.id}

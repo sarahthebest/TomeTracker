@@ -11,11 +11,11 @@ const Home = () => {
     return (
         <div className="home_wrapper flex flex-col min-h-screen pb-20">
             <Navbar />
-            <div className="absolute top-0 z-10 flex flex-col ">
+            <div className=" top-0 z-10 flex flex-col">
                 <Header />
             </div>
             {/* Main Content */}
-            <Flex className="page_content flex flex-col gap-16 px-4 ">
+            <Flex className="page_content mt-10  flex flex-col gap-16 px-4">
                 <FeaturesList />
                 <TomeTrackerBox />
                 <Genres />

@@ -1,7 +1,7 @@
 const Genres = () => {
     const genres = ["Romance", "Fantasy", "Sci-Fi", "Young Adult"];
     return (
-        <div className="genres w-2/3 mx-auto">
+        <div className="genres md:w-2/3 mx-auto">
             <h2 className="mt-4 mb-6">
                 Check out some popular <span className="underline">Genres</span>
             </h2>
