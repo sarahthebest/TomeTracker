@@ -9,6 +9,7 @@
     --input: rgb(232, 232, 232);
     --accent: #a64d79;
     --pop: #f0c1e1;
+    --active: rgb(255, 0, 170);
     --border: rgba(254, 253, 255, 0.495);
     --text: #f1f1f1;
 }

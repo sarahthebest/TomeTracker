@@ -5,3 +5,6 @@
 .logo_wrapper{
     background: var(--primary);
 }
+.active-link{
+    text-decoration: underline;
+}
