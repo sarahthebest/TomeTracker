@@ -37,7 +37,7 @@ const BookRow = ({ book }: BookRowProps) => {
                         <h3 className="text-2xl heading">{book.title}</h3>
                         <p>{book.authors}</p>
                     </div>
-                    <div className="md:flex gap-2 hidden">
+                    <div className="lg:flex gap-2 hidden">
                         {[
                             year,
                             `${book.pageCount} pages`,

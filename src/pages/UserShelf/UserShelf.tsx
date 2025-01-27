@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import BookShelf from "../../components/Books/Shelves/BookShelf";
 import CookieConsent from "../../components/Cookies/CookieConsent";
 import Navbar from "../../components/Navbar/Navbar";
-import { getBooks } from "../../hooks/custom_hooks";
+import { getBooksByUser } from "../../hooks/custom_hooks";
 import AddBook from "../../components/AddBook/AddBook";
 import Bg from "../../components/Common/Bg";
 import { getErrorMessage } from "../../utils/globalUtils";
@@ -14,7 +14,7 @@ const UserShelf = () => {
     useEffect(() => {
         const fetchBooks = async () => {
             try {
-                const fetchedBooks = await getBooks();
+                const fetchedBooks = await getBooksByUser();
                 setBooks(fetchedBooks);
             } catch (error) {
                 console.error("Error fetching books:", getErrorMessage(error));

@@ -46,14 +46,14 @@ const BookPage = () => {
                 >
                     <IoReturnUpBackOutline size={20} /> Return
                 </Link>
-                <div className="book_info flex justify-between">
-                    <Flex className="gap-8">
+                <div className="book_info flex flex-col md:flex-row justify-between place-items-center md:place-items-start">
+                    <Flex className="md:gap-8 gap-2 mb-4 md:mb-0 flex-col md:flex-row place-items-center">
                         <img
                             src={thumbnailUrl}
                             alt={`Thumbnail for ${book.title}`}
                             className="w-fit"
                         />
-                        <Flex vertical gap={8}>
+                        <Flex vertical gap={8} className="text-center md:text-start">
                             <h1 className="heading text-4xl">{book.title}</h1>
                             <p>
                                 Written by {""}
@@ -66,12 +66,11 @@ const BookPage = () => {
                                 <br />
                                 {book.pageCount || "N/A"} pages
                             </p>
-                            <Tag color="magenta" className="w-fit">
+                            <Tag color="magenta" className="w-fit mx-auto md:mx-0">
                                 {book.categories?.join(", ") || "Uncategorized"}
                             </Tag>
                         </Flex>
                     </Flex>
-
                     <AddToShelf book={book} />
                 </div>
                 {book.description ? (

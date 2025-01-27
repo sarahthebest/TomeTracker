@@ -12,3 +12,6 @@
 .ant-collapse-header{
     padding: 0px !important;
 }
+.bookThumbnail:hover{
+ outline:2px solid orange ;
+}
