@@ -15,6 +15,7 @@ export default {
         pop: '#F0C1E1',
         border: 'rgba(254, 253, 255, 0.495)',
         text: '#f1f1f1',
+        active: 'rgb(255, 0, 170)'
       },
     },
   },

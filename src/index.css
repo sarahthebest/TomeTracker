@@ -49,12 +49,12 @@ button {
         format("truetype");
 }
 @font-face {
-    font-family: "Arsenica";
+    font-family: "Archivo Semibold";
     src: url("src/assets/fonts/Archivo-SemiBold.woff2")
         format("woff2");
 }
 .heading {
-    font-family: "Arsenica";
+    font-family: "Archivo Semibold";
     font-weight: lighter;
 }
 .hugeText {
