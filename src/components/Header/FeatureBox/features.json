@@ -19,9 +19,9 @@
     },
     {
       "id": "5",
-      "name": "Personalized",
-      "description": "Receive personalized recommendations and customize your experience.",
-      "icon": "Personalize"
+      "name": "Notes",
+      "description": "Take notes as you read to capture your thoughts, quotes, or ideas.",
+      "icon": "Note"
     }
   ]
   
