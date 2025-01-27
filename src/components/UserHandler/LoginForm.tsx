@@ -45,7 +45,6 @@ const LoginForm: FC<LoginFormProps> = ({
             </Form.Item>
             <Form.Item
                 className="mt-0"
-                name="ShowPassword"
                 valuePropName="checked"
             >
                 <input

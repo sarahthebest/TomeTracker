@@ -12,7 +12,7 @@
     flex-shrink: 0;
 }
 .genre:hover {
-    border: 1px solid var(--accent);
+    outline: 1px solid var(--accent);
 }
 .genreTitle {
     font-size: 1.6em;
@@ -38,11 +38,11 @@
 }
 /* CSS FOR GENREBOX OVER */
 
-.booksBox{
+.booksBox {
     overflow-y: visible !important;
     overflow-x: visible !important;
     height: 240px;
 }
-.booksImg{
+.booksImg {
     margin-top: -36px;
 }

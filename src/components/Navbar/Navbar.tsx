@@ -131,7 +131,7 @@ const Navbar = () => {
             <Drawer
                 title="Menu Links"
                 placement="left"
-                visible={isMenuOpen}
+                open={isMenuOpen}
                 onClose={() => setIsMenuOpen(false)}
                 width={"100%"}
                 footer={<Logo />}

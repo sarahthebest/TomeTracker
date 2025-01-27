@@ -32,10 +32,10 @@ const Genres = () => {
                 Check out some our popular{" "}
                 <span className="underline italic">Genres</span>
             </h2>
-            <div className="genreBoxes md:w-full gap-4 flex-row rounded overflow-x-auto whitespace-nowrap pb-2">
+            <div className="genreBoxes md:w-full p-1 gap-4 flex-row rounded overflow-x-auto whitespace-nowrap pb-2">
                 {genres.map((genre, index) => (
                     <div
-                        className="genre inline p-4 justify-between relative overflow-hidden rounded ease-in-out transition-all duration-200
+                        className="genre inline p-4 justify-between relative overflow-hidden rounded ease-in-out transition-all duration-300
                          bg-gradient-to-t from-bg to-primary align-bottom"
                         key={index}
                     >
