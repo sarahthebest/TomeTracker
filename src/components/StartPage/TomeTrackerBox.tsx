@@ -9,23 +9,23 @@ const TomeTrackerBox = () => {
     ];
 
     return (
-        <div className="TomeTrackerBox h-72 rounded bg-gradient-to-b from-secondary md:w-2/3 mx-auto relative flex justify-between items-start">
+        <div className="TomeTrackerBox h-72 rounded bg-gradient-to-b from-secondary w-full md:w-2/3 mx-auto relative flex justify-between items-start">
             <img
                 src="src/assets/img/tomes.png"
                 alt=""
                 className="w-40 md:w-1/3 absolute -top-10"
             />
             <img
-                src="src/assets/img/footer.png"
+                src="src/assets/img/stars.png"
                 className="object-contain hidden md:flex top-0 right-4 h-32 absolute"
                 alt=""
             />
-            <div className="CTA ml-auto md:mr-20 text-left p-10 relative">
+            <div className="CTA ml-auto md:mr-20 text-left p-8 lg:pe-16 relative">
                 <Space direction="vertical">
-                    <h1 className="heading text-3xl mb-4 text-pop text-end lg:text-start">
+                    <h1 className="heading text-4xl mb-1 text-pop text-end lg:text-start">
                         TomeTracker
                     </h1>
-                    <ul className="flex flex-col gap-4">
+                    <ul className="flex flex-col gap-4 mt-2">
                         {listItems.map((item, index) => (
                             <li key={index} className="flex items-center gap-2">
                                 <svg

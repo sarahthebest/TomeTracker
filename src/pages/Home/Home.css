@@ -1,20 +1,48 @@
 .home_wrapper {
     min-height: 100%;
 }
+
+/* CSS FOR GENREBOX */
 .genreBoxes {
     display: flex;
 }
 .genre {
-    display: flex;
-    flex-direction: column;
     height: 120px;
     width: 250px;
     flex-shrink: 0;
 }
 .genre:hover {
-    /* filter: brightness(110); */
+    border: 1px solid var(--accent);
 }
 .genreTitle {
     font-size: 1.6em;
     font-weight: 100;
+}
+.progBlurLeft {
+    width: 100%;
+    content: "";
+    height: 100%;
+    backdrop-filter: blur(4px);
+    mask-image: linear-gradient(
+        to bottom right,
+        rgb(255, 255, 255) 10%,
+        rgb(255, 255, 255) 24%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        to bottom right,
+        rgb(255, 255, 255) 10%,
+        rgba(0, 0, 0, 1) 24%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+/* CSS FOR GENREBOX OVER */
+
+.booksBox{
+    overflow-y: visible !important;
+    overflow-x: visible !important;
+    height: 240px;
+}
+.booksImg{
+    margin-top: -36px;
 }
