@@ -2,9 +2,42 @@
     height: 4em; margin: 0; padding: 0;
     backdrop-filter: blur(10px);
 }
-.logo_wrapper{
-    background: var(--primary);
-}
 .active-link{
     text-decoration: underline;
+}
+.ant-menu{
+    border: none !important;
+}
+.ant-drawer-content-wrapper{
+    border: none !important;
+}
+.ant-drawer-content{
+    background-color: var(--bg) !important;
+    color: var(--text);
+    border: none !important;
+}
+.ant-drawer-title{
+    font-family: "Archivo";
+    letter-spacing: 0.5em;
+    font-size: 1.8em !important;
+    margin-left: 10px !important;
+}
+.ant-menu-item{
+    color: var(--text) !important;
+    font-size: 1.4em;
+}
+.ant-menu-item:hover{
+    color: var(--text) !important;
+    background-color: var(--primary) !important;
+}
+.ant-drawer-close{
+    color: var(--text) !important;
+}
+.ant-drawer-footer{
+    display: flex;
+    align-items: center;
+    place-content: center;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    border: none !important;
 }

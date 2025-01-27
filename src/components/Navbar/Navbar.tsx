@@ -7,6 +7,8 @@ import Searchbar from "../Search/Searchbar";
 import { CiLogin, CiLogout } from "react-icons/ci";
 import { useAuth } from "../Auth/AuthProvider";
 import { useEffect, useState } from "react";
+import { Drawer, Menu } from "antd";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 type NavLink = {
     name: string;
@@ -21,32 +23,18 @@ const Navbar = () => {
     const handleNavigate = (path: string) => {
         navigate(path);
     };
-    const { isAuthenticated, logout } = useAuth();
+    const { isLoggedIn, logout } = useAuth();
     const [show, setShow] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const isActive = (path: string) => location.pathname === path;
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     const handleLogout = () => {
         logout();
         navigate("/");
+        setIsMenuOpen(false); 
     };
 
-    const controlNavbar = () => {
-        if (window.scrollY > lastScrollY) {
-            setShow(false);
-        } else {
-            setShow(true);
-        }
-        setLastScrollY(window.scrollY);
-    };
-
-    useEffect(() => {
-        window.addEventListener("scroll", controlNavbar);
-
-        return () => {
-            window.removeEventListener("scroll", controlNavbar);
-        };
-    }, [lastScrollY]);
 
     const navLinks: NavLink[] = [
         {
@@ -61,7 +49,7 @@ const Navbar = () => {
         },
     ];
 
-    if (isAuthenticated) {
+    if (isLoggedIn) {
         navLinks.push({
             name: "Logout",
             icon: <CiLogout />,
@@ -75,8 +63,33 @@ const Navbar = () => {
         });
     }
 
+    const menuItems = navLinks.map((link) => ({
+        key: link.link || link.name,
+        icon: link.icon,
+        label: link.name,
+        onClick: link.action
+            ? link.action
+            : () => handleNavigate(link.link || ""),
+    }));
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth); 
+            if (window.innerWidth >= 768) {
+                setIsMenuOpen(false); 
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
     return (
         <div
+        id="navbar"
             className={`transition-all duration-300 ease-in-out nav w-full flex border-b border-border/20 flex-row place-items-center justify-between sticky top-0 py-2 z-50 ${
                 show
                     ? "opacity-100 translate-y-0"
@@ -84,7 +97,7 @@ const Navbar = () => {
             }`}
         >
             <Logo />
-            <div className="user_handler flex flex-row gap-4 h-10 my-auto z-10 me-0 place-items-center pe-10">
+            <div className="user_handler hidden md:flex flex-row gap-4 h-10 my-auto z-10 me-0 place-items-center pe-10">
                 <Searchbar />
                 {navLinks.map((link, index) => (
                     <Btn
@@ -104,6 +117,27 @@ const Navbar = () => {
                     />
                 ))}
             </div>
+            <div className="mobile-menu hidden bg-bg">
+                <Menu mode="inline" items={menuItems} />
+            </div>
+
+            <div
+                className="hamburger md:hidden me-4"
+                onClick={() => setIsMenuOpen(true)}
+            >
+                <RxHamburgerMenu size={28} />
+            </div>
+
+            <Drawer
+                title="Menu Links"
+                placement="left"
+                visible={isMenuOpen}
+                onClose={() => setIsMenuOpen(false)}
+                width={"100%"}
+                footer={<Logo />}
+            >
+                <Menu className="bg-bg text-text" mode="inline" items={menuItems} />
+            </Drawer>
         </div>
     );
 };
