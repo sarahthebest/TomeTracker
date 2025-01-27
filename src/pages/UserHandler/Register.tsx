@@ -1,5 +1,5 @@
 import { Flex } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthStore } from "../../stores/authStore";
 import { getErrorMessage } from "../../utils/globalUtils";
 import axios from "axios";
@@ -8,8 +8,17 @@ import Btn from "../../components/Atoms/Btn";
 import Background from "../../components/Atoms/Background";
 
 const RegisterPage = () => {
-    const { email, password, username, success, error, setError, setSuccess, reset } = useAuthStore();
-
+    const {
+        email,
+        password,
+        username,
+        success,
+        error,
+        setError,
+        setSuccess,
+        reset,
+    } = useAuthStore();
+    const navigate = useNavigate();
 
     const handleRegister = async () => {
         try {
@@ -23,7 +32,10 @@ const RegisterPage = () => {
                 "http://localhost:5000/api/auth/register",
                 newUserData
             );
-            setSuccess("Registration success!")
+            setSuccess("Registration success!");
+            setTimeout(() => {
+                navigate("/login");
+            }, 2000);
             reset();
         } catch (err) {
             setError(getErrorMessage(err));
@@ -38,8 +50,16 @@ const RegisterPage = () => {
         >
             <div className="form_wrapper relative rounded h-fit p-4 m-auto flex flex-col justify-between">
                 <RegisterForm />
-                {error && <div className="error text-red-400 mx-auto text-center py-4">{error}</div>}
-                {success && <div className="success text-green-400 text-center w-fit mx-auto py-4">{success}</div>}
+                {error && (
+                    <div className="error text-red-400 mx-auto text-center py-4">
+                        {error}
+                    </div>
+                )}
+                {success && (
+                    <div className="success text-green-400 text-center w-fit mx-auto py-4">
+                        {success}
+                    </div>
+                )}
                 <Btn
                     onClick={handleRegister}
                     backgroundColor="var(--secondary)"

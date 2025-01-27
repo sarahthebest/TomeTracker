@@ -5,8 +5,28 @@ import { useState } from "react";
 export const getBooks = async () => {
     try {
         const response = await axios.get(
-            "http://localhost:5000/api/books/get_books",
+            "http://localhost:5000/api/books/getBooks",
             {
+                timeout: 10000,
+            }
+        );
+        return response.data;
+    } catch (error) {
+        if (axios.isAxiosError(error)) {
+            console.error("Error fetching books:", getErrorMessage(error));
+        } else {
+            console.error("Unexpected error:", getErrorMessage(error));
+        }
+        throw error;
+    }
+};
+
+export const getBooksByUser = async () => {
+    try {
+        const response = await axios.get(
+            "http://localhost:5000/api/books/getBooksByUser",
+            {
+                withCredentials: true,
                 timeout: 10000,
             }
         );
@@ -53,8 +73,8 @@ export const useAddBook = () => {
                 author,
                 status,
             };
-
             await axios.post("http://localhost:5000/api/books/add", payload, {
+                withCredentials: true,
                 timeout: 10000,
             });
             setSuccess("Book added!");

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Btn from "../Atoms/Btn";
 import AddBookForm from "./AddBookForm";
 import { MdOutlineAdd } from "react-icons/md";
@@ -19,19 +18,13 @@ const AddBook = () => {
         setBookStatus,
         resetForm,
     } = addBookStore();
-    const [success, setSuccess] = useState<string | null>(null);
-
-    const { error, addBook } = useAddBook();
+    const { error, success, addBook } = useAddBook();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         await addBook(book_title, book_author, book_status);
-
-        setSuccess("Book added successfully!");
-
         setTimeout(() => {
-            setSuccess(null);
             resetForm();
             closeDialog();
         }, 1000);

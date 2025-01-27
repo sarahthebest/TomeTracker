@@ -29,4 +29,11 @@ export interface Book {
     description?: string; 
     imageLinks?: ImageLinks; 
     status: BookStatus; 
-}
+
+    
+};
+export const getBookImage = (imageLinks?: ImageLinks) => {
+    const imgNotFound = "src/assets/img/No_Cover.webp"; 
+    
+    return imageLinks?.thumbnail || imgNotFound;
+};
