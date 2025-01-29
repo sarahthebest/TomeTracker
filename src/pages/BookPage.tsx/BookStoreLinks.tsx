@@ -1,12 +1,10 @@
 import React from "react";
 import { Flex, Collapse } from "antd";
 import { Book } from "../../components/Books/book.types";
-import akademiLogo from "../../assets/img/akademilogo.svg";
-import bokusLogo from "../../assets/img/bokuslogo.png";
-import adlibrisLogo from "../../assets/img/adlibrislogo.png";
 import { IoStorefront } from "react-icons/io5";
 import "./BookPage.css";
 import { Link } from "react-router-dom";
+import CloudinaryImage from "../../components/Atoms/CloudinaryImg";
 
 const sellers = [
     {
@@ -18,7 +16,7 @@ const sellers = [
                 .toLowerCase()
                 .replace(/%20/g, "-")}/${book.isbn?.[0]}`,
         usesIsbn: true,
-        logo: akademiLogo,
+        logo: "akademilogo_xbwjaz",
     },
     {
         name: "Bokus",
@@ -29,7 +27,7 @@ const sellers = [
                 .toLowerCase()
                 .replace(/%20/g, "-")}/`,
         usesIsbn: true,
-        logo: bokusLogo,
+        logo: "bokuslogo_pkcnsl",
     },
     {
         name: "Adlibris",
@@ -38,7 +36,7 @@ const sellers = [
                 .toLowerCase()
                 .replace(/%20/g, "-")}-${book.isbn?.[0]}`,
         usesIsbn: true,
-        logo: adlibrisLogo,
+        logo: "adlibrislogo_d0eaqr",
     },
 ];
 
@@ -73,11 +71,11 @@ const BookStoreLinks: React.FC<Props> = ({ book }) => {
                                      hover:bg-pop/10 text-text justify-between place-items-center"
                                     >
                                         <Flex className="place-items-center gap-2">
-                                            <img
-                                                src={store.logo}
-                                                className="w-10 h-10 bg-white rounded-full"
-                                                alt=""
-                                            />
+                                            <CloudinaryImage 
+                                            publicId={store.logo}
+                                            width={12}
+                                            height={12}
+                                            className="bg-white rounded-full"/>
                                             {store.name}
                                         </Flex>
                                         <Link

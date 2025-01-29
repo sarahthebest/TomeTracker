@@ -12,7 +12,7 @@ const Header = () => {
 
     return (
         <>
-            <div className="header px-4 flex flex-col gap-4 mb-4 relative w-full pt-10 md:pt-20 bg-gradient-to-b  from-primary">
+            <div className="header px-4 flex flex-col gap-4 mb-4 relative w-full pt-10 md:pt-20 bg-gradient-to-b  from-primary z-30">
                 <Flex
                     className="headerContent gap-0 lg:gap-10 flex-col text-center lg:text-left 
                 lg:flex-row w-full relative align-center"
