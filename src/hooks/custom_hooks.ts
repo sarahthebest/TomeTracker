@@ -65,7 +65,6 @@ export const useAddBook = () => {
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState<string | null>(null);
 
-
     const addBook = async (title: string, author: string, status: string) => {
         try {
             const payload = {
@@ -78,14 +77,20 @@ export const useAddBook = () => {
                 timeout: 10000,
             });
             setSuccess("Book added!");
-            setError(null); 
+            setTimeout(() => {
+                setSuccess(null);
+            }, 3000);
+            setError(null);
         } catch (error: unknown) {
             console.error("Error adding book:", getErrorMessage(error));
             setError(
                 error instanceof Error
-                    ? error.message
+                    ? getErrorMessage(error)
                     : "An unknown error occurred."
             );
+            setTimeout(() => {
+                setError(null);
+            }, 3000);
         }
     };
 

@@ -1,4 +1,19 @@
-.thumbnail{
-width: 60px;height: 80px;
-margin-right: 20px;
+.thumbnail {
+    width: 60px;
+    height: 80px;
+    margin-right: 20px;
+}
+.ant-input-outlined {
+    height: 100% !important;
+}
+.ant-input-search-button {
+    border: none !important;
+}
+.ant-input-outlined:focus {
+    height: 100% !important;
+    border: var(--accent) 1px solid !important;
+}
+.ant-input-outlined:hover {
+    height: 100% !important;
+    border: var(--accent) 1px solid !important;
 }
