@@ -1,11 +1,15 @@
-import Btn from "../Atoms/Btn";
+import Btn from "../../Atoms/Btn";
 import AddBookForm from "./AddBookForm";
 import { MdOutlineAdd } from "react-icons/md";
-import { addBookStore } from "../../stores/addBookStore";
+import { addBookStore } from "../../../stores/addBookStore";
 import { Modal } from "antd";
-import { useAddBook } from "../../hooks/custom_hooks";
+import { useAddBook } from "../../../hooks/custom_hooks";
 
-const AddBook = () => {
+interface AddBookProps {
+    refreshBooks: () => void;
+}
+
+const AddBook = ({ refreshBooks }: AddBookProps) => {
     const {
         isDialogOpen,
         book_author,
@@ -24,9 +28,9 @@ const AddBook = () => {
         e.preventDefault();
 
         await addBook(book_title, book_author, book_status);
+        refreshBooks(); 
         setTimeout(() => {
             resetForm();
-            closeDialog();
         }, 1000);
     };
 
