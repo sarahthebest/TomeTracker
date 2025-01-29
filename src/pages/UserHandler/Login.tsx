@@ -30,6 +30,9 @@ const Login = () => {
             setSuccess("Login successful, redirecting to start page!");
             await checkAuthStatus();
             setTimeout(() => {
+                setSuccess("");
+            }, 3000);
+            setTimeout(() => {
                 navigate("/");
             }, 2000);
         } catch (error) {

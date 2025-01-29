@@ -41,8 +41,13 @@
 .booksBox {
     overflow-y: visible !important;
     overflow-x: visible !important;
-    height: 240px;
 }
 .booksImg {
     margin-top: -36px;
+}
+.pink {
+    width: 100%;
+    content: "";
+    height: 100%;
+    backdrop-filter: blur(4px);
 }

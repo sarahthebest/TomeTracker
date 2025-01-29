@@ -17,7 +17,7 @@ export interface VolumeInfo {
 }
 
 export interface Book {
-    id: string; 
+    _id: string;
     volumeInfo: VolumeInfo;
     title: string; 
     authors: string[]; 

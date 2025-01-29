@@ -34,6 +34,9 @@ const RegisterPage = () => {
             );
             setSuccess("Registration success!");
             setTimeout(() => {
+                setSuccess("");
+            }, 3000);
+            setTimeout(() => {
                 navigate("/login");
             }, 2000);
             reset();

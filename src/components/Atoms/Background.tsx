@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./Atom.css";
 import { Flex } from "antd";
 import excerptsData from "../../assets/json/excerpts.json";
+import CloudinaryImage from "./CloudinaryImg";
 
 const Background = () => {
     const [snippet, setSnippet] = useState<string | null>(null);
@@ -26,14 +27,12 @@ const Background = () => {
                     </p>
                 </div>
             </div>
-            <div
-                className="background w-1/2"
-                style={{
-                    backgroundImage: `url(src/assets/img/bg1.webp)`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}
-            ></div>
+            <div className="background w-1/2">
+                <CloudinaryImage
+                    publicId="shelfbg-21"
+                    className=" w-full h-full object-cover"
+                />
+            </div>
         </Flex>
     );
 };
