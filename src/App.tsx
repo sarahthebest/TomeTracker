@@ -54,6 +54,7 @@ function App() {
                         colorBorder: "var(--border)",
                         colorPrimaryActive: "var(--accent)",
                         colorBgContainer: "var(--input)",
+                        fontFamily: "Archivo",
                     },
                     components: {
                         Modal: {},
