@@ -28,7 +28,7 @@ const CreateBookList = () => {
         <>
             <Btn
                 text="Create list"
-                icon={<HiOutlinePencilSquare />}
+                icon={<HiOutlinePencilSquare size={16}/>}
                 onClick={() => setIsDialogOpen(true)}
                 backgroundColor="var(--primary)"
             />

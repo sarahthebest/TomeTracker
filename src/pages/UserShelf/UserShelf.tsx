@@ -38,7 +38,7 @@ const UserShelf = () => {
         <section className="shelvesWrapper flex flex-col relative pb-20 min-h-screen">
             <Navbar />
             <Bg />
-            <div className="shelfHeader flex place-items-center px-4 md:px-0 md:w-2/3 mt-20 z-30 mx-auto justify-between">
+            <div className="shelfHeader flex place-items-center px-4 md:px-0 w-full sm:w-2/3 mt-20 z-30 mx-auto justify-between">
                 <h2 className="text-4xl heading">Your Books</h2>
                 <div className="btnControls flex gap-4 place-items-center">
                     <AddBook refreshBooks={refreshBooks} />

@@ -38,7 +38,7 @@ const AddBook = ({ refreshBooks }: AddBookProps) => {
         <>
             <Btn
                 text="Add book"
-                icon={<MdOutlineAdd size={20} />}
+                icon={<MdOutlineAdd size={16} />}
                 onClick={openDialog}
                 backgroundColor="var(--primary)"
                 position="sticky"
