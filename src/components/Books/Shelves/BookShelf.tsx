@@ -6,9 +6,10 @@ import BookRow from "../BookRow/BookRow";
 
 type BookShelfProps = {
     books: Book[];
+    refreshBooks: () => void;
 };
 
-const BookShelf = ({ books }: BookShelfProps) => {
+const BookShelf = ({ books, refreshBooks }: BookShelfProps) => {
     const shelves = ["Want to read", "Reading", "Completed"];
     const [selectedShelf, setSelectedShelf] = useState<string>(shelves[0]);
 
@@ -36,11 +37,11 @@ const BookShelf = ({ books }: BookShelfProps) => {
                 {filteredBooks.length > 0 ? (
                     <div className="books_list flex flex-row flex-wrap gap-4 h-full p-4">
                         {filteredBooks.map((book, index) => (
-                            <BookRow key={index} book={book} />
+                            <BookRow key={index} book={book} refreshBooks={refreshBooks}/>
                         ))}
                     </div>
                 ) : (
-                    <p className="text-2xl">No books added.</p>
+                    <p className="text-2xl">This shelf is empty.</p>
                 )}
             </div>
         </div>

@@ -3,40 +3,44 @@ import { Link } from "react-router-dom";
 import "./BookRow.css";
 import BookStatusDropdown from "../../Atoms/Dropdown";
 import { FaStar } from "react-icons/fa";
-import { useState } from "react";
-import axios from "axios";
-import { getErrorMessage } from "../../../utils/globalUtils";
 import { message } from "antd";
+import { useBookStore } from "../../../stores/useBookStore";
 
 interface BookRowProps {
     book: Book;
+    refreshBooks: () => void;
 }
 
-const BookRow = ({ book }: BookRowProps) => {
-    const [bookStatus, setBookStatus] = useState(book.status || "Want to read");
+const BookRow = ({ book, refreshBooks }: BookRowProps) => {
+    const [messageApi, contextHolder] = message.useMessage();
+    const updateBookStatus = useBookStore((state) => state.updateBookStatus);
+
+    const bookStatus = book.status || "Want to read";
+
     const thumbnailUrl = book.imageLinks?.thumbnail || null;
     const year = parseInt(book.publishedDate);
-    const [messageApi, contextHolder] = message.useMessage();
+
     const generateSlug = (bookName: string) => {
         return bookName
             .toLowerCase()
             .replace(/\s+/g, "-")
             .replace(/[^a-z0-9-]/g, "");
     };
+
     const handleStatusChange = async (
         newStatus: "Reading" | "Completed" | "Want to read"
     ) => {
-        try {
-            const res = await axios.patch(
-                `http://localhost:5000/api/books/editBook/${book._id}`,
-                { bookId: book._id, status: newStatus },
-                { withCredentials: true }
-            );            
-            setBookStatus(newStatus);
-            return messageApi.success("Book status set to " + newStatus)
-        } catch (error) {
-            console.error("Error updating book status:", getErrorMessage(error));
-            return messageApi.error('Error');
+        if (bookStatus !== newStatus) {
+            try {
+                await updateBookStatus(book._id, newStatus);
+                setTimeout(() => {
+                    refreshBooks();
+                }, 1500)
+                messageApi.success("Book status set to " + newStatus);
+            } catch (error) {
+                console.error("Error updating book status:", error);
+                messageApi.error("Error");
+            }
         }
     };
 

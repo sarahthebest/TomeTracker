@@ -33,6 +33,7 @@ const UserShelf = () => {
         }
     };
 
+
     return (
         <section className="shelvesWrapper flex flex-col relative pb-20 min-h-screen">
             <Navbar />
@@ -41,7 +42,7 @@ const UserShelf = () => {
             <h2 className="text-4xl heading">Your Books</h2>
             <AddBook refreshBooks={refreshBooks}/>
             </div>
-            <BookShelf books={books}/>
+            <BookShelf books={books} refreshBooks={refreshBooks}/>
             <CookieConsent />
         </section>
     );
