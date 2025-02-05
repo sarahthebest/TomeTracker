@@ -14,14 +14,17 @@ const BookStatusDropdown = ({
         {
             key: "1",
             label: "Want to Read",
+            disabled: book_status === "Want to read",
         },
         {
             key: "2",
             label: "Reading",
+            disabled: book_status === "Reading",
         },
         {
             key: "3",
             label: "Completed",
+            disabled: book_status === "Completed",
         },
     ];
 
@@ -48,7 +51,7 @@ const BookStatusDropdown = ({
             <a className="h-fit" onClick={(e) => e.preventDefault()}>
                 <Space className="bg-primary w-fit h-fit px-4 py-1 rounded-full flex items-center text-text">
                     {book_status}
-                    <IoChevronDownOutline size={16} className=""/>
+                    <IoChevronDownOutline size={16} className="" />
                 </Space>
             </a>
         </AntDropdown>
