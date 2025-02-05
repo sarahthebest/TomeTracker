@@ -5,10 +5,10 @@ import Logo from "../Logo/Logo";
 import "./Navbar.css";
 import Searchbar from "../Search/Searchbar";
 import { CiLogin, CiLogout } from "react-icons/ci";
-import { useAuth } from "../Auth/AuthProvider";
 import { useEffect, useState } from "react";
 import { Drawer, Menu } from "antd";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useAuthStore } from "../../stores/authStore";
 
 type NavLink = {
     name: string;
@@ -23,7 +23,7 @@ const Navbar = () => {
     const handleNavigate = (path: string) => {
         navigate(path);
     };
-    const { isLoggedIn, logout } = useAuth();
+    const { isLoggedIn, checkAuthStatus, logout } = useAuthStore();
     const [show, setShow] = useState(true);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const isActive = (path: string) => location.pathname === path;
@@ -73,6 +73,26 @@ const Navbar = () => {
     }));
 
     useEffect(() => {
+        let lastScrollY = window.scrollY;
+    
+        const handleScroll = () => {
+            if (window.scrollY < lastScrollY) {
+                setShow(true); 
+            } else {
+                setShow(false); 
+            }
+            lastScrollY = window.scrollY;
+        };
+    
+        window.addEventListener("scroll", handleScroll);
+    
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+    
+
+    useEffect(() => {
         const handleResize = () => {
             setWindowWidth(window.innerWidth); 
             if (window.innerWidth >= 768) {
@@ -86,6 +106,10 @@ const Navbar = () => {
             window.removeEventListener("resize", handleResize);
         };
     }, []);
+
+    useEffect(() => {
+        checkAuthStatus();
+      }, [checkAuthStatus]);
 
     return (
         <div
