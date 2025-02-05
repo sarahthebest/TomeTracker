@@ -13,6 +13,10 @@
     --border: rgba(254, 253, 255, 0.495);
     --text: #f1f1f1;
 }
+/* hide recaptcha badge */
+.grecaptcha-badge {
+    visibility: hidden;
+}
 
 .anticon-search {
     color: grey !important;
@@ -45,13 +49,11 @@ button {
 }
 @font-face {
     font-family: "Archivo";
-    src: url("src/assets/fonts/Archivo-Regular.ttf")
-        format("truetype");
+    src: url("src/assets/fonts/Archivo-Regular.ttf") format("truetype");
 }
 @font-face {
     font-family: "Archivo Semibold";
-    src: url("src/assets/fonts/Archivo-SemiBold.woff2")
-        format("woff2");
+    src: url("src/assets/fonts/Archivo-SemiBold.woff2") format("woff2");
 }
 .heading {
     font-family: "Archivo Semibold";

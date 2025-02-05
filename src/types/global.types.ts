@@ -41,7 +41,7 @@ export interface ErrorResponse {
     message: string;
 }
 
-export type BookStatus = "Reading" | "Completed" | "Want to read";
+export type BookStatus = "Want to read" | "Reading" | "Completed";
 
 export type Position =
     | "static"
