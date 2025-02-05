@@ -7,7 +7,6 @@ import { ConfigProvider } from "antd";
 import BookPage from "./pages/BookPage.tsx/BookPage";
 import Footer from "./components/Footer/Footer";
 import Library from "./pages/Library/Library";
-import { AuthProvider } from "./components/Auth/AuthProvider";
 import { ProtectedRoute } from "./components/Auth/ProtectedRoute";
 
 const router = createBrowserRouter([
@@ -61,14 +60,12 @@ function App() {
                     },
                 }}
             >
-                <AuthProvider>
                     <div className="app-container overflow-hidden">
                         <main className="content min-h-screen">
                             <RouterProvider router={router} />
                         </main>
                         <Footer />
                     </div>
-                </AuthProvider>
             </ConfigProvider>
         </>
     );

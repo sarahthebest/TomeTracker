@@ -1,35 +1,42 @@
 import { create } from "zustand";
+import axios from "axios";
+import { getErrorMessage } from "../utils/globalUtils";
 
-interface AuthState {
-    email: string;
-    password: string;
-    username: string;
-    error: string;
-    success: string;
-    setEmail: (email: string) => void;
-    setPassword: (password: string) => void;
-    setUsername: (username: string) => void;
-    setError: (error: string) => void;
-    setSuccess: (error: string) => void;
-    reset: () => void;
+interface AuthStore {
+    isLoggedIn: boolean;
+    setIsLoggedIn: (loggedIn: boolean) => void;
+    logout: () => void;
+    checkAuthStatus: () => Promise<void>;
 }
 
-export const useAuthStore = create<AuthState>((set) => ({
-    email: "",
-    password: "",
-    username: "",
-    error: "",
-    success: "",
-    setEmail: (email) => set({ email }),
-    setPassword: (password) => set({ password }),
-    setUsername: (username) => set({ username }),
-    setError: (error) => set({ error }),
-    setSuccess: (success) => set({ success }),
-    reset: () =>
-        set({
-            email: "",
-            password: "",
-            username: "",
-            error: "",
-        }),
+export const useAuthStore = create<AuthStore>((set, get) => ({
+    isLoggedIn: false, 
+    setIsLoggedIn: (loggedIn) => {
+        if (get().isLoggedIn !== loggedIn) {
+            set({ isLoggedIn: loggedIn });
+        }
+    },
+    logout: () => {
+        document.cookie = "accessToken=; Max-Age=0; path=/;";
+        set({ isLoggedIn: false });
+    },
+    checkAuthStatus: async () => {
+        try {
+            const res = await axios.post(
+                "http://localhost:5000/api/auth/verify",
+                {},
+                {
+                    withCredentials: true,
+                }
+            );
+
+            const loggedIn = res.data.user ? true : false;
+            if (get().isLoggedIn !== loggedIn) {
+                set({ isLoggedIn: loggedIn });
+            }
+        } catch (error) {
+            console.error("Error checking auth status:", getErrorMessage(error));
+            set({ isLoggedIn: false });
+        }
+    },
 }));
