@@ -35,9 +35,10 @@ const BookPage = () => {
     const thumbnailUrl = book?.imageLinks?.thumbnail || "default-thumbnail.png";
 
     return (
+        <>
+            <Bg />
         <section className="page flex flex-col relative min-h-screen">
             <Navbar />
-            <Bg />
             <CookieConsent />
             <div className="book_wrapper flex flex-col gap-4 relative z-10 mt-20 w-2/3 mx-auto">
                 <Link
@@ -94,6 +95,7 @@ const BookPage = () => {
                 </Flex>
             </div>
         </section>
+        </>
     );
 };
 

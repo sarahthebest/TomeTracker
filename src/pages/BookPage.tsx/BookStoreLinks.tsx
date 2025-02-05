@@ -73,8 +73,8 @@ const BookStoreLinks: React.FC<Props> = ({ book }) => {
                                         <Flex className="place-items-center gap-2">
                                             <CloudinaryImage 
                                             publicId={store.logo}
-                                            width={12}
-                                            height={12}
+                                            width={16}
+                                            height={16}
                                             className="bg-white rounded-full"/>
                                             {store.name}
                                         </Flex>

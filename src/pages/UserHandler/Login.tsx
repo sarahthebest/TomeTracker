@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Btn from "../../components/Atoms/Btn";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,7 +8,7 @@ import LoginForm from "../../components/UserHandler/LoginForm";
 import "./Login.css";
 import axios from "axios";
 import { getErrorMessage } from "../../utils/globalUtils";
-import { useAuth } from "../../components/Auth/AuthProvider";
+import { useAuthStore } from "../../stores/authStore";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -17,7 +17,7 @@ const Login = () => {
     const [success, setSuccess] = useState<string>("");
     const [captchaVal, setCaptchaVal] = useState<string>("");
     const navigate = useNavigate();
-    const { checkAuthStatus } = useAuth();
+    const { checkAuthStatus } = useAuthStore();
 
     const handleLogin = async (email: string, password: string) => {
         try {
@@ -44,6 +44,10 @@ const Login = () => {
         setCaptchaVal(value || "");
     };
 
+    useEffect(() => {
+        checkAuthStatus();
+    }, [checkAuthStatus]);
+
     return (
         <Flex className="login_wrapper min-h-screen" justify="center" vertical>
             <div className="form_wrapper relative rounded h-fit p-4 m-auto flex flex-col justify-between z-10">
@@ -60,6 +64,17 @@ const Login = () => {
                         sitekey="6LcqgX0qAAAAANzrxXPO3jlmhck5203YvuxTWH1i"
                         onChange={handleCaptchaChange}
                     />
+                    <p className="text-xs my-1 opacity-80">
+                        This site is protected by reCAPTCHA and the Google {" "}
+                        <a href="https://policies.google.com/privacy">
+                        Privacy Policy
+                        </a>{" "}
+                        and {" "}
+                        <a href="https://policies.google.com/terms">
+                        Terms of Service {" "}
+                        </a>{" "}
+                        apply.
+                    </p>
                 </div>
                 {error && (
                     <div className="text-red-400 mx-auto text-center py-4">
