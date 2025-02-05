@@ -7,6 +7,7 @@ import AddBook from "../../components/Books/AddBook/AddBook";
 import Bg from "../../components/Common/Bg";
 import { getErrorMessage } from "../../utils/globalUtils";
 import { Book } from "../../components/Books/book.types";
+import CreateBookList from "../../components/Books/BookList/CreateBookList";
 
 const UserShelf = () => {
     const [books, setBooks] = useState<Book[]>([]);
@@ -33,16 +34,18 @@ const UserShelf = () => {
         }
     };
 
-
     return (
         <section className="shelvesWrapper flex flex-col relative pb-20 min-h-screen">
             <Navbar />
             <Bg />
-            <div className="shelfHeader flex gap-10 place-items-center mx-auto mt-20 z-30">
-            <h2 className="text-4xl heading">Your Books</h2>
-            <AddBook refreshBooks={refreshBooks}/>
+            <div className="shelfHeader flex place-items-center px-4 md:px-0 md:w-2/3 mt-20 z-30 mx-auto justify-between">
+                <h2 className="text-4xl heading">Your Books</h2>
+                <div className="btnControls flex gap-4 place-items-center">
+                    <AddBook refreshBooks={refreshBooks} />
+                    <CreateBookList />
+                </div>
             </div>
-            <BookShelf books={books} refreshBooks={refreshBooks}/>
+            <BookShelf books={books} refreshBooks={refreshBooks} />
             <CookieConsent />
         </section>
     );
