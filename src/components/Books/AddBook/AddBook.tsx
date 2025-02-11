@@ -4,12 +4,10 @@ import { MdOutlineAdd } from "react-icons/md";
 import { addBookStore } from "../../../stores/addBookStore";
 import { Modal } from "antd";
 import { useAddBook } from "../../../hooks/custom_hooks";
+import { useBookStore } from "../../../stores/useBookStore";
 
-interface AddBookProps {
-    refreshBooks: () => void;
-}
 
-const AddBook = ({ refreshBooks }: AddBookProps) => {
+const AddBook = () => {
     const {
         isDialogOpen,
         book_author,
@@ -23,12 +21,14 @@ const AddBook = ({ refreshBooks }: AddBookProps) => {
         resetForm,
     } = addBookStore();
     const { error, success, addBook } = useAddBook();
+    const fetchBooks = useBookStore(state => state.fetchBooks);
+
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         await addBook(book_title, book_author, book_status);
-        refreshBooks(); 
+        fetchBooks(); 
         setTimeout(() => {
             resetForm();
         }, 1000);
@@ -42,6 +42,7 @@ const AddBook = ({ refreshBooks }: AddBookProps) => {
                 onClick={openDialog}
                 backgroundColor="var(--primary)"
                 position="sticky"
+                hideText={true}
             />
 
             <Modal

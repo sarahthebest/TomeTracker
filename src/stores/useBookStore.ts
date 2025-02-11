@@ -8,10 +8,11 @@ interface BookStoreState {
     books: Book[];
     fetchBooks: () => Promise<void>;
     updateBookStatus: (bookId: string, newStatus: BookStatus) => Promise<void>;
+    deleteBook: (bookId: string) => Promise<void>;
 }
 export const useBookStore = create<BookStoreState>((set) => ({
     books: [],
-    
+
     fetchBooks: async () => {
         try {
             const fetchedBooks = await getBooksByUser();
@@ -31,35 +32,32 @@ export const useBookStore = create<BookStoreState>((set) => ({
 
             set((state) => ({
                 books: state.books.map((book) =>
-                    book._id === bookId
-                        ? { ...book, status: newStatus }
-                        : book
+                    book._id === bookId ? { ...book, status: newStatus } : book
                 ),
             }));
         } catch (error) {
-            console.error("Error updating book status:", getErrorMessage(error));
+            console.error(
+                "Error updating book status:",
+                getErrorMessage(error)
+            );
+        }
+    },
+
+    deleteBook: async (bookId) => {
+        try {
+            await axios.delete(
+                `http://localhost:5000/api/books/deleteBook/${bookId}`,
+                {
+                    withCredentials: true,
+                }
+            );
+            setTimeout(() => {
+                set((state) => ({
+                    books: state.books.filter((book) => book._id !== bookId),
+                }));
+            }, 1000)
+        } catch (error) {
+            console.error("Error deleting book:", getErrorMessage(error));
         }
     },
 }));
-
-
-
-
-
-// import { create } from 'zustand';
-// import { Book } from '../components/Books/book.types';
-
-// interface BookState {
-//   books: Book[];
-//   updateBookStatus: (bookId: string, newStatus: "Reading" | "Completed" | "Want to read") => void;
-// }
-
-// export const useBookStore = create<BookState>((set) => ({
-//   books: [], 
-//   updateBookStatus: (bookId, newStatus) =>
-//     set((state) => ({
-//       books: state.books.map((book) =>
-//         book._id === bookId ? { ...book, status: newStatus } : book
-//       ),
-//     })),
-// }));

@@ -16,6 +16,7 @@ const InputField: React.FC<InputFieldProps> = ({
             </label>
             <Input
                 type={type}
+                required={true}
                 id={id}
                 value={value}
                 onChange={onChange}
