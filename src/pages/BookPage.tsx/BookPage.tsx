@@ -37,24 +37,24 @@ const BookPage = () => {
     return (
         <>
             <Bg />
-        <section className="page flex flex-col relative min-h-screen">
+        <section className="page overflow-hidden overflow-x-hidden flex flex-col relative min-h-screen">
             <Navbar />
             <CookieConsent />
-            <div className="book_wrapper flex flex-col gap-4 relative z-10 mt-20 w-2/3 mx-auto">
+            <div className="book_wrapper flex flex-col gap-4 relative px-4 md:px-0 z-10 mt-20 md:w-2/3 mx-auto">
                 <Link
                     to="/shelves"
                     className="flex flex-row place-items-center gap-2"
                 >
                     <IoReturnUpBackOutline size={20} /> Return
                 </Link>
-                <div className="book_info flex flex-col md:flex-row justify-between place-items-center md:place-items-start">
-                    <Flex className="md:gap-8 gap-2 mb-4 md:mb-0 flex-col md:flex-row place-items-center">
+                <div className="book_info flex flex-col md:flex-row justify-between md:place-items-start">
+                    <Flex className="md:gap-8 gap-2 mb-4 md:mb-0 flex-col md:flex-row md:place-items-center">
                         <img
                             src={thumbnailUrl}
                             alt={`Thumbnail for ${book.title}`}
                             className="w-fit"
                         />
-                        <Flex vertical gap={8} className="text-center md:text-start">
+                        <Flex vertical gap={8} className="md:text-start">
                             <h1 className="heading text-4xl">{book.title}</h1>
                             <p>
                                 Written by {""}
@@ -67,7 +67,7 @@ const BookPage = () => {
                                 <br />
                                 {book.pageCount || "N/A"} pages
                             </p>
-                            <Tag color="magenta" className="w-fit mx-auto md:mx-0">
+                            <Tag color="magenta" className="w-fit">
                                 {book.categories?.join(", ") || "Uncategorized"}
                             </Tag>
                         </Flex>

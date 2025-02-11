@@ -47,7 +47,7 @@ const AddToShelf: React.FC<AddToShelfProps> = ({book}) => {
     ];
 
     return (
-        <Dropdown className="h-fit" menu={{ items }} trigger={["hover"]}>
+        <Dropdown className="h-fit w-fit" menu={{ items }} trigger={["hover"]}>
             <div>
                 <Btn text="Add to shelf" onClick={(e) => e.preventDefault()} />
             </div>

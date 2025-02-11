@@ -1,10 +1,11 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Form, Input } from "antd";
-import { useAuthStore } from "../../stores/authStore"; 
 
 const RegisterForm: FC = () => {
-    const { email, setEmail, password, setPassword, username, setUsername } =
-        useAuthStore();
+    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
 
     return (
         <Form

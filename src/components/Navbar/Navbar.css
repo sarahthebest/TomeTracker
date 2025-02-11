@@ -9,8 +9,7 @@
 
 /* DRAWER HEADER STYLING */
 
-.ant-drawer-close,
-.anticon-close{
+.ant-drawer-close{
     border-radius: 0 !important;
     color: var(--active) !important;
 }
