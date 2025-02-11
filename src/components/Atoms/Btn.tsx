@@ -12,6 +12,7 @@ const Btn: React.FC<BtnProps> = ({
     size,
     type,
     className,
+    hideText,
 }) => {
     const buttonStyle: React.CSSProperties = {
         backgroundColor: backgroundColor || "var(--primary)",
@@ -24,18 +25,19 @@ const Btn: React.FC<BtnProps> = ({
         const handleResize = () => {
             setWindowWidth(window.innerWidth);
             if (window.innerWidth < 768) {
-                setTextVisible(false);
+                setTextVisible(!hideText);
             } else {
                 setTextVisible(true);
             }
         };
 
         window.addEventListener("resize", handleResize);
+        handleResize();
 
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, [windowWidth]);
+    }, [hideText]);
 
     return (
         <Button
@@ -47,7 +49,7 @@ const Btn: React.FC<BtnProps> = ({
             className={`def_btn text-text px-2 md:px-3 ${className}`}
             htmlType={type}
         >
-            {textVisible && <span>{text}</span>}
+            {textVisible && text && <span>{text}</span>}
         </Button>
     );
 };

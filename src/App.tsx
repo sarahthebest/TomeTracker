@@ -61,7 +61,7 @@ function App() {
                 }}
             >
                     <div className="app-container overflow-hidden">
-                        <main className="content min-h-screen">
+                        <main className="content min-h-screen overflow-x-hidden">
                             <RouterProvider router={router} />
                         </main>
                         <Footer />
