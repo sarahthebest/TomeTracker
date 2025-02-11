@@ -4,27 +4,29 @@ import { IoChevronDownOutline } from "react-icons/io5";
 interface DropdownProps {
     book_status: "Reading" | "Completed" | "Want to read";
     set_book_status: (status: "Reading" | "Completed" | "Want to read") => void;
+    disabled?: boolean;
 }
 
 const BookStatusDropdown = ({
     book_status,
     set_book_status,
+    disabled,
 }: DropdownProps) => {
     const items: MenuProps["items"] = [
         {
             key: "1",
             label: "Want to Read",
-            disabled: book_status === "Want to read",
+            disabled: disabled && book_status === "Want to read",
         },
         {
             key: "2",
             label: "Reading",
-            disabled: book_status === "Reading",
+            disabled: disabled && book_status === "Reading",
         },
         {
             key: "3",
             label: "Completed",
-            disabled: book_status === "Completed",
+            disabled: disabled && book_status === "Completed",
         },
     ];
 
@@ -46,10 +48,10 @@ const BookStatusDropdown = ({
                 onClick: handleMenuClick,
             }}
             trigger={["click"]}
-            className="w-fit"
+            className="w-fit text-sm text-nowrap"
         >
-            <a className="h-fit" onClick={(e) => e.preventDefault()}>
-                <Space className="bg-primary w-fit h-fit px-4 py-1 rounded-full flex items-center text-text">
+            <a className="h-fit text-sm place-self-end" onClick={(e) => e.preventDefault()}>
+                <Space className="bg-primary border-border border hover:border-pop w-fit h-fit px-3 py-1 rounded-lg flex items-center text-text">
                     {book_status}
                     <IoChevronDownOutline size={16} className="" />
                 </Space>
