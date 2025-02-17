@@ -57,15 +57,18 @@ function App() {
                     },
                     components: {
                         Modal: {},
+                        Rate: {
+                            starColor: "var(--accent)",
+                        },
                     },
                 }}
             >
-                    <div className="app-container overflow-hidden">
-                        <main className="content min-h-screen overflow-x-hidden">
-                            <RouterProvider router={router} />
-                        </main>
-                        <Footer />
-                    </div>
+                <div className="app-container overflow-hidden">
+                    <main className="content min-h-screen overflow-x-hidden">
+                        <RouterProvider router={router} />
+                    </main>
+                    <Footer />
+                </div>
             </ConfigProvider>
         </>
     );
