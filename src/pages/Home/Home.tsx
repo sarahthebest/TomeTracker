@@ -7,14 +7,16 @@ import FeaturesList from "../../components/Header/FeatureBox/FeatureBox";
 import Genres from "../../components/StartPage/Genres";
 import { Flex } from "antd";
 import CloudinaryImage from "../../components/Atoms/CloudinaryImg";
+import Marquee from "./Marquee";
 
 const Home = () => {
     return (
         <div className="home_wrapper flex flex-col min-h-screen pb-16 md:pb-20 overflow-hidden">
             <Navbar />
-            <div className=" top-0 z-10 flex flex-col">
+            <div className="top-0 z-10 flex flex-col mb-16">
                 <Header />
             </div>
+            <Marquee />
             {/* Main Content */}
             <Flex className="page_content mt-24 flex flex-col gap-24 px-4 md:px-0">
                 <FeaturesList />

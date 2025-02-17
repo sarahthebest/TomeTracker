@@ -1,6 +1,4 @@
-.anticon-right, .ant-collapse-arrow {
-    color: var(--text) !important; 
-}
+
 .bookSlider{
     overflow-y: hidden;
     overflow-x: scroll;

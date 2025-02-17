@@ -17,3 +17,12 @@
     height: 100% !important;
     border: var(--accent) 1px solid !important;
 }
+.anticon-down,
+.ant-collapse-arrow,
+.ant-collapse-expand-icon{
+    color: black !important;
+}
+
+.ant-checkbox{
+    background-color: var(--accent) !important;
+}
