@@ -16,7 +16,7 @@ const Home = () => {
                 <Header />
             </div>
             {/* Main Content */}
-            <Flex className="page_content mt-10 flex flex-col gap-14 px-4 md:px-0">
+            <Flex className="page_content mt-24 flex flex-col gap-24 px-4 md:px-0">
                 <FeaturesList />
                 <TomeTrackerBox />
                 <Genres />

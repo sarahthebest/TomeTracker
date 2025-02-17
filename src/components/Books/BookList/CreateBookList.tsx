@@ -21,16 +21,20 @@ const CreateBookList = () => {
 
         setFormError(null);
         await createList(values.listName, values.description);
-        setIsDialogOpen(false);
+        setTimeout(() => {
+            setIsDialogOpen(false);
+            form.resetFields();
+        }, 2000);
     };
 
     return (
         <>
             <Btn
                 text="Create list"
-                icon={<HiOutlinePencilSquare size={16}/>}
+                icon={<HiOutlinePencilSquare size={16} />}
                 onClick={() => setIsDialogOpen(true)}
                 backgroundColor="var(--primary)"
+                hideText={true}
             />
             <Modal
                 title="Create a new book list"
@@ -57,8 +61,13 @@ const CreateBookList = () => {
                     {formError && <p className="text-red-600">{error}</p>}
                     {error && <p className="text-red-600">{error}</p>}
                     {success && <p className="text-green-600">{success}</p>}
-                    <Form.Item>
-                        <Btn text="Submit" onClick={() => handleSubmit} className="w-full"/>
+                    <Form.Item className="my-2">
+                        <Btn
+                            text="Submit"
+                            type="submit"
+                            onClick={() => handleSubmit}
+                            className="w-full"
+                        />
                     </Form.Item>
                 </Form>
             </Modal>
