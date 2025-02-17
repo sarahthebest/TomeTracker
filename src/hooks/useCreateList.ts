@@ -12,7 +12,7 @@ export const useCreateList = () => {
             description,
         };
         try {
-            await axios.post("http://localhost:5000/api/books/add", payload, {
+            await axios.post("http://localhost:5000/api/books/createList", payload, {
                 withCredentials: true,
                 timeout: 10000,
             });
