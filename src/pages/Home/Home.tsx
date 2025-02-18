@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <div className="home_wrapper flex flex-col min-h-screen pb-16 md:pb-20 overflow-hidden">
             <Navbar />
-            <div className="top-0 z-10 flex flex-col mb-16">
+            <div className="top-0 z-10 flex flex-col mb-36">
                 <Header />
             </div>
             <Marquee />

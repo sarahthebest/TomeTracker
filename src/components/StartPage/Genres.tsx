@@ -31,7 +31,7 @@ const Genres = () => {
         <div className="genres w-full md:w-2/3 mx-auto overflow-hidden">
             <h2 className="mt-4 mb-6">
                 Check out some our popular
-                <span className="underline italic">Genres</span>
+                <span className="underline italic ms-1">Genres</span>
             </h2>
             <div className="genreBoxes md:w-full p-1 gap-4 flex-row rounded overflow-x-auto whitespace-nowrap pb-2">
                 {genres.map((genre, index) => (
