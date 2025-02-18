@@ -59,6 +59,13 @@ function App() {
                         Modal: {},
                         Rate: {
                             starColor: "var(--accent)",
+                            starBg:"var(--pop)"
+                        },
+                        Radio: {
+                            buttonBg: "var(--pop)",
+                            buttonCheckedBg: "var(--pop)",
+                            buttonSolidCheckedActiveBg: "var(--pop)",
+                            buttonSolidCheckedBg: "var(--pop)",
                         },
                     },
                 }}
