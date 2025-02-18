@@ -7,6 +7,7 @@ import FilterDropdown from "./FilterDropdown";
 import { Link } from "react-router-dom";
 
 interface FilterData {
+  searchCategory: string[],
   genres: string[];
   pageRange: string[];
   rating: number;
@@ -31,6 +32,7 @@ const Searchbar = () => {
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [filters, setFilters] = useState<FilterData>({
+    searchCategory: [],
     genres: [],
     pageRange: [],
     rating: 0,
@@ -42,6 +44,7 @@ const Searchbar = () => {
       setSearchTerm("");
       setSearchResults([]);
       setFilters({
+        searchCategory: [],
         genres: [],
         pageRange: [],
         rating: 0,
@@ -55,7 +58,6 @@ const Searchbar = () => {
     try {
       setError(null);
 
-      // Construct the query string based on filters
       const filterParams = new URLSearchParams();
 
       filterParams.append("title", searchTerm);

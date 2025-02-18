@@ -2,6 +2,7 @@ import { Checkbox, Collapse, Flex, Rate } from "antd";
 import Btn from "../Atoms/Btn";
 
 interface FilterData {
+    searchCategory: string[];
     genres: string[];
     pageRange: string[];
     rating: number;
@@ -13,15 +14,41 @@ interface FilterDropdownProps {
 
 const FilterDropdown: React.FC<FilterDropdownProps> = ({ onFilterChange }) => {
     const handleGenreChange = (checkedValues: string[]) => {
-        onFilterChange({ genres: checkedValues, pageRange: [], rating: 0 });
+        onFilterChange({
+            searchCategory: [],
+            genres: checkedValues,
+            pageRange: [],
+            rating: 0,
+        });
     };
 
     const handlePageRangeChange = (checkedValues: string[]) => {
-        onFilterChange({ genres: [], pageRange: checkedValues, rating: 0 });
+        onFilterChange({
+            searchCategory: [],
+            genres: [],
+            pageRange: checkedValues,
+            rating: 0,
+        });
     };
 
     const handleRatingChange = (value: number) => {
-        onFilterChange({ genres: [], pageRange: [], rating: value });
+        onFilterChange({
+            searchCategory: [],
+            genres: [],
+            pageRange: [],
+            rating: value,
+        });
+    };
+
+    const handleSearchCategoryChange = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        onFilterChange({
+            searchCategory: [event.target.value],
+            genres: [],
+            pageRange: [],
+            rating: 0,
+        });
     };
 
     return (
@@ -32,7 +59,36 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({ onFilterChange }) => {
                     key="1"
                     className="text-lg p-0"
                 >
-                    <Flex vertical className="filter-options gap-6 text-base">
+                    <Flex
+                        vertical
+                        className="filter-options gap-6 text-base p-2"
+                    >
+                        <div className="filter-search">
+                            <h3 className="mb-4">Search by</h3>
+                            <div className="radio-wrapper flex gap-4">
+                                {["Author", "Title", "Genre"].map(
+                                    (category) => (
+                                        <label
+                                            key={category}
+                                            className="flex items-center gap-2 cursor-pointer"
+                                        >
+                                            <input
+                                                type="radio"
+                                                name="searchCategory"
+                                                value={category}
+                                                onChange={
+                                                    handleSearchCategoryChange
+                                                }
+                                                className=""
+                                            />
+                                            <span className="text-base rounded-md">
+                                                {category}
+                                            </span>
+                                        </label>
+                                    )
+                                )}
+                            </div>
+                        </div>
                         <div className="filter-genre">
                             <h4 className="mb-4">Genres</h4>
                             <Checkbox.Group
