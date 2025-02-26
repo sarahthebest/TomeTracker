@@ -10,32 +10,25 @@ const sellers = [
     {
         name: "Akademibokhandeln",
         url: (book: Book) =>
-            `https://www.akademibokhandeln.se/bok/${encodeURIComponent(
+            `https://www.akademibokhandeln.se/sok?sokfraga=${encodeURIComponent(
                 book.title
-            )
-                .toLowerCase()
-                .replace(/%20/g, "-")}/${book.isbn?.[0]}`,
-        usesIsbn: true,
+            )}`,
         logo: "akademilogo_xbwjaz",
     },
     {
         name: "Bokus",
         url: (book: Book) =>
-            `https://www.bokus.com/bok/${book.isbn?.[0]}/${encodeURIComponent(
+            `https://www.bokus.com/cgi-bin/product_search.cgi?ac_used=no&search_word=${encodeURIComponent(
                 book.title
-            )
-                .toLowerCase()
-                .replace(/%20/g, "-")}/`,
-        usesIsbn: true,
+            )}`,
         logo: "bokuslogo_pkcnsl",
     },
     {
         name: "Adlibris",
         url: (book: Book) =>
-            `https://www.adlibris.com/se/bok/${encodeURIComponent(book.title)
-                .toLowerCase()
-                .replace(/%20/g, "-")}-${book.isbn?.[0]}`,
-        usesIsbn: true,
+            `https://www.adlibris.com/se/sok?q=${encodeURIComponent(
+                book.title
+            )}`,
         logo: "adlibrislogo_d0eaqr",
     },
 ];
@@ -46,9 +39,9 @@ interface Props {
 
 const BookStoreLinks: React.FC<Props> = ({ book }) => {
     return (
-        <Flex align="center" gap={6} className="my-10">
+        <Flex align="center" gap={6} className="my-10 storeWrapper">
             <Collapse
-                className="w-full bg-transparent p-0"
+                className="w-full bg-transparent p-0 storeWrapper"
                 bordered={false}
                 items={[
                     {
@@ -68,16 +61,15 @@ const BookStoreLinks: React.FC<Props> = ({ book }) => {
                                     <li
                                         key={store.name}
                                         className="flex w-full border-b p-2 border-white/20 md:w-2/4 flex-row
-                                     hover:bg-pop/10 text-text justify-between place-items-center"
+                                     hover:bg-pop/10 text-text justify-between"
                                     >
-                                        <Flex className="place-items-center gap-2">
-                                            <CloudinaryImage 
+                                        <CloudinaryImage
                                             publicId={store.logo}
                                             width={16}
                                             height={16}
-                                            className="bg-white rounded-full"/>
-                                            {store.name}
-                                        </Flex>
+                                            className="bg-white rounded-full object-center"
+                                        />
+                                        {store.name}
                                         <Link
                                             className="rounded-full bg-accent px-2 shadow-md hover:brightness-125"
                                             to={

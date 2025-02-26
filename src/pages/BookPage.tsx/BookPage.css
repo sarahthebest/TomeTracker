@@ -1,18 +1,25 @@
-
-.bookSlider{
+.bookSlider {
     overflow-y: hidden;
     overflow-x: scroll;
 }
 
-.bookWrapper{
+.bookWrapper {
     width: 300px !important;
 }
-.ant-collapse-header{
+.ant-collapse-header {
     padding: 0px !important;
 }
-.bookThumbnail:hover{
- outline:2px solid orange ;
+.bookThumbnail:hover {
+    outline: 2px solid orange;
 }
-.page{
+.page {
     overflow-x: hidden !important;
+}
+.storeWrapper
+    > .ant-collapse
+    > .ant-collapse-item
+    > .ant-collapse-header
+    > .ant-collapse-expand-icon
+    > .ant-collapse-arrow {
+    color: white !important;
 }

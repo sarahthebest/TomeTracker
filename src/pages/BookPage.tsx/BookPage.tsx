@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Bg from "../../components/Common/Bg";
 import CookieConsent from "../../components/Cookies/CookieConsent";
@@ -8,11 +8,13 @@ import { IoReturnUpBackOutline } from "react-icons/io5";
 import BookStoreLinks from "./BookStoreLinks";
 import MoreBooksByAuthor from "./MoreBooksByAuthor";
 import AddToShelf from "../../components/Books/Shelves/AddToShelf";
+import Btn from "../../components/Atoms/Btn";
 
 const BookPage = () => {
     const location = useLocation();
     const book = location.state?.book;
     const [collapsedText, setCollapsedText] = useState(false);
+    const navigate = useNavigate();
 
     if (!book) {
         return (
@@ -40,13 +42,15 @@ const BookPage = () => {
             <section className="page overflow-hidden overflow-x-hidden flex flex-col relative min-h-screen">
                 <Navbar />
                 <CookieConsent />
-                <div className="book_wrapper flex flex-col gap-4 relative px-4 md:px-0 z-10 mt-20 md:w-2/3 mx-auto">
-                    <Link
-                        to="/shelves"
-                        className="flex flex-row place-items-center gap-2"
-                    >
-                        <IoReturnUpBackOutline size={20} /> Return
-                    </Link>
+                <div className="flex flex-col gap-4 relative px-4 md:px-0 z-10 mt-20 md:w-2/3 mx-auto">
+                    <Btn
+                        onClick={() => navigate(-1)}
+                        className="w-fit ps-0 m-0"
+                        backgroundColor="transparent"
+                        icon={<IoReturnUpBackOutline size={20}/>}
+                        text="Return"
+
+                    />
                     <div className="book_info flex flex-col md:flex-row justify-between md:place-items-start">
                         <Flex className="md:gap-8 gap-2 mb-4 md:mb-0 flex-col md:flex-row md:place-items-center">
                             <img
