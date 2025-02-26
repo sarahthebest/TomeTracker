@@ -46,7 +46,7 @@ const Btn: React.FC<BtnProps> = ({
             icon={icon}
             onClick={onClick}
             disabled={disabled}
-            className={`def_btn text-text px-2 md:px-3 ${className}`}
+            className={`def_btn text-text border-0 ${className}`}
             htmlType={type}
         >
             {textVisible && text && <span>{text}</span>}

@@ -1,4 +1,4 @@
 .clipBackground {
-    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 100%);
-    mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.865) 100%);
+    -webkit-mask-image: linear-gradient(to top, transparent 20%, black 100%);
+    mask-image: linear-gradient(to top, transparent 20%, rgba(0, 0, 0, 0.865) 160%);
 }

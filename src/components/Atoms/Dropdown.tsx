@@ -48,10 +48,13 @@ const BookStatusDropdown = ({
                 onClick: handleMenuClick,
             }}
             trigger={["click"]}
-            className="w-fit text-sm text-nowrap"
+            className="w-fit text-sm text-nowrap border-0"
         >
-            <a className="h-fit text-sm place-self-end" onClick={(e) => e.preventDefault()}>
-                <Space className="bg-primary border-border border hover:border-pop w-fit h-fit px-3 py-1 rounded-lg flex items-center text-text">
+            <a
+                className="h-fit text-sm place-self-end"
+                onClick={(e) => e.preventDefault()}
+            >
+                <Space className="bg-primary border-0 w-fit h-fit px-3 py-1 rounded-lg flex items-center text-text">
                     {book_status}
                     <IoChevronDownOutline size={16} className="" />
                 </Space>

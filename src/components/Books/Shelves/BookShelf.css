@@ -7,7 +7,6 @@
 }
 .active{
     background-color: var(--primary);
-    border: 1px white solid;
 }
 .shelf_tabs{
     height: 3.6em;
