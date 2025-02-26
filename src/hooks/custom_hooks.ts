@@ -100,3 +100,56 @@ export const useAddBook = () => {
         addBook,
     };
 };
+
+export const UseSearchBooks = () => {
+    const [error, setError] = useState<string | null>(null);
+    const [searchResults, setSearchResults] = useState<any[]>([]);
+
+
+    const searchBooks = async (
+        searchTerm: string,
+        searchCategory: string,
+        rating: number,
+        pageRange: string[],
+        genres: string[]
+    ) => {
+        console.log(searchTerm,searchCategory,rating, pageRange,genres );
+        if (!searchTerm.trim()) {
+            setError("Search term is required!");
+            return;
+        }
+
+        try {
+            const filterParams = new URLSearchParams();
+            filterParams.append("searchTerm", searchTerm);
+
+            if (searchCategory) {
+                filterParams.append("searchCategory", searchCategory);
+            }
+            if (genres.length > 0) {
+                filterParams.append("genres", genres.join(","));
+            }
+            if (pageRange.length > 0) {
+                filterParams.append("pageRange", pageRange.join(","));
+            }
+            if (rating) {
+                filterParams.append("rating", rating.toString());
+            }
+
+            const { data } = await axios.get(
+                `http://localhost:5000/api/books/search`,
+                {
+                    params: filterParams,
+                }
+            );
+            console.log(data);
+            setSearchResults(data)
+            setError(null);
+        } catch (error) {
+            console.error("Error fetching search results:", error);
+            setError("Failed to fetch search results. Please try again.");
+        }
+    };
+
+    return { searchBooks, error, searchResults };
+};
