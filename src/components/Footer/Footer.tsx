@@ -19,7 +19,7 @@ const Footer = () => {
                 </a>
             </div>
             <img
-                src="src/assets/img/logo.png"
+                src="/img/logo.png"
                 className="h-fit w-56  mx-auto"
                 alt="Logo image"
             />
