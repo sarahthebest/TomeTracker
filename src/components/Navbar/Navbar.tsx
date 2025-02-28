@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { GiBookshelf, GiSpellBook } from "react-icons/gi";
+import { GiBookshelf } from "react-icons/gi";
 import Btn from "../Atoms/Btn";
 import Logo from "../Logo/Logo";
 import "./Navbar.css";
@@ -27,7 +27,7 @@ const Navbar = () => {
     const [show, setShow] = useState(true);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const isActive = (path: string) => location.pathname === path;
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [, setWindowWidth] = useState(window.innerWidth);
 
     const handleLogout = () => {
         logout();
@@ -42,11 +42,11 @@ const Navbar = () => {
             icon: <GiBookshelf />,
             link: "/shelves",
         },
-        {
-            name: "Browse",
-            icon: <GiSpellBook />,
-            link: "/library",
-        },
+        // {
+        //     name: "Browse",
+        //     icon: <GiSpellBook />,
+        //     link: "/library",
+        // },
     ];
 
     if (isLoggedIn) {

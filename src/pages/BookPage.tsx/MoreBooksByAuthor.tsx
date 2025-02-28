@@ -56,11 +56,11 @@ const MoreBooksByAuthor: React.FC<Props> = ({ book }) => {
                             key={index}
                             to={`/book/${generateSlug(title)}`}
                         >
-                            <Tooltip placement="bottom" color="var(--primary)" title={book.volumeInfo.title}>
+                            <Tooltip placement="bottom" color="var(--primary)" title={book.title}>
                             <img
                                         className="bookThumbnail rounded-md w-32 h-48"
-                                        src={getBookImage(book.volumeInfo.imageLinks)} 
-                                        alt={book.volumeInfo.title}
+                                        src={getBookImage(book.imageLinks)} 
+                                        alt={book.title}
                                     />
                             </Tooltip>
                         </Link>

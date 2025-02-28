@@ -36,7 +36,6 @@ const TomeTrackerBox = () => {
                                     viewBox="0 0 200 200"
                                     version="1.1"
                                     xmlnsXlink="http://www.w3.org/1999/xlink"
-                                    xmlns:svgjs="http://svgjs.dev/svgjs"
                                 >
                                     <path
                                         fill="rgba(255, 212, 248, 1)"

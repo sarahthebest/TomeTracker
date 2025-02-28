@@ -103,6 +103,7 @@ export const useAddBook = () => {
 
 export const UseSearchBooks = () => {
     const [error, setError] = useState<string | null>(null);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [searchResults, setSearchResults] = useState<any[]>([]);
 
 
@@ -113,7 +114,6 @@ export const UseSearchBooks = () => {
         pageRange: string[],
         genres: string[]
     ) => {
-        console.log(searchTerm,searchCategory,rating, pageRange,genres );
         if (!searchTerm.trim()) {
             setError("Search term is required!");
             return;
@@ -142,11 +142,10 @@ export const UseSearchBooks = () => {
                     params: filterParams,
                 }
             );
-            console.log(data);
             setSearchResults(data)
             setError(null);
         } catch (error) {
-            console.error("Error fetching search results:", error);
+            console.error("Error fetching search results:", getErrorMessage(error));
             setError("Failed to fetch search results. Please try again.");
         }
     };

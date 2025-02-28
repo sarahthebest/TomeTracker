@@ -12,7 +12,6 @@ const BookModal = () => {
         <>
             <Btn
                 text="Add book!"
-                id="modal"
                 onClick={openDialog}
                 backgroundColor="var(--primary)"
                 position="sticky"
@@ -27,7 +26,6 @@ const BookModal = () => {
                         <Btn
                             onClick={closeDialog}
                             backgroundColor="var(--primary)"
-                            id="close-btn"
                             text="Close"
                         />
                     </div>

@@ -1,18 +1,18 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { Form, Input } from "antd";
 
-const RegisterForm: FC = () => {
-    const [email, setEmail] = useState("");
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+interface RegisterFormProps {
+    email: string;
+    setEmail: React.Dispatch<React.SetStateAction<string>>;
+    username: string;
+    setUsername: React.Dispatch<React.SetStateAction<string>>;
+    password: string;
+    setPassword: React.Dispatch<React.SetStateAction<string>>;
+}
 
-
+const RegisterForm: FC<RegisterFormProps> = ({ email, setEmail, username, setUsername, password, setPassword }) => {
     return (
-        <Form
-            layout="vertical"
-            className="register-form"
-            style={{ width: "100%", display: "flex", flexDirection: "column" }}
-        >
+        <Form layout="vertical" className="register-form" style={{ width: "100%", display: "flex", flexDirection: "column" }}>
             <Form.Item label="Username" required>
                 <Input
                     type="text"

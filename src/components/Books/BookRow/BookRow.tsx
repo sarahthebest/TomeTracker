@@ -18,7 +18,7 @@ interface BookRowProps {
 const BookRow = ({ book }: BookRowProps) => {
     const [messageApi, contextHolder] = message.useMessage();
     const updateBookStatus = useBookStore((state) => state.updateBookStatus);
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [, setWindowWidth] = useState(window.innerWidth);
     const [bookTitle, setBookTitle] = useState(book.title);
     const fetchBooks = useBookStore(state => state.fetchBooks);
 
@@ -26,7 +26,7 @@ const BookRow = ({ book }: BookRowProps) => {
     const bookStatus = book.status || "Want to read";
 
     const thumbnailUrl = book.imageLinks?.thumbnail || null;
-    const year = parseInt(book.publishedDate);
+    const year = parseInt(book.publishedDate ?? "0");
 
     const generateSlug = (bookName: string) => {
         return bookName

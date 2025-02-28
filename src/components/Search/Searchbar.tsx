@@ -6,6 +6,7 @@ import FilterDropdown from "./FilterDropdown";
 import { Link } from "react-router-dom";
 import { UseSearchBooks } from "../../hooks/custom_hooks";
 import "./Search.css";
+import { getErrorMessage } from "../../utils/globalUtils";
 
 interface FilterData {
     searchCategory: string[];
@@ -50,7 +51,7 @@ const Searchbar = () => {
                 filters.genres
             );
         } catch (err) {
-            console.error("Search failed:", err);
+            console.error("Search failed:", getErrorMessage(err));
         }
     };
 

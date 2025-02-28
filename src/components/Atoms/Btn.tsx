@@ -18,7 +18,7 @@ const Btn: React.FC<BtnProps> = ({
         backgroundColor: backgroundColor || "var(--primary)",
         position: position || "relative",
     };
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [, setWindowWidth] = useState(window.innerWidth);
     const [textVisible, setTextVisible] = useState(true);
 
     useEffect(() => {
