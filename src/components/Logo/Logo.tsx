@@ -7,7 +7,7 @@ const Logo = () => {
             className="w-60 h-full rounded-e-full pe-2 flex items-center"
         >
             <img
-                src="src/assets/img/logo.png"
+                src="/img/logo.png"
                 className="h-fit w-5/6 ms-3"
                 alt="Logo image"
             />

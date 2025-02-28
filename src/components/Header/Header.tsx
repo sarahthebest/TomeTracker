@@ -18,12 +18,12 @@ const Header = () => {
                 lg:flex-row w-full relative align-center"
                 >
                     <img
-                        src="src/assets/img/headerImgMD.png"
+                        src="/img/headerImgMD.png"
                         alt="Some of the books at TomeTracker"
                         className="w-96 lg:w-auto mx-auto lg:mx-0"
                         srcSet="
-                                src/assets/img/headerImgMD.png 768w, 
-                                src/assets/img/headerImgLG.png 1280w"
+                                /img/headerImgMD.png 768w, 
+                                /img/headerImgLG.png 1280w"
                         sizes="(max-width: 768px) 100vw, 1280px"
                     />
 
