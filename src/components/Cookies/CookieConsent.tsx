@@ -24,7 +24,7 @@ const CookieConsent = () => {
     if (consent) return null;
 
     return (
-        <div className="cookie_bar absolute bottom-0 bg-primary p-3 flex flex-row justify-between">
+        <div className="cookie_bar fixed bottom-0 z-50 w-full bg-primary p-3 flex flex-row justify-between">
             <p className="w-2/3">
                 This app can be ran without accepting cookies however if you
                 wish to save your books and data across sessions you need to

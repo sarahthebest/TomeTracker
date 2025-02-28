@@ -74,7 +74,7 @@ const Searchbar = () => {
     return (
         <>
             <div onClick={() => toggleModal(true)} className="search-container">
-                <Btn text="Search" backgroundColor="var(--primary)" icon={<IoIosSearch />} />
+                <Btn text="Search" backgroundColor="var(--accent)" icon={<IoIosSearch />} />
             </div>
             <Modal open={isModalOpen} onCancel={() => toggleModal(false)} footer={null} closable={false} width={"50%"} destroyOnClose={true}>
                 <div className="w-full">

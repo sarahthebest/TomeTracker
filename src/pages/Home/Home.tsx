@@ -11,7 +11,8 @@ import Marquee from "./Marquee";
 
 const Home = () => {
     return (
-        <div className="home_wrapper flex flex-col min-h-screen pb-16 md:pb-20 overflow-hidden">
+        <div className="home_wrapper flex flex-col pb-16 md:pb-20">
+            <CookieConsent />
             <Navbar />
             <div className="top-0 z-10 flex flex-col mb-36">
                 <Header />
@@ -57,7 +58,6 @@ const Home = () => {
                     </h2>
                 </div>
             </Flex>
-            <CookieConsent />
         </div>
     );
 };

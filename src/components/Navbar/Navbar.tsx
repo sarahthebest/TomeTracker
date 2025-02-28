@@ -32,9 +32,8 @@ const Navbar = () => {
     const handleLogout = () => {
         logout();
         navigate("/");
-        setIsMenuOpen(false); 
+        setIsMenuOpen(false);
     };
-
 
     const navLinks: NavLink[] = [
         {
@@ -74,29 +73,28 @@ const Navbar = () => {
 
     useEffect(() => {
         let lastScrollY = window.scrollY;
-    
+
         const handleScroll = () => {
             if (window.scrollY < lastScrollY) {
-                setShow(true); 
+                setShow(true);
             } else {
-                setShow(false); 
+                setShow(false);
             }
             lastScrollY = window.scrollY;
         };
-    
+
         window.addEventListener("scroll", handleScroll);
-    
+
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
-    
 
     useEffect(() => {
         const handleResize = () => {
-            setWindowWidth(window.innerWidth); 
+            setWindowWidth(window.innerWidth);
             if (window.innerWidth >= 768) {
-                setIsMenuOpen(false); 
+                setIsMenuOpen(false);
             }
         };
 
@@ -109,12 +107,12 @@ const Navbar = () => {
 
     useEffect(() => {
         checkAuthStatus();
-      }, [checkAuthStatus]);
+    }, [checkAuthStatus]);
 
     return (
         <div
-        id="navbar"
-            className={`transition-all duration-300 ease-in-out nav w-full flex border-b border-border/20 flex-row place-items-center justify-between sticky top-0 py-2 z-50 ${
+            id="navbar"
+            className={`transition-all duration-300 ease-in-out nav w-full flex border-b border-border/20 flex-row place-items-center justify-between fixed top-0 py-2 z-50 ${
                 show
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 -translate-y-16 pointer-events-none"
@@ -131,6 +129,7 @@ const Navbar = () => {
                         }
                         text={link.name}
                         icon={link.icon}
+                        backgroundColor="var(--accent)"
                         onClick={() =>
                             link.action
                                 ? link.action()
@@ -160,7 +159,11 @@ const Navbar = () => {
                 width={"100%"}
                 footer={<Logo />}
             >
-                <Menu className="bg-bg text-text" mode="inline" items={menuItems} />
+                <Menu
+                    className="bg-bg text-text"
+                    mode="inline"
+                    items={menuItems}
+                />
             </Drawer>
         </div>
     );
